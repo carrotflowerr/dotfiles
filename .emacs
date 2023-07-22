@@ -1,3 +1,8 @@
+;; This is using evil mode. Just clone it into emacs.d
+
+
+
+
 (defun open-interactive-shell ()
   "Open an interactive shell in the right window."
   (interactive)
