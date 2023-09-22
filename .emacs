@@ -1,69 +1,26 @@
-;; This is using evil mode. Just clone it into emacs.d
-
-
-
-
-(defun open-interactive-shell ()
-  "Open an interactive shell in the right window."
-  (interactive)
-  (split-window-right)         ; Split the frame into two windows (left and right).
-  (other-window 1)             ; Move to the right window.
-  (shell))                    ; Start the shell in the right window.
-
-(global-set-key (kbd "C-c s") 'open-interactive-shell)
-
-
-
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(package-initialize)
-
-(add-to-list 'load-path "~/.emacs.d/evil")
-(require 'evil)
-(evil-mode 1)
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(cua-mode t)
- '(custom-enabled-themes '(misterioso))
+ '(custom-enabled-themes '(leuven))
+ '(custom-safe-themes
+   '("2ff9ac386eac4dffd77a33e93b0c8236bb376c5a5df62e36d4bfa821d56e4e20" "d80952c58cf1b06d936b1392c38230b74ae1a2a6729594770762dc0779ac66b7" default))
  '(delete-selection-mode nil)
- '(display-time-mode t)
+ '(dired-listing-switches "-al")
+ '(font-use-system-font t)
+ '(global-display-line-numbers-mode t)
+ '(global-set-key (kbd "C-x C-a") t)
  '(inhibit-startup-screen t)
- '(size-indication-mode t)
- '(tab-bar-mode t))
+ '(package-selected-packages '(gruvbox-theme))
+ '(setq explicit-shell-file-name)
+ '(tool-bar-mode nil))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-;; Bind Tab key to indent-for-tab-command
-(define-key global-map (kbd "TAB") 'indent-for-tab-command)
-;
-
-;; Bind C-s to save
-(define-key global-map (kbd "C-s") 'save-buffer)
-
-;; Bind / to search
-(define-key global-map (kbd "/") 'isearch-forward-regexp)
-
-
-;; Bind C-a to mark-whole-buffer
-(define-key global-map (kbd "C-a") 'mark-whole-buffer)
-
-
-
-
-
-
-
-
-
-
-
-
 
