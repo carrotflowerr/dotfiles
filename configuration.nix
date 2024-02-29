@@ -60,10 +60,6 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
   # Configure keymap in X11
   services.xserver = {
     layout = "us";
@@ -112,10 +108,9 @@
       qbittorrent
       usbimager
       yt-dlp
-      terminator
+      kitty
       ffmpeg
-      gnome.gnome-tweaks
-      gnome.gnome-software
+      
     ];
   };
 
@@ -129,7 +124,7 @@
     micro
     ed
     gnat13
-	python3  
+    python3  
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -144,7 +139,7 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
-  services.flatpak.enable = true;  
+  services.flatpak.enable = false;  
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
