@@ -32,6 +32,7 @@
 
 
   # Automatically mount drives (hopefully)
+  # This should go in hardware config I think
   fileSystems."/mnt/Third" = {
     device = "/dev/sda1";
     fsType = "auto";
@@ -58,6 +59,7 @@
   };
 
   # Enable the X11 windowing system.
+  # we should be using wayland
   services.xserver.enable = true;
 
   # Configure keymap in X11
@@ -95,18 +97,15 @@
     description = "shell";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-	  vscode
       firefox
       emacs
-      #steam
+      # steam
       clementine
       gimp
       mpv
       keepassxc
-      isoimagewriter
       nicotine-plus
       qbittorrent
-      usbimager
       yt-dlp
       kitty
       ffmpeg
@@ -120,11 +119,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wget
-    micro
-    ed
-    gnat13
-    python3  
+    # This is for systemwide packages  
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
