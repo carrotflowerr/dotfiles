@@ -30,21 +30,11 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
-
-  # Automatically mount drives (hopefully)
-  # This should go in hardware config I think
-  fileSystems."/mnt/Third" = {
-    device = "/dev/sda1";
-    fsType = "auto";
-    options = [ "defaults"];
-  };
-
-  fileSystems."/mnt/Second" = {
-    device = "/dev/sdc1";
-    fsType = "auto";
-    options = [ "defaults"];
-  };
-
+  # Gnome
+  services.xserver.enable = true;
+  # xorg ^
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
@@ -58,9 +48,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  # we should be using wayland
-  services.xserver.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -98,17 +85,14 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
-      emacs
       # steam
-      clementine
-      gimp
-      mpv
+      #clementine
+      #gimp
       keepassxc
       nicotine-plus
+      emacs
       qbittorrent
       yt-dlp
-      kitty
-      ffmpeg
       
     ];
   };
@@ -118,8 +102,12 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+  # This is for systemwide packages  
   environment.systemPackages = with pkgs; [
-    # This is for systemwide packages  
+      kitty
+      ffmpeg
+      mpv
+      git
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
