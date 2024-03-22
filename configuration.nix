@@ -27,6 +27,14 @@
   # Set your time zone.
   time.timeZone = "America/Denver";
 
+  # file systems
+  fileSystems."/" = {
+    device = "/dev/sdX1";  # Replace 'X' with the appropriate letter for your root partition
+    fsType = "ext4";
+    options = ["defaults"];
+  };
+
+
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
