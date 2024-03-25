@@ -20,6 +20,19 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  
+  # Fish shell
+  programs.fish.enable = true;
+  programs.bash = {
+    interactiveShellInit = ''
+      if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
+      then
+        shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+	exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+      fi
+    '';
+   };
+
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -27,22 +40,8 @@
   # Set your time zone.
   time.timeZone = "America/Denver";
 
-  # file systems
-  fileSystems."/" = {
-    device = "/dev/sdX1";  # Replace 'X' with the appropriate letter for your root partition
-    fsType = "ext4";
-    options = ["defaults"];
-  };
-
-
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
-  # Gnome
-  services.xserver.enable = true;
-  # xorg ^
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
@@ -56,6 +55,12 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
+
+  # Enable the GNOME Desktop Environment.
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -85,7 +90,6 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.shell = {
     isNormalUser = true;
@@ -93,9 +97,11 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
-      # steam
+      #steam
       #clementine
       #gimp
+      gcc
+      python3
       keepassxc
       nicotine-plus
       emacs
@@ -106,7 +112,7 @@
   };
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = false;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -114,6 +120,8 @@
   environment.systemPackages = with pkgs; [
       kitty
       ffmpeg
+      fish
+      zoxide
       mpv
       git
   ];
@@ -129,8 +137,8 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-  services.flatpak.enable = false;  
+   services.openssh.enable = true;
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
@@ -143,6 +151,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "23.11"; # Did you read the comment?
 
 }
