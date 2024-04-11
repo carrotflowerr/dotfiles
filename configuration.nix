@@ -37,7 +37,12 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
+
+  # tlp
+  #powerManagement.enable = true;
+  #services.tlp.enable = true;
+
+# Set your time zone.
   time.timeZone = "America/Denver";
 
   # Select internationalisation properties.
@@ -62,6 +67,11 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  #services.xserver.windowManager.ratpoison.enable = false;
+  #services.xserver.windowManager.i3.enable = true ;
+
+
+  services.emacs.enable = true;
   # Configure keymap in X11
   services.xserver = {
     layout = "us";
@@ -96,18 +106,21 @@
     description = "shell";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      firefox
-      #steam
+      brightnessctl
       #clementine
-      #gimp
+      emacs
+      firefox
       gcc
-      python3
+      nasm
+      libsForQt5.booth
+      #gimp
       keepassxc
       nicotine-plus
-      emacs
+      python3
       qbittorrent
+      #steam
+      tlp
       yt-dlp
-      
     ];
   };
 
@@ -121,6 +134,11 @@
       kitty
       ffmpeg
       fish
+      #ratpoison
+      i3
+      i3status
+      i3lock
+      dmenu
       zoxide
       mpv
       git

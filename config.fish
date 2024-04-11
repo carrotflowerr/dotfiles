@@ -6,6 +6,7 @@ function fish_prompt
 end
 
 alias cl="clear"
+alias desktop="ssh shell@10.0.0.154"
 alias code="cd ~/Documents/code"
 alias l="ls"
 alias ll="ls -a"
