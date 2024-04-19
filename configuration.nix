@@ -110,11 +110,13 @@
       #clementine
       emacs
       firefox
+      qemu
       gcc
-      nasm
-      libsForQt5.booth
+      gnumake
       #gimp
       keepassxc
+      libsForQt5.booth # I have no clue what this is for
+      nasm
       nicotine-plus
       python3
       qbittorrent
@@ -134,7 +136,6 @@
       kitty
       ffmpeg
       fish
-      #ratpoison
       i3
       i3status
       i3lock
