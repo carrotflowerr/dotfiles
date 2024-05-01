@@ -108,12 +108,11 @@
     packages = with pkgs; [
       brightnessctl
       #clementine
-      emacs
       firefox
-      qemu
+      #qemu
       gcc
       gnumake
-      #gimp
+      gimp
       keepassxc
       libsForQt5.booth # I have no clue what this is for
       nasm
@@ -133,13 +132,16 @@
   # $ nix search wget
   # This is for systemwide packages  
   environment.systemPackages = with pkgs; [
-      kitty
+      alacritty
       ffmpeg
       fish
+      emacs
+      vim
       i3
       i3status
       i3lock
-      dmenu
+      rofi
+      #dmenu
       zoxide
       mpv
       git
