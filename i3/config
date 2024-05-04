@@ -2,6 +2,9 @@
 
 set $mod Mod4
 
+# AutoTiling
+exec_always autotiling
+
 # Monitor orientation
 exec xrandr --output DVI-D-0 --primary --auto --output HDMI-A-1 --auto --right-of DVI-D-0
 
@@ -17,19 +20,22 @@ workspace 1 output $fm
 workspace 2 output $fm
 workspace 3 output $fm
 workspace 4 output $fm
-workspace 5 output $sm
+workspace 5 output $fm
 workspace 6 output $sm
 workspace 7 output $sm
 workspace 8 output $sm
 workspace 9 output $sm
 workspace 10 output $sm
-assign [class="Firefox"] $1
-assign [class="steam"] $4
-# Don't know why this doesn't work.
+
+assign [class="Firefox"] 1
+assign [class="steam"] 4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:monospace 15px
+#font pango:Owner avatar Iosevka 15px
+
+
 
 # remove borders
 for_window [class="^.*"] border pixel 2
