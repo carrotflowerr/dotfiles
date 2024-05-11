@@ -10,8 +10,12 @@ set -g fish_greeting ''
 # Run pfetch at startup
 pfetch
 
+# *.mp4
+set -Ua fish_glob_dotfiles
+
 # Aliases
 alias cl="clear"
+alias playNew="ls --sort oldest | xargs -d '\n' mpv"
 alias code="cd ~/Documents/code"
 alias cp="cp -iv"
 alias du="ncdu"
@@ -26,7 +30,7 @@ alias pstree="ps -ejH"
 alias python="python3"
 alias rm="rm -iv"
 alias tarD="tar xvf"
-alias update="yes | sudo apt update; yes | sudo apt upgrade"
+alias update="yes | doas apt update; yes | doas apt upgrade"
 
 # Virtual python environment
 set VIRTUAL_ENV "/mnt/Second/.other/env/bin/activate"

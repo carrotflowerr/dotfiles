@@ -47,3 +47,6 @@
 
 (setq ispell-program-name "/usr/bin/ispell")
 
+
+(require 'epa-file)
+(epa-file-enable)
