@@ -19,6 +19,9 @@ set $sm HDMI-A-1
 #i3 gaps
 gaps inner 25
 
+# picom (https://github.com/yshui/picom)
+exec_always --no-startup-id picom
+
 workspace 1 output $fm
 workspace 2 output $fm
 workspace 3 output $fm
@@ -93,10 +96,10 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+#bindsym $mod+Left focus left
+#bindsym $mod+Down focus down
+#bindsym $mod+Up focus up
+#bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -105,10 +108,10 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+#bindsym $mod+Shift+Left move left
+#bindsym $mod+Shift+Down move down
+#bindsym $mod+Shift+Up move up
+#bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+z split h
@@ -129,7 +132,7 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+Shift+space floating toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+# bindsym $mod+a focus parent
 
 # focus the child container
 # bindsym $mod+d focus child
@@ -208,14 +211,10 @@ exec --no-startup-id nm-applet
 #bindsym $mod+Shift+n exec --no-startup-id ~/dotfiles/bin/resolution
 # Review the lines below and append to ~/.config/i3/config
 
-## Volume control
-
-# Path to volume control, without trailing slash
-set $volumepath ~/Documents/configs/i3/i3-volume
 
 # Command for the status line
 #   ie: i3blocks, i3status
-# set $statuscmd i3status
+set $statuscmd i3status
 
 # Signal used to update the status line
 #   i3blocks uses SIGRTMIN+10 by default
@@ -234,6 +233,12 @@ set $volumestep 5
 #   List cards: aplay -l
 #set $alsacard 1
 
+## Volume control
+
+# Path to volume control, without trailing slash
+#set $volumepath /home/shell/Documents/configs/i3/i3-volume/
+
+set $volumepath ~/.i3-volume
 # append "-c $alsacard" without quotes to override default card
 bindsym XF86AudioRaiseVolume exec --no-startup-id $volumepath/volume -an -t $statuscmd -u $statussig up $volumestep
 bindsym XF86AudioLowerVolume exec --no-startup-id $volumepath/volume -an -t $statuscmd -u $statussig down $volumestep
