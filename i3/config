@@ -1,17 +1,14 @@
 # http://i3wm.org/docs/userguide.html 
 
-
+# Mod key
 set $mod Mod4
 
-# AutoTiling
+# Autotiling
 exec_always autotiling
 
-# Monitor orientation
-exec xrandr --output DVI-D-0 --primary --auto --output HDMI-A-1 --auto --right-of DVI-D-0
-
 # Wallpaper
-exec feh --bg-center /home/shell/Downloads/wallpaper.jpg
-
+# exec ~/.fehbg
+exec_always --no-startup-id ~/Documents/configs/i3/randWp.sh
 # Monitor variables
 set $fm DVI-D-0
 set $sm HDMI-A-1
@@ -22,6 +19,16 @@ gaps inner 25
 # picom (https://github.com/yshui/picom)
 exec_always --no-startup-id picom
 
+# i3-swallow (https://gist.github.com/windwp/b46e8bdeac793867b34d2191e66a6f44)
+exec_always --no-startup-id python3 ~/Documents/configs/i3/i3-swallow.py
+
+# i3lock
+bindsym $mod+Shift+x exec --no-startup-id i3lock -i ~/Downloads/wallpapers/wallpaper.png
+
+# Monitor orientation
+exec xrandr --output DVI-D-0 --primary --auto --output HDMI-A-1 --auto --right-of DVI-D-0
+
+# Monitor designation
 workspace 1 output $fm
 workspace 2 output $fm
 workspace 3 output $fm
@@ -35,9 +42,6 @@ workspace 10 output $sm
 
 # Emacs Daemon (--no-startup-id?)
 exec emacs --daemon
-
-# i3-swallow (https://gist.github.com/windwp/b46e8bdeac793867b34d2191e66a6f44)
-exec_always --no-startup-id python3 ~/Documents/configs/i3/i3-swallow.py
 
 # Assigned workspaces
 assign [class="Firefox"] 1
@@ -235,8 +239,7 @@ set $volumestep 5
 
 ## Volume control
 
-# Path to volume control, without trailing slash
-#set $volumepath /home/shell/Documents/configs/i3/i3-volume/
+#set $volumepath /home/shell/Documents/configs/i3/i3-volume/ # this doesn't work?
 
 set $volumepath ~/.i3-volume
 # append "-c $alsacard" without quotes to override default card

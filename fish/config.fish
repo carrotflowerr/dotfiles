@@ -33,10 +33,11 @@ alias python="python3"
 alias rm="rm -iv"
 alias sudo="doas"
 alias tarD="tar xvf"
+alias startenv="source $VIRTUAL_ENV"
 alias update="yes | doas apt update; doas apt upgrade"
 
 # Virtual python environment
-set VIRTUAL_ENV "/mnt/Second/.other/env/bin/activate"
+set -x VIRTUAL_ENV "/mnt/Second/.other/env/bin/activate.fish"
 
 # ?
 zoxide init fish | source

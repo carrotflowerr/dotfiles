@@ -1,3 +1,4 @@
+;; 3rd party package thing
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name
@@ -14,7 +15,7 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
-
+;; Evil mode, and enable.
 (require 'evil)
 (evil-mode 1)
 
@@ -50,3 +51,9 @@
 
 (require 'epa-file)
 (epa-file-enable)
+
+
+;; Stores backups in .emacs.d, as to not clutter filesystems.
+(setq backup-directory-alist `(("." . ,(expand-file-name "~/.emacs.d/backups"))))
+(setq auto-save-file-name-transforms `((".*" ,(expand-file-name "~/.emacs.d/auto-save/") t)))
+
