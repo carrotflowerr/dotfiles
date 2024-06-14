@@ -1,0 +1,25 @@
+# This is the fstab config for my desktop computer. It may be a little fucked up. Do not use this.
+
+
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# systemd generates mount units based on this file, see systemd.mount(5).
+# Please run 'systemctl daemon-reload' after making changes here.
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/sda1 during installation
+UUID=c4490cba-c444-429a-837a-c3fb22d47307   /             ext4   errors=remount-ro   0 1 
+# /home was on /dev/sda6 during installation
+#UUID=589c9073-9a76-43dd-987e-76e38f84667b   /home         ext4   defaults            0 2
+
+# swap was on /dev/sda5 during installation
+UUID=07ebfbb9-1b9d-4ff9-894b-6855dfcefc2b   none          swap   sw                  0 0 
+/dev/sdb1                                   /mnt/Second    ext4   defaults            0 0 
+/dev/sdc1                                   /mnt/Third   ext4   defaults            0 0 
+/dev/sda1                                   /mnt/Second   ext4   defaults            0 0 
+/dev/sda7                                   /             ext4   defaults            0 0 
+/dev/sda2                                   /home         ext4   defaults            0 0 
