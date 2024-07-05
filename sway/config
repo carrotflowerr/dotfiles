@@ -1,0 +1,267 @@
+# Zimblo's Swaywm Config.
+# This is the same as the i3 config with some slight modifications.
+
+### Variables
+    set $fm DVI-D-1
+    set $sm HDMI-A-2
+# Logo key. Use Mod1 for Alt.
+    set $mod Mod4
+# Home row direction keys, like vim
+    set $left h
+    set $down j
+    set $up k
+    set $right l
+# Your preferred terminal emulator
+    set $term foot
+# Your preferred application launcher
+    #set $menu rofi -show drun
+    set $menu dmenu_run -m 1 -l 30
+    #set $menu dmenu_run -l 20
+    include /etc/sway/config-vars.d/* 
+  
+
+# Monitor Configuration
+    output DVI-D-1 resolution 1920x1080 position 0,0
+    output HDMI-A-2 resolution 1920x1080 position 1920,0
+
+# Swaylock/Swayidle
+    bindsym $mod+Shift+x exec swaylock --color 000000
+    
+    #exec_always swayidle -w\
+    # timeout 300 'swaylock --color 000000'
+
+# Audio Fix script
+    exec ~/Desktop/audioFix.sh
+
+# Gaps
+    gaps inner 10
+    gaps outer 10
+
+# Monitor designation
+    workspace 1 output $fm
+    workspace 2 output $fm
+    workspace 3 output $fm
+    workspace 4 output $fm
+    workspace 5 output $fm
+    workspace 6 output $sm
+    workspace 7 output $sm
+    workspace 8 output $sm
+    workspace 9 output $sm
+    workspace 10 output $sm
+
+# Wallpaper 
+    #exec_always swaybg -i ~/Downloads/wallpapers/1705186577508195.jpg
+    exec_always --no-startup-id /home/shell/Documents/configs/i3/randWp.sh
+
+# Autotiling
+    exec python3 ~/.config/sway/autotiling
+
+# Remove Boarder
+    for_window [class="^.*"] border pixel 4
+			    # class                 border  backgr. text    indicator child_border
+    for_window [class="^.*"] client.focused          #77dd77 #285577 #ffffff #2e9ef4   #285577
+
+# Notification daemon
+  exec /home/shell/Documents/source/mako/build/mako
+
+# Nicotine+
+  exec nicotine -s
+
+### Hotkeys/Shortcuts/Launchers
+
+    #bindsym $mod+Shift+i exec foot -e nvim  ~/.config/sway/config
+    #bindsym F10 exec /mnt/Second/.other/random.sh
+    bindsym $mod+Shift+e exec foot -e nvim
+    bindsym $mod+c exec clementine
+    bindsym $mod+n exec foot -e newsboat
+    bindsym $mod+t exec foot -e task
+    bindsym Shift+F1 exec firefox-esr
+    bindsym Shift+F2 exec foot -e nnn
+    bindsym Shift+F3 exec foot -e htop
+    bindsym Shift+F4 exec foot -e pulsemixer
+    
+
+# screenshot
+  #bindsym $mod+s exec --no-startup-id maim --select | xclip -selection clipboard -target
+  bindsym $mod+s exec --no-startup-id grim -g "$(slurp -d -w 2)" - | xclip -selection clipboard -t image/png
+
+# Copy screenshot to Pictures directory
+  bindsym $mod+Shift+s exec grim -g "$(slurp -d -w 2)" - > /home/shell/Pictures/"$(date).png"
+
+# Text to clipboard via tesseract
+  bindsym $mod+Shift+c exec --no-startup-id grim -g "$(slurp -d -w 2)" - | tesseract - - -l eng | xclip -selection clipboard
+# Basics:
+  # Start a terminal
+  bindsym $mod+Return exec $term
+
+  # Kill focused window
+  bindsym $mod+q kill
+
+  # Start your launcher
+  bindsym $mod+d exec $menu
+
+  # Drag floating windows by holding down $mod and left mouse button.
+  # Resize them with right mouse button + $mod.
+  # Despite the name, also works for non-floating windows.
+  # Change normal to inverse to use left mouse button for resizing and right
+  # mouse button for dragging.
+  floating_modifier $mod normal
+
+  # Reload the configuration file
+  bindsym $mod+Shift+r reload
+
+  # Exit sway (logout)
+  bindsym $mod+Shift+z exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+#
+# Moving around:
+#
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+    # Or use $mod+[up|down|left|right]
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    # Move the focused window with the same, but add Shift
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+    # Ditto, with arrow keys
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+#
+font pango:0xProtoNerdFont-Regular 12
+# Workspaces:
+#
+    # Switch to workspace
+    bindsym $mod+1 workspace 1
+
+    bindsym $mod+2 workspace number 2
+    bindsym $mod+3 workspace number 3
+    bindsym $mod+4 workspace number 4
+    bindsym $mod+5 workspace number 5
+    bindsym $mod+6 workspace number 6
+    bindsym $mod+7 workspace number 7
+    bindsym $mod+8 workspace number 8
+    bindsym $mod+9 workspace number 9
+    bindsym $mod+0 workspace number 10
+    # Move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace 1
+    bindsym $mod+Shift+2 move container to workspace number 2
+    bindsym $mod+Shift+3 move container to workspace number 3
+    bindsym $mod+Shift+4 move container to workspace number 4
+    bindsym $mod+Shift+5 move container to workspace number 5
+    bindsym $mod+Shift+6 move container to workspace number 6
+    bindsym $mod+Shift+7 move container to workspace number 7
+    bindsym $mod+Shift+8 move container to workspace number 8
+    bindsym $mod+Shift+9 move container to workspace number 9
+    bindsym $mod+Shift+0 move container to workspace number 10
+    # Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default.
+
+# Windows to float by defualt
+# swaymsg -t get_tree, btw
+    for_window [class="Sxiv"] floating enable
+    for_window [app_id="mpv"] floating enable
+    #for_window [app_id="foot"] floating enable
+
+# Layout stuff:
+#
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+    bindsym $mod+b splith
+    bindsym $mod+v splitv
+
+    # Switch the current container between different layout styles
+    #bindsym $mod+s layout stacking
+    bindsym $mod+w layout tabbed
+    bindsym $mod+e layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+Shift+space focus mode_toggle
+
+    # Move focus to the parent container
+    bindsym $mod+a focus parent
+#
+# Scratchpad:
+#
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+minus move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+minus scratchpad show
+#
+# Resizing containers:
+#
+bindsym $mod+r mode "resize"
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+#
+# Status Bar:
+
+#exec waybar
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+    position top
+
+    # The default just shows the current date and time.
+    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+
+    colors {
+        statusline #ffffff
+        background #323232
+        #inactive_workspace #32323200 #32323200 #5c5c5c
+    }
+}
+
+include /etc/sway/config.d/*
+
+
+## Volume control
+
+    set $volumestep 5
+    #set $volumepath /home/shell/Documents/configs/i3/i3-volume/ # this doesn't work?
+
+    set $volumepath ~/.i3-volume
+
+# append "-c $alsacard" without quotes to override default card
+    bindsym XF86AudioRaiseVolume exec --no-startup-id $volumepath/volume -an -t $statuscmd -u $statussig up $volumestep
+    bindsym XF86AudioLowerVolume exec --no-startup-id $volumepath/volume -an -t $statuscmd -u $statussig down $volumestep
+    bindsym XF86AudioMute        exec --no-startup-id $volumepath/volume -an -t $statuscmd -u $statussig mute
