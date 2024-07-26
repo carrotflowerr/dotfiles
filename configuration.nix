@@ -21,23 +21,28 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   
-  # Fish shell
-  programs.fish.enable = true;
-  programs.bash = {
-    interactiveShellInit = ''
-      if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
-      then
-        shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
-	exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
-      fi
-    '';
-   };
-
 
   # Enable networking
   networking.networkmanager.enable = true;
 
-
+  # Gnome shit
+  {
+    services.xserver.enable = true;
+    services.xserver.displayManager.gdm.enable = true;
+    services.xserver.desktopManager.gnome.enable = true;
+  }
+  {
+    environment.gnome.excludePackages = (with pkgs; [
+      # for packages that are pkgs.*
+      gnome-tour
+      gnome-connections
+    ]) ++ (with pkgs.gnome; [
+      # for packages that are pkgs.gnome.*
+      epiphany # web browser
+      geary # email reader
+      evince # document viewer
+    ]);
+  }
   # tlp
   #powerManagement.enable = true;
   #services.tlp.enable = true;
@@ -61,17 +66,12 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  #services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
-  #services.xserver.windowManager.ratpoison.enable = false;
-  #services.xserver.windowManager.i3.enable = true ;
+  # need wayland and swaywm
 
 
-  services.emacs.enable = true;
+  #services.emacs.enable = true;
   # Configure keymap in X11
   services.xserver = {
     layout = "us";
@@ -132,15 +132,11 @@
   # $ nix search wget
   # This is for systemwide packages  
   environment.systemPackages = with pkgs; [
-      alacritty
       ffmpeg
-      fish
-      emacs
-      vim
-      i3
-      i3status
-      i3lock
-      rofi
+      zsh
+      gnome
+      gdm
+      neovim
       #dmenu
       zoxide
       mpv
