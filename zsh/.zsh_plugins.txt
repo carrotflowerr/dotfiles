@@ -1,0 +1,23 @@
+# Theme
+romkatv/powerlevel10k
+rupa/z
+zsh-users/zsh-completions
+
+# Popular fish-like plugins
+mattmc3/zfunctions
+#zsh-users/zsh-autosuggestions
+zdharma-continuum/fast-syntax-highlighting kind:defer
+zsh-users/zsh-history-substring-search
+
+# Other
+#victoria-riley-barnett/Communism
+
+# zsh-utils
+belak/zsh-utils path:editor
+belak/zsh-utils path:history
+belak/zsh-utils path:prompt
+belak/zsh-utils path:utility
+belak/zsh-utils path:completion
+
+# Vi mode
+#jeffreytse/zsh-vi-mode

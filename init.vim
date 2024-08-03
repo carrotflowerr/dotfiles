@@ -1,31 +1,43 @@
-colorscheme industry
-
 " Plugins
 call plug#begin()
 
-Plug 'vimwiki/vimwiki'
+" Movement
 Plug 'easymotion/vim-easymotion'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-sneak'
-Plug 'mhinz/vim-startify'
-Plug 'tmsvg/pear-tree'
-Plug 'tpope/vim-sensible'
+
+" Theme
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'rakr/vim-one'
 Plug 'arthurealike/vim-J'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'mhinz/vim-startify'
+
+" File
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'vimwiki/vimwiki'
+Plug 'tmsvg/pear-tree'
+Plug 'tpope/vim-sensible'
+Plug 'sheerun/vim-polyglot'
+
+"Plug 'prabirshrestha/vim-lsp'
+"Plug 'mattn/vim-lsp-settings'
+"Plug 'prabirshrestha/asyncomplete.vim'
+"Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 call plug#end()
+
+set guifont=Terminus\ 12
+
+colorscheme one
+set background=dark " for the light version
 
 " Startify Bookmarks
 let g:startify_bookmarks = [ {'v': '~/.config/nvim/init.vim'},{'z': '~/.zshrc'}, {'s': '~/.config/sway/config'} ]
 
 " Airline status bar
-let g:airline_theme='minimalist'
+
+let g:airline_theme='one'
 
 " Spell Check (z=)
 " zg - add to dictionary
@@ -55,6 +67,16 @@ autocmd BufReadPost *
      \   exe "normal! g`\"" |
      \ endif
 
+" Session saving, this might also work. idk, try it.
+"set sessionoptions=blank,buffers,curdir,folds,help,tabpages,winsize,localoptions
+
+" Word splitting
+set iskeyword+=-
+
+" Insert timestamp
+nnoremap <C-d> "=strftime("%-l:%M%p")<CR>P
+inoremap <C-d> <C-r>=strftime("%-l:%M%p")<CR>
+
 " Unbind arrow keys
 noremap <Up> <Nop>
 noremap <Down> <Nop>
@@ -66,10 +88,8 @@ set nocompatible
 set clipboard=unnamedplus
 
 " Newline, if this doesn't work you need a version of vim with gtk. Use newest version possible. 
-"nmap Ctrl-o o<Esc>k
-"nmap Ctrl-O O<Esc>j
-"nmap <CR> o<Esc>k
-"nmap Ctrl-CR O<Esc>j
+nmap <CR> o<Esc>k
+nmap Ctrl-CR O<Esc>j
 
 " set display     =lastline  " Show as much as possible of the last line.
 "set backspace   =indent,eol,start  " Make backspace work as you would expect.

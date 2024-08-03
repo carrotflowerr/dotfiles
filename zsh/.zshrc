@@ -1,85 +1,20 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+
+
+source ~/.config/.antidote/antidote.zsh
+antidote load
+#source ~/.zsh_plugins.zsh
+#manage plugins at ~/.zsh_plugins.zsh
+
+
+export PATH="$PATH:/home/shell/.cargo/bin:/var/lib/flatpak/exports/share:/home/shell/.local/share/flatpak/exports/share"
+
+
+
 eval "$(zoxide init zsh)"
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-
-# Path to your Oh My Zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time Oh My Zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="theunraveler"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode history-substring-search)
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
+#
 #Preferred editor for local and remote sessions
  if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
@@ -90,42 +25,49 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by Oh My Zsh libs,
-# plugins, and themes. Aliases can be placed here, though Oh My Zsh
-# users are encouraged to define aliases within a top-level file in
-# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
-# - $ZSH_CUSTOM/aliases.zsh
-# - $ZSH_CUSTOM/macos.zsh
-# For a full list of active aliases, run `alias`.
+# Run date
+echo "The date is:" $(date)
 
+# Run task thing
+task
+
+VIRTUAL_ENV='/mnt/Second/.other/env/bin/activate'
 #Aliases
 
+alias ..="cd .."
 alias apt-info "apt-cache show"
+#alias make="make CC=lacc"
 alias cl="clear"
-alias cp="cp -iv"
+alias cPWD="wl-copy | wl-copy"
 alias du="ncdu --color off"
 alias e="exit"
-alias games="cd /mnt/Third/SSD_Games"
 alias l="eza --icons"
 alias la="eza -a"
+alias ll="eza -l"
 alias laptop="ssh zimblo@10.0.0.77"
 alias log="journalctl -f"
 alias ls="exa --icons"
 alias maimC="maim --select | xclip -selection clipboard -target image/png"
-alias mv="mv -iv"
+alias sxiv="nsxiv"
 
-alias playNew="ls --sort oldest | xargs -d '\n' mpv --loop-playlist"
-alias playOld="ls --sort newest | xargs -d '\n' mpv --loop-playlist"
+alias playNew="ls --sort oldest | xargs mpv --loop-playlist"
+alias playOld="ls --sort newest | xargs mpv --loop-playlist"
+alias playLargest="ls --sort size -r | xargs mpv"
+
+alias viewNew="ls --sort oldest | xargs nsxiv"
+alias viewOld="ls --sort newest | xargs nsxiv"
 
 alias pstree="ps -ejH"
 alias python="python3"
 alias rm="rm -iv"
-#alias startenv="source $VIRTUAL_ENV"
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias startenv="source $VIRTUAL_ENV"
 alias sudo="doas"
 alias tarD="tar xvf"
-alias tmux="zellij"
 alias update="yes | doas apt full-upgrade"
 
-alias viewNew="ls --sort oldest | xargs -d '\n' sxiv"
-alias viewOld="ls --sort newest | xargs -d '\n' sxiv"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
