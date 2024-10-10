@@ -21,7 +21,7 @@
 # Your preferred terminal emulator
     set $term foot
 # Your preferred application launcher
-    set $menu rofi -show drun -m 0
+    set $menu rofi -show drun -m 1
     #set $menu dmenu_run -m 0 -l 30
 
     #set $menu dmenu_run -l 20
@@ -87,8 +87,6 @@
     #bindsym $mod+Shift+i exec foot -e nvim  ~/.config/sway/config
     #bindsym F10 exec /mnt/Second/.other/random.sh
     bindsym $mod+Shift+e exec foot -e nvim
-    #bindsym $mod+Shift+e exec foot -e neovide
-    #bindsym $mod+Shift+e exec emacsclient -c
     #bindsym $mod+c exec clementine
     bindsym $mod+n exec foot -e newsboat
     #bindsym $mod+t exec foot -e task
@@ -102,7 +100,7 @@
 
 # Screenshot
   # Listen for clipboard pastes
-  # exec wl-paste --watch cliphist store 
+  exec wl-paste --watch cliphist store 
 
   #bindsym Menu exec --no-startup-id cliphist list | dmenu | cliphist decode | wl-copy
   # This doesn't work?
