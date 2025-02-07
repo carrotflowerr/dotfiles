@@ -1,4 +1,4 @@
-;; 3rd party package thing
+;; Bootstrap straight.el
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name
@@ -15,12 +15,18 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
-
-;; MELPA, another package repo
+;; Initialize package.el and add MELPA repo
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
+
+;; Ensure use-package is installed
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(require 'use-package)
+(setq use-package-always-ensure t)
 
 ;; Automatically save buffers when they lose focus
 (defun save-buffer-if-visiting-file ()
@@ -29,19 +35,14 @@
 (add-hook 'focus-out-hook 'save-buffer-if-visiting-file)
 (add-hook 'kill-buffer-hook 'save-buffer-if-visiting-file)
 
-
 ;; Disable save prompts when killing a buffer
 (setq kill-buffer-query-functions
       (remq 'process-kill-buffer-query-function kill-buffer-query-functions))
-
-;; Disable auto save. (the stuff.txt~ files)
+;; Disable auto-save files
 (setq auto-save-default nil)
 
-
-;; buffer-terminator
-;; automatically kills buffers based on buffer-terminator-interval
+;; Buffer Terminator (from MELPA)
 (use-package buffer-terminator
-  :ensure t
   :custom
   (buffer-terminator-verbose nil)
   :config
@@ -49,85 +50,62 @@
 (setq buffer-terminator-verbose t)
 (setq buffer-terminator-inactivity-timeout (* 30 60)) ; 30 minutes
 (customize-set-variable 'buffer-terminator-interval (* 10 60)) ; 10 minutes
-;; checks every 10 for buffers inactive for more than 30
-
 
 ;; Line wrap
 (global-visual-line-mode t)
-;;(add-hook 'text-mode-hook 'visual-line-mode)
-;; this means only use for programming
 (add-hook 'prog-mode-hook 'visual-line-mode)
 
-
-
-;; Startup screen
-;;(setq initial-buffer-choice "~/.emacs.d/start.org")
-(require 'dashboard)
-(dashboard-setup-startup-hook)
-(setq initial-buffer-choice (lambda () (get-buffer-create dashboard-buffer-name)))
+;; Dashboard (MELPA)
+(use-package dashboard
+  :config
+  (dashboard-setup-startup-hook)
+  (setq initial-buffer-choice
+        (lambda () (get-buffer-create dashboard-buffer-name))))
 
 ;; Do not prompt to save when exiting Emacs
 (setq confirm-kill-emacs nil)
 
-;; Spell check
-;(setq ispell-program-name "/usr/bin/ispell")
-;(global-set-key (kbd "C-;") 'ispell)
+;; Spell check for text files using flyspell (built-in)
 (add-hook 'text-mode-hook 'flyspell-mode)
-;; flyspell spell checking just for text files.
 (eval-after-load 'flyspell
   '(progn
-     ;; Bind C-; to correction menu
      (define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-word)
-     ;; Disable middle-click binding
      (define-key flyspell-mouse-map (kbd "<mouse-2>") nil)))
 
-
-
-;; Terminal
+;; Terminal keybinding for eshell
 (global-set-key (kbd "C-`") 'eshell)
 
-;; ibuffer
-;;(global-set-key (kbd "C-i") 'ibuffer)
-
-
-(smartparens-strict-mode 1)
+;; Smartparens (MELPA)
+(use-package smartparens
+  :config
+  (smartparens-global-mode 1)
+  (smartparens-strict-mode 1))
 (global-set-key (kbd "C-x a") 'mark-whole-buffer)
 
+;; Ready Player (MELPA)
 (use-package ready-player
-  :ensure t
   :config
   (ready-player-mode +1))
 
+;; Spacious Padding (MELPA)
+(use-package spacious-padding
+  :config
+  (spacious-padding-mode 1))
 
-;; Padding
-(require 'spacious-padding)
-(spacious-padding-mode 1)
+;; Vertico for Completion (MELPA)
+(use-package vertico
+  :config
+  (vertico-mode 1))
 
-;; Completion
-(require 'vertico)
-(vertico-mode 1)
-
-;; eww as default browser
-;;  you can hit & (eww-browse-with-external-browser) for external browser.
+;; Set eww as default browser
 (setq browse-url-browser-function 'eww-browse-url)
 
 ;; Save place in file
 (save-place-mode 1)
 (setq save-place-file (expand-file-name "places" user-emacs-directory))
 
-
-;; Evil 
-;;(require 'evil)
-;;(evil-mode 1)
-;;(setq evil-respect-visual-line-mode t)
-;;(evil-global-set-key 'motion "j" 'evil-next-visual-line) ;; this is mega-retarded
-;;(evil-global-set-key 'motion "k" 'evil-previous-visual-line)
-
+;; Custom-set variables and faces (managed by Emacs Custom)
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
  '(blink-cursor-mode nil)
  '(cua-mode t)
  '(custom-enabled-themes '(nano-light))
@@ -137,11 +115,6 @@
  '(display-time-mode t)
  '(global-display-line-numbers-mode t)
  '(tool-bar-mode nil))
-
-;; -- END OF ORG MODE CONFIG --
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:family "Fixedsys Excelsior" :foundry "POOP" :slant normal :weight regular :height 203 :width normal)))))
+ '(default ((t (:family "Fixedsys Excelsior" :foundry "POOP" :slant normal
+                        :weight regular :height 203 :width normal)))))

@@ -21,7 +21,8 @@
 # Your preferred terminal emulator
     set $term foot
 # Your preferred application launcher
-    set $menu rofi -show drun -m 0
+    #set $menu rofi -show drun -m 1
+    set $menu /home/shell/.cargo/bin/kickoff
     #set $menu dmenu_run -m 0 -l 30
 
     #set $menu dmenu_run -l 20
@@ -45,6 +46,9 @@
 # Audio Fix script
     #exec ~/Desktop/audioFix.sh
 
+# Mount all drives
+exec sudo mount -a
+
 # Gaps
     gaps inner 10
     gaps outer 10
@@ -62,7 +66,8 @@
     workspace 10 output $sm
 
 # Wallpaper 
-    exec ~/Downloads/wallpapers/randWp.sh
+    exec_always /home/shell/.cargo/bin/swww-daemon
+    exec_always /home/shell/Downloads/wallpapers/randWp.sh
     #exec_always --no-startup-id /home/shell/Documents/configs/i3/randWp.sh
 
 # Autotiling
@@ -80,32 +85,28 @@
 # Nicotine+
   exec nicotine -s
 
-### Hotkeys/Shortcuts/Launchers
+### hotkeys/shortcuts/launchers
 
     # Use xev to find key names
-
-    #bindsym $mod+Shift+i exec foot -e nvim  ~/.config/sway/config
-    #bindsym F10 exec /mnt/Second/.other/random.sh
-    bindsym $mod+Shift+e exec foot -e nvim
-    #bindsym $mod+Shift+e exec foot -e neovide
-    #bindsym $mod+Shift+e exec emacsclient -c
-    #bindsym $mod+c exec clementine
-    bindsym $mod+n exec foot -e newsboat
-    #bindsym $mod+t exec foot -e task
+    #bindsym $mod+Shift+e exec foot -e nvim
+    bindsym $mod+Shift+e exec emacsclient -c
     bindsym Shift+F1 exec firefox-esr
-    bindsym Shift+F2 exec foot -e yazi
-    bindsym Shift+F3 exec foot -e atop
-    bindsym $mod+Shift+b exec xiphos
+    bindsym Shift+F2 exec krusader
+    bindsym Shift+F3 exec foot -e --fullscreen btop
     bindsym Shift+F4 exec foot -e pulsemixer
     bindsym $mod+KP_ADD exec speedcrunch
+    bindsym $mod+n exec foot -e note
 
 
-# Screenshot
-  # Listen for clipboard pastes
-  # exec wl-paste --watch cliphist store 
+# Screenshot/Clipboard
 
-  #bindsym Menu exec --no-startup-id cliphist list | dmenu | cliphist decode | wl-copy
-  # This doesn't work?
+    # opens whatever is in clip
+    bindsym $mod+Shift+v exec foot -e /home/shell/scripts/openClip.sh
+    # change foot -e
+
+    exec clipse --listen
+
+    bindsym Menu exec foot -e clipse
 
   #bindsym $mod+s exec --no-startup-id maim --select | wl-copy -target # <- This is for X11
 
@@ -120,7 +121,7 @@
 # Text to clipboard via tesseract
   #bindsym $mod+Shift+c exec --no-startup-id grim -g "$(slurp -d -w 2)" - | tesseract - - -l eng | wl-copy
   # got to complex, moved to script.
-  bindsym $mod+Shift+c exec --no-startup-id bash /home/shell/Documents/misc-code/bash/imageText-toClipboard.sh 
+  bindsym $mod+Shift+c exec /home/shell/scripts/imageText-toClipboard.sh 
 
 # Basics:
   # Start a terminal
@@ -199,7 +200,8 @@
 
 # Windows to float by defualt
 # swaymsg -t get_tree, btw
-    for_window [class="Sxiv"] floating enable
+    #for_window [class="Sxiv"] floating enable
+    for_window [class="sxiv"] floating enable
     #for_window [app_id="mpv"] floating enable
     for_window [class="Surfshark"] floating disable
     #for_window [app_id="foot"] floating enable
@@ -240,6 +242,8 @@
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
+
+
 #
 # Resizing containers:
 #
@@ -272,15 +276,36 @@ mode "resize" {
 #exec waybar
 # Read `man 5 sway-bar` for more information about this section.
 bar {
+    mode dock
     position top
 
+    status_padding 5
+    separator_symbol '|' 
     # The default just shows the current date and time.
     status_command while date +'%Y-%m-%d %X'; do sleep 1; done
 
+
     colors {
-        statusline #ffffff
-        background #323232
+        #background #323232
         #inactive_workspace #32323200 #32323200 #5c5c5c
+        #background #7F7F74 #242424 #FFFFFF
+        focused_workspace #7F7F74 #242424 #FFFFFF 
+        #focused_background #8250DF
+        #focused_workspace #8250DF
+        #active_workspace #8250DF
+        #focused_statusline #8250DF
+        statusline #ffffff
+       #active_workspace <border> <background> <text>
+       #binding_mode <border> <background> <text>
+       #focused_background <color>
+       #focused_separator <color>
+       #focused_statusline <color>
+       #focused_workspace <border> <background> <text>
+       #inactive_workspace <border> <background> <text>
+       #separator <color>
+       #statusline <color>
+       #urgent_workspace <border> <background> <text>
+
     }
 }
 
