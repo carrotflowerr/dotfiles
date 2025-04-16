@@ -15,12 +15,6 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
-;; Initialize package.el and add MELPA repo
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
-
 ;; Ensure use-package is installed
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -40,18 +34,6 @@
       (remq 'process-kill-buffer-query-function kill-buffer-query-functions))
 ;; Disable auto-save files
 (setq auto-save-default nil)
-
-;; Buffer Terminator (from MELPA)
-(use-package buffer-terminator
-  :custom
-  (buffer-terminator-verbose nil)
-  :config
-  (buffer-terminator-mode 1))
-(setq buffer-terminator-verbose t)
-(setq buffer-terminator-inactivity-timeout (* 10 60)) ; 30 minutes
-;; defines what is inactive
-(customize-set-variable 'buffer-terminator-interval (* 5 60)) ; 10 minutes
-;; how often checks for inactive
 
 ;; Remind things from diary (calander)
 (require 'appt)
@@ -74,35 +56,13 @@
 ;; Syntax highlighting 
 (setq font-lock-maximum-decoration t)
 
-
-;; Date hotkey
-;; same format for putting any shell output into buf
-(defun insert-date ()
-  "Insert the current date into the buffer."
-  (interactive)
-  (insert (shell-command-to-string "date")))
-(global-set-key (kbd "C-c d") 'insert-date)
-
-
-
 ;; Dictionary (localhost is dictd)
 (global-set-key (kbd "C-c l") #'dictionary-lookup-definition)
 (setq dictionary-server "localhost")
 
-;; Window management
-(require 'golden-ratio)
-(golden-ratio-mode 1)
-
 ;; Line wrap
 (global-visual-line-mode t)
 (add-hook 'prog-mode-hook 'visual-line-mode)
-
-;; Dashboard (MELPA)
-(use-package dashboard
-  :config
-  (dashboard-setup-startup-hook)
-  (setq initial-buffer-choice
-        (lambda () (get-buffer-create dashboard-buffer-name))))
 
 ;; Do not prompt to save when exiting Emacs
 (setq confirm-kill-emacs nil)
@@ -136,6 +96,40 @@
 
 
 ;; PACKAGES START
+
+;; Initialize package.el and add MELPA repo
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+
+;; Dashboard (MELPA)
+
+(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook))
+
+
+;; Window management
+(use-package golden-ratio
+  :config
+  (require 'golden-ratio)
+  (golden-ratio-mode 1)
+)
+
+
+;; Buffer Terminator (from MELPA)
+(use-package buffer-terminator
+  :custom
+  (buffer-terminator-verbose nil)
+  :config
+  (buffer-terminator-mode 1))
+(setq buffer-terminator-verbose t)
+(setq buffer-terminator-inactivity-timeout (* 10 60)) ; 30 minutes
+;; defines what is inactive
+(customize-set-variable 'buffer-terminator-interval (* 5 60)) ; 10 minutes
+;; how often checks for inactive
 
 
 
@@ -182,8 +176,10 @@
   :mode ("README\\.md\\'" . gfm-mode)
   :init (setq markdown-command "multimarkdown"))
 
-(require 'powerline)
-(powerline-nano-theme)
+
+(use-package powerline
+  :config
+  (powerline-nano-theme))
 
 
 ;; Run local LLM
@@ -195,12 +191,11 @@
                  :models '(tinyllama:latest)))
 
 
-;; PACKAGES END
-
-
 ;; company mode, autocompletion
-  (add-hook 'after-init-hook 'global-company-mode)
+(add-hook 'after-init-hook 'global-company-mode)
+(global-company-mode 1)
 
+;; PACKAGES END
 
 
 ;; Custom-set variables and faces (managed by Emacs Custom)
@@ -211,10 +206,10 @@
  ;; If there is more than one, they won't work right.
  '(blink-cursor-mode nil)
  '(bongo-enabled-backends '(mpv))
-;; '(cua-mode t)
  '(custom-enabled-themes '(nano-dark))
  '(custom-safe-themes
-   '("b8bd60a23b9e2f08b0c437231ee84f2dacc70fdc4d5a0fb87229bb9926273fdd"
+   '("ad7d874d137291e09fe2963babc33d381d087fa14928cb9d34350b67b6556b6d"
+     "b8bd60a23b9e2f08b0c437231ee84f2dacc70fdc4d5a0fb87229bb9926273fdd"
      "dc15dbd4b0a00c64610fd4379a89424e0be1b418f09457e0f062cac931e8ca82"
      "cb024671ccb98c3ee7583e32df4bfdb50044dada87064e8fcf0fea2357ba7dd9"
      "1781e8bccbd8869472c09b744899ff4174d23e4f7517b8a6c721100288311fa5"
@@ -276,4 +271,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Roboto Mono" :foundry "GOOG" :slant normal :weight light :height 150 :width normal)))))
+ '(default ((t (:family "JetBrainsMono Nerd Font" :foundry "JetBrainsmono NF" :slant normal :weight light :height 150 :width normal)))))
+
+
+;; "JetBrainsMono Nerd Font,JetBrainsMono NF

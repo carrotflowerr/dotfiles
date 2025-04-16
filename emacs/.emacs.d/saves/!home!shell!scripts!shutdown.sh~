@@ -1,0 +1,37 @@
+#!/bin/bash
+
+
+prompt_yes_no() {
+    while true; do
+        read -p "$1 (y/n): " answer
+        case $answer in
+            [Yy]* ) return 0;;  # Yes - accept directory
+            [Nn]* ) return 1;;  # No - reject directory
+            "" ) return 2;;    # Enter - choose new directory
+            * ) return 1;;     # Default to reject
+        esac
+    done
+}
+    
+    prompt_yes_no "Shut Down?"
+    response=$?
+    
+    if [ $response -eq 0 ]; then
+        # User said yes - play the directory
+	pkill Hyprland
+        
+        # Check if mpv exited successfully
+        if [ $? -eq 0 ]; then
+            break
+        else
+            echo " error."
+        fi
+    elif [ $response -eq 2 ]; then
+        # User pressed Enter - choose new directory
+        echo "Selecting a new directory..."
+	exit 0
+    else
+        # User said no
+        echo "Exiting."
+        exit 0
+    fi

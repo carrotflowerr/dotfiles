@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Create a temporary file for the clipboard image
+IMG=$(mktemp --suffix=.png)
+
+wl-paste --type image/png > "$IMG"
+
+# Open the image with sxiv
+nsxiv "$IMG"
+
+rm "$IMG"

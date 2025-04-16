@@ -1,0 +1,18 @@
+;;; -*- coding: utf-8; mode: lisp-data -*-
+(("/home/shell/scripts/note" . 1269)
+ ("/home/shell/scripts/playlinks" . 190)
+ ("/home/shell/scripts/" (dired-filename . "/home/shell/scripts/note"))
+ ("/home/shell/.config/hypr/hyprland.conf" . 452)
+ ("/home/shell/.emacs.d/init.el" . 7762)
+ ("/home/shell/.bashrc" . 1773)
+ ("/home/shell/Documents/source/emacs/Makefile" . 2576)
+ ("/home/shell/.emacs.d/viper" . 70)
+ ("/usr/share/emacs/30.1/lisp/emacs-lisp/lisp.el.gz" . 34456)
+ ("/home/shell/Documents/source/ladybird/AK/CMakeLists.txt" . 1526)
+ ("/home/shell/.emacs.d/elpa/goto-last-change-20150109.1823/goto-last-change.el"
+  . 858)
+ ("/home/shell/.emacs.d/notableCommands.el" . 36)
+ ("/home/shell/.emacs.d/notableCommands" . 12)
+ ("/home/shell/.config/mpv/input.conf" . 1747)
+ ("/home/shell/Documents/notes/todo.org" . 483)
+ ("/home/shell/Documents/notes/todo.txt" . 383))

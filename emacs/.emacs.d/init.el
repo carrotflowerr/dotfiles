@@ -1,0 +1,350 @@
+;; Bootstrap straight.el
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name
+        "straight/repos/straight.el/bootstrap.el"
+        (or (bound-and-true-p straight-base-dir)
+            user-emacs-directory)))
+      (bootstrap-version 7))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+;; Ensure use-package is installed
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(require 'use-package)
+(setq use-package-always-ensure t)
+
+;; Full docs
+(add-to-list 'Info-directory-list "/home/shell/Documents/source/emacs/info/")
+
+
+
+;; Automatically save buffers when they lose focus
+;;(defun save-buffer-if-visiting-file ()
+;;  (when (and (buffer-file-name) (buffer-modified-p))
+;;    (save-buffer)))
+;;(add-hook 'focus-out-hook 'save-buffer-if-visiting-file)
+;;(add-hook 'kill-buffer-hook 'save-buffer-if-visiting-file)
+
+;; Put backup files (file.txt~) in .emacs.d/
+(setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
+(setq backup-by-copying t)
+
+;; Disable save prompts when killing a buffer
+(setq kill-buffer-query-functions
+      (remq 'process-kill-buffer-query-function kill-buffer-query-functions))
+;; Disable auto-save files
+(setq auto-save-default nil)
+
+;; Remind things from diary (calander)
+;;(require 'appt)
+;;(appt-activate 1) 
+;;(add-hook 'diary-hook 'appt-make-list) 
+;;(setq appt-display-mode 'window)
+;; change to modeline if you want it in minibuf
+
+;; Misc binds
+(global-set-key (kbd "C-c s") 'scratch-buffer)
+(global-set-key (kbd "C-c c") 'calendar)
+
+;;(global-set-key (kbd "C-x C-p") 'insert-pair)
+
+
+;; Misc unbinds (things I find silly)
+(global-unset-key (kbd "C-x f")) ;; fill command
+(global-unset-key (kbd "C-x m")) ;; compo
+;;se mail
+
+
+;; Open in new window
+(global-set-key (kbd "C-M-m") 'make-frame)
+
+;; Auto focus windows
+(defadvice split-window (after move-point-to-new-window activate)
+  "Moves the point to the newly created window after splitting."
+  (other-window 1))
+
+
+;; Syntax highlighting 
+(setq font-lock-maximum-decoration t)
+
+;; Dictionary (localhost is dictd)
+(global-set-key (kbd "C-c l") #'dictionary-lookup-definition)
+(setq dictionary-server "localhost")
+
+;; Line wrap
+(global-visual-line-mode t)
+(add-hook 'prog-mode-hook 'visual-line-mode)
+
+;; Do not prompt to save when exiting Emacs
+(setq confirm-kill-emacs nil)
+
+;; Spell check for text files using flyspell (built-in)
+(add-hook 'text-mode-hook 'flyspell-mode)
+(eval-after-load 'flyspell
+  '(progn
+     (define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-word)
+     ))
+
+
+;; Set eww as default browser
+(setq browse-url-browser-function 'eww-browse-ur)
+(setq eww-download-directory "~/.emacs.d/eww/")
+
+;; Bind C-x C-k to kill-buffer-and-window
+(global-unset-key (kbd "C-x 4 0"))
+;;(global-unset-key (kbd "C-x 5 0"))
+(global-set-key (kbd "C-x C-k") 'kill-buffer-and-window)
+;; kills buffer not interactive.  
+
+
+;; C-x C-b runs ibuffer instead of just listing buffers
+(global-unset-key (kbd "C-x C-b"))
+(global-set-key (kbd "C-x C-b")'ibuffer)
+
+
+;; Macro edit
+(global-set-key (kbd "C-x C-e") 'kmacro-edit-macro)
+
+
+;; PACKAGES START
+
+;; Initialize package.el and add MELPA repo
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+
+
+
+;; Terminal keybinding for vterm
+(use-package vterm
+  :config 
+;;c  (term "/bin/bash")
+  (global-set-key (kbd "C-`") 'vterm)
+)
+
+
+
+(use-package goto-last-change
+  :config
+  (global-set-key(kbd "C-x C-x") 'goto-last-change)
+  )
+
+
+(use-package beacon
+  :ensure t
+  :config
+  (beacon-mode 1)
+
+  )
+
+
+;; http://ergoemacs.org/emacs/elisp_read_file_content.html
+;; This is part of dashboard config.
+(defun read-lines (filePath)
+  (with-temp-buffer
+    (insert-file-contents filePath)
+    (split-string (buffer-string) "\n" t)))
+
+;; Dashboard (MELPA)
+(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook)
+  (setq initial-buffer-choice (lambda () (get-buffer-create dashboard-buffer-name)))
+  (add-hook 'elpaca-after-init-hook #'dashboard-insert-startupify-lists)
+  (add-hook 'elpaca-after-init-hook #'dashboard-initialize)
+  (setq dashboard-footer-messages (read-lines "~/.emacs.d/jps.txt"))
+
+  )
+
+
+
+
+
+
+(use-package powerline
+  :ensure t
+  :config
+  (powerline-vim-theme)
+  )
+
+;; Window management
+(use-package golden-ratio
+  :ensure t
+
+  :config
+  (require 'golden-ratio)
+  (golden-ratio-mode 1)
+)
+
+
+;; Buffer Terminator (from MELPA)
+(use-package buffer-terminator
+  :ensure t
+
+  :custom
+  (buffer-terminator-verbose nil)
+  :config
+  (buffer-terminator-mode 1)
+  (setq buffer-terminator-verbose t)
+  (setq buffer-terminator-inactivity-timeout (* 30 60)) ; 30 minutes
+  ;; defines what is inactive
+  (customize-set-variable 'buffer-terminator-interval (* 10 60)) ; 10 minutes
+  ;; how often checks for inactive
+  
+  )
+
+;; https://github.com/zk-phi/phi-search
+
+
+
+;; (use-package centaur-tabs
+;;   :demand
+;;   :config
+;;   (centaur-tabs-mode t)
+;;   :bind
+;;   ("C-<prior>" . centaur-tabs-backward)
+;;   ("C-<next>" . centaur-tabs-forward)
+;;   ("C-x t" . centaur-tabs--create-new-tab)
+;; )
+
+
+
+;; Configure markdown-mode
+(use-package markdown-mode
+  :ensure t
+  :mode ("\\.md\\'" . markdown-mode)  ;; Automatically use markdown-mode for .md files
+  :init
+  (setq markdown-command "pandoc")  ;; Set the command to use for rendering
+  :hook
+  (markdown-mode . (lambda ()
+                     (local-set-key (kbd "C-c C-p") 'markdown-preview))))  ;; Keybinding for preview
+
+
+;; Multiple-cursors
+(use-package multiple-cursors
+  :ensure t
+
+  :config
+  (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+  (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+  (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+)
+
+;; Save place in file
+(save-place-mode 1)
+(setq save-place-file (expand-file-name "places" user-emacs-directory))
+
+
+;; Smartparens (MELPA)
+(use-package smartparens
+  :ensure t
+
+  :config
+  (smartparens-global-mode 1)
+  (smartparens-strict-mode 1))
+
+
+
+;; Spacious Padding (MELPA)
+(use-package spacious-padding
+  :ensure t
+
+  :config
+  (spacious-padding-mode 1))
+
+;; Vertico for Completion (MELPA)
+(use-package vertico
+  :ensure t
+  :config
+  (vertico-mode 1))
+
+;; I like this
+;; annotated minibuf
+(use-package marginalia
+  :ensure t
+  :init (marginalia-mode 1))
+
+
+
+;; Disable normal movement
+(use-package guru-mode
+  :ensure t
+  :config
+  (guru-global-mode))
+
+;; use markdown mode for markdown files
+(use-package markdown-mode
+  :ensure t
+  :mode ("README\\.md\\'" . gfm-mode)
+  :init (setq markdown-command "multimarkdown"))
+
+
+
+;; Run local LLM
+(setq
+ gptel-model 'tinyllama:latest
+ gptel-backend (gptel-make-ollama "Ollama"
+                 :host "localhost:11434"
+                 :stream t
+                 :models '(tinyllama:latest)))
+
+
+;; company mode, autocompletion
+(use-package company
+    :ensure t
+    :config
+    (add-hook 'after-init-hook 'global-company-mode)
+    (global-company-mode 1)
+  )
+
+;; PACKAGES END
+
+
+
+;; Custom-set variables and faces (managed by Emacs Custom)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(blink-cursor-mode nil)
+ '(bongo-enabled-backends '(mpv))
+ '(custom-enabled-themes '(ef-light))
+ '(custom-safe-themes
+   '("c038d994d271ebf2d50fa76db7ed0f288f17b9ad01b425efec09519fa873af53"
+     "ad7d874d137291e09fe2963babc33d381d087fa14928cb9d34350b67b6556b6d"
+     "b8bd60a23b9e2f08b0c437231ee84f2dacc70fdc4d5a0fb87229bb9926273fdd"
+     "dc15dbd4b0a00c64610fd4379a89424e0be1b418f09457e0f062cac931e8ca82"
+     "cb024671ccb98c3ee7583e32df4bfdb50044dada87064e8fcf0fea2357ba7dd9"
+     "1781e8bccbd8869472c09b744899ff4174d23e4f7517b8a6c721100288311fa5"
+     "de8f2d8b64627535871495d6fe65b7d0070c4a1eb51550ce258cd240ff9394b0"
+     "acfe7ff6aacb9432f124cde4e35d6d2b4bc52916411de73a6ccded9750c9fa97"
+     "e7820b899036ae7e966dcaaec29fd6b87aef253748b7de09e74fdc54407a7a02"
+     default))
+ '(desktop-save-mode t)
+ '(display-time-mode t)
+ '(google-translate-default-source-language "la")
+ '(google-translate-default-target-language "en")
+ '(menu-bar-mode nil)
+ '(scroll-bar-mode nil)
+ '(tool-bar-mode nil))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:family "JetBrainsMono Nerd Font" :foundry "JetBrainsmono NF" :slant normal :weight light :height 150 :width normal)))))
+
+
+;; "JetBrainsMono Nerd Font,JetBrainsMono NF

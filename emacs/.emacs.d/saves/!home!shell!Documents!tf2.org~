@@ -1,0 +1,26 @@
+okay steam wont load games
+
+I believe this is the main error:
+
+(process:35225): GLib-GObject-CRITICAL **: 13:14:13.726: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+reaping pid: 35225 -- gameoverlayui
+
+Troubleshooting steps:
+ try different launch options
+
+
+Have tried:
+* Cleared Steam Download Cache
+* STEAM_RUNTIME_PREFER_HOST_LIBRARIES=0 steam
+* installing everything i could find relating to "mesa"
+* installing firmware-linux-nonfree libgl1-mesa-dri xserver-xorg-video-intel
+* installing libtcmalloc-minimal4
+* other games
+* reinstalling steam
+* restart
+* using old proton
+* verify install/reinstall. It said that it cant find models earlier in the log.
+* wayland
+* STEAM_RUNTIME=0 steam
+** This one breaks steam
+* flakpak

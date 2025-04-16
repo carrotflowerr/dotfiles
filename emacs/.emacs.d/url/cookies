@@ -1,0 +1,35 @@
+;; Emacs-W3 HTTP cookies file
+;; Automatically generated file!!! DO NOT EDIT!!!
+
+(setq url-cookie-storage
+ '(("askubuntu.com"
+  [url-cookie "__cflb" "02DiuFX9LKTXhdqkSxREzjLPf15zNmeEVxvTZcNbZQtnG"
+	      "Tue, 15-Apr-25 21:55:59 GMT" "/" "askubuntu.com" nil]))
+)
+(setq url-cookie-secure-storage
+ '((".wikipedia.org"
+  [url-cookie "WMF-Last-Access-Global" "07-Apr-2025"
+	      "Fri, 09 May 2025 12:00:00 GMT" "/" ".wikipedia.org" t])
+ ("github.com"
+  [url-cookie "logged_in" "no" "Tue, 14 Apr 2026 20:56:57 GMT" "/"
+	      "github.com" t]
+  [url-cookie "_octo" "GH1.1.17148715.1744664217"
+	      "Tue, 14 Apr 2026 20:56:57 GMT" "/" "github.com" t])
+ (".askubuntu.com"
+  [url-cookie "prov" "92ea770a-cae7-4109-9525-4176617b536d"
+	      "Tue, 14 Apr 2026 22:55:59 GMT" "/" ".askubuntu.com" t]
+  [url-cookie "__cf_bm"
+	      "TyP2W9he2cQOqzuQLLU0cfPyC_o6DO.X9VgQBeSdrDE-1744671359-1.0.1.1-fTDK323mCIlmQvTSC6.6QXq7FFYd6Fw_XPKwhnXGkNI1mtkDmCQFSHnaTyUzt4uPJcJS0XUNPOoHuOozFuMfReYCoY9BDMRf_b5ClHvyeSA"
+	      "Mon, 14-Apr-25 23:25:59 GMT" "/" ".askubuntu.com" t])
+ ("wikipedia.org"
+  [url-cookie "WMF-Last-Access" "07-Apr-2025"
+	      "Fri, 09 May 2025 12:00:00 GMT" "/" "wikipedia.org" t]))
+)
+
+;; Local Variables:
+;; version-control: never
+;; no-byte-compile: t
+;; coding: utf-8-emacs-unix
+;; End:
+
+;;; cookies ends here

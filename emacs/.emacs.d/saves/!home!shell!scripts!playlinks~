@@ -1,0 +1,64 @@
+#!/bin/bash
+# Made by Bard
+# https://gemini.google.com/app/40a4f844ccbce8b1
+# Script to play links from a text file using mpv
+
+# --- Configuration ---
+# Path to the mpv executable (change if it's not in your PATH)
+MPV_COMMAND="mpv --mute --fullscreen"
+
+# --- Input Validation ---
+
+# Check if a filename argument is provided
+if [ -z "$1" ]; then
+  echo "Usage: $0 <filename>"
+  echo "Error: Please provide the path to the text file containing links as the first argument."
+  exit 1 # Exit with an error code
+fi
+
+# Assign the first argument to a variable for clarity
+LINKS_FILE="$1"
+
+# Check if the provided file exists
+if [ ! -f "$LINKS_FILE" ]; then
+  echo "Error: File not found: '$LINKS_FILE'"
+  exit 1 # Exit with an error code
+fi
+
+# Check if the provided file is readable
+if [ ! -r "$LINKS_FILE" ]; then
+  echo "Error: Cannot read file: '$LINKS_FILE'. Check permissions."
+  exit 1 # Exit with an error code
+fi
+
+# --- Main Processing Loop ---
+
+echo "Starting playback from file: $LINKS_FILE"
+
+# Read the file line by line
+# IFS= prevents leading/trailing whitespace trimming
+# -r prevents backslash interpretation
+while IFS= read -r link || [[ -n "$link" ]]; do
+  # Skip empty lines or lines starting with # (comments)
+  if [[ -z "$link" ]] || [[ "$link" =~ ^# ]]; then
+    continue # Skip to the next line
+  fi
+
+  echo "Attempting to play: $link"
+
+  # Execute mpv with the current link
+  # Add any desired mpv options here (e.g., --fs for fullscreen)
+  "$MPV_COMMAND" "$link"
+
+  # Optional: Check the exit status of mpv
+  if [ $? -ne 0 ]; then
+    echo "Warning: mpv encountered an issue playing '$link' (or was closed)."
+    # You could add logic here to pause or ask the user if they want to continue
+    # read -p "Press Enter to continue to the next link or Ctrl+C to exit..."
+  fi
+
+done < "$LINKS_FILE" # Redirect the file content into the while loop
+
+echo "Finished playing all links from $LINKS_FILE."
+
+exit 0 # Exit successfully

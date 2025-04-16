@@ -1,0 +1,29 @@
+;;;; Emacs Bookmark Format Version 1;;;; -*- coding: utf-8-emacs; mode: lisp-data -*-
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("carrotflowerr.github.io"
+ (filename . "~/Documents/misc-code/carrotflowerr.github.io/")
+ (front-context-string . "about.html\n  drw")
+ (rear-context-string . "76 Dec 16 21:00 ")
+ (position . 215)
+ (last-modified 26600 24029 615152 914000))
+("init.el"
+ (filename . "~/.emacs.d/init.el")
+ (front-context-string . ";; Bootstrap str")
+ (rear-context-string)
+ (position . 1)
+ (last-modified 26600 17439 210026 429000))
+("todo.txt"
+ (filename . "~/Documents/notes/todo.txt")
+ (front-context-string . "\\ Effort/timing ")
+ (rear-context-string)
+ (position . 1)
+ (last-modified 26600 17018 970104 860000))
+("hyprland.conf"
+ (filename . "~/.config/hypr/hyprland.conf")
+ (front-context-string . "# This is an exa")
+ (rear-context-string)
+ (position . 1)
+ (last-modified 26597 54533 160675 340000))
+)
