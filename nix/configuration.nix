@@ -132,15 +132,18 @@
   # $ nix search wget
   # This is for systemwide packages  
   environment.systemPackages = with pkgs; [
-      ffmpeg
-      zsh
-      gnome
-      gdm
-      neovim
-      #dmenu
-      zoxide
-      mpv
-      git
+
+    emacs
+    ffmpeg
+    zsh
+    #      gnome
+    gdm
+    #      neovim
+    #dmenu
+    zoxide
+    mpv
+    git
+
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

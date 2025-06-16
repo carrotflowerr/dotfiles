@@ -20,7 +20,7 @@
      "https://www.debian.org/News/news"
      "https://www.kernel.org/feeds/kdist.xml"
      "https://hnrss.org/frontpage"
-     "https://lwn.net/headlines/Features"
+;;     "https://lwn.net/headlines/Features"
      "===Misc==="
      "https://darkstarastrology.com/feed/"
      "https://bearblog.dev/discover/feed/")

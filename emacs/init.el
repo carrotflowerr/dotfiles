@@ -1,7 +1,8 @@
 ;;; Zimblo's Awesome Config --- minimal config for writing and fun
-;; Sat May 31 03:18:37 PM MDT 2025
+;; Last Sync: Sat May 31 03:18:37 PM MDT 2025
 ;;; This should be compatible with any (up to date) version of Emacs.
 ;;; (load) functions may bring incompatibility 
+
 
 
 ;; Bootstrap straight.el
@@ -33,8 +34,8 @@
 (load "~/.emacs.d/packages.el")
 ;; ^ if shit gets fucked this is the problem ^
 
-;; Full docs
-(add-to-list 'Info-directory-list "/home/shell/Documents/source/emacs/info/")
+;; Idea: a hook that, when file.note, automatically saves to ~/.note/
+
 
 ;; Put backup files (file.txt~) in .emacs.d/
 ;; this applies to pre-made files opened with emacs
@@ -52,12 +53,36 @@
 ;; (ido-mode)
 
 ;; Dired settings
-(global-set-key (kbd "C-x C-d") 'dired-jump)
-(add-hook 'dired-mode-hook #'dired-hide-details-mode)
 (setq dired-listing-switches "-lh --time-style=long-iso -t --group-directories-first")
-(setq dired-dwim-target t)
+
 ;; btw, C-x C-q dired-toggle-read-only
 
+
+(use-package dired
+  :ensure nil
+  :commands (dired)
+  :hook ((dired-mode . hl-line-mode)
+         (dired-mode . dired-omit-mode)
+         (dired-mode . dired-hide-details-mode))
+  :bind (:map dired-mode-map
+	      ("-" . dired-up-directory))
+  :init
+  ;; let me drag files into other programs
+  (setq dired-mouse-drag-files t)
+  (setq dired-bind-jump nil)
+  :config
+  (global-set-key (kbd "C-x C-d") 'dired-jump)
+  (add-hook 'dired-mode-hook #'dired-hide-details-mode)
+  (setq dired-dwim-target t)
+  (setq dired-listing-switches "-aghoA --group-directories-first")
+  ;; Hide . and .. in dired
+  (setq dired-omit-files
+        (setq dired-omit-files "^\\.?#\\|^\\.$\\|^\\.\\.$\\|^\\..*$"))
+;;;;; xdg-open integration
+  (require 'dired-x)
+  ;; prevent opening extra dired buffers
+  ;; emacs 28
+  (setq dired-kill-when-opening-new-dired-buffer t))
 
 
 ;; might be awful for normal writing
@@ -67,15 +92,21 @@
 
 
 ;; Interface binds
-(global-set-key (kbd "C-c s") 'scratch-buffer)
-(global-set-key (kbd "C-c c") 'calendar)
-(global-set-key (kbd "C-c r") 'elfeed)
-(global-set-key (kbd "C-c m") 'dashboard-open)
+;; want to use hydra for this
+;; (global-set-key (kbd "C-c s") 'scratch-buffer)
+;; (global-set-key (kbd "C-c c") 'calendar)
+;; (global-set-key (kbd "C-c r") 'elfeed)
+;; (global-set-key (kbd "C-c m") 'dashboard-open)
 
 ;; Misc unbinds (things I find silly)
 (global-unset-key (kbd "C-x f")) ;; fill command
 (global-unset-key (kbd "C-x m")) ;; compose mail
+;;(global-unset-key (kbd "C-x C-c"))
 
+;; replaces upcase-word
+(global-set-key (kbd "M-u") 'undo-redo)
+
+;; (global-set-key (kbd "C-x C-u") 'undo-tree-mode)
 
 ;; Open in new window
 ;;(global-set-key (kbd "C-M-m") 'make-frame)
@@ -85,6 +116,7 @@
   "Moves the point to the newly created window after splitting."
   (other-window 1))
 
+(setq cursor-type 'box)
 
 ;; Syntax highlighting 
 (setq font-lock-maximum-decoration t)
@@ -152,16 +184,26 @@
 (global-unset-key (kbd "C-x C-b"))
 (global-set-key (kbd "C-x C-b")'ibuffer)
 
-(defun buffer-wipe () 
-  "Kill all buffers except for default ones, and print the names of killed buffers."
+(defun buffer-wipe()
+  "Kill all buffers"
   (interactive)
-  (let ((default-buffers '("*scratch*" "*Messages*" "*dashboard*" "*straight-process*" "*Async-native-compile-log*"))) ; Add more default buffers if needed
-    (dolist (buf (buffer-list))
-      (let ((buf-name (buffer-name buf)))
-        (when (and (not (member buf-name default-buffers))
-                   (not (string-match-p "^\\*" buf-name))) ; Exclude all other special buffers
-          (message "Killing buffer: %s" buf-name)
-          (kill-buffer buf))))))
+  (mapcar 'kill-buffer (buffer-list))
+  (delete-other-windows)
+  )
+
+
+
+
+;; (defun buffer-wipe () 
+;;   "Kill all buffers except for default ones, and print the names of killed buffers."
+;;   (interactive)
+;;   (let ((default-buffers '("*scratch*" "*Messages*" "*dashboard*" "*straight-process*" "*Async-native-compile-log*"))) ; Add more default buffers if needed
+;;     (dolist (buf (buffer-list))
+;;       (let ((buf-name (buffer-name buf)))
+;;         (when (and (not (member buf-name default-buffers))
+;;                    (not (string-match-p "^\\*" buf-name))) ; Exclude all other special buffers
+;;           (message "Killing buffer: %s" buf-name)
+;;           (kill-buffer buf))))))
 
 
 
@@ -178,10 +220,29 @@
  ;; If there is more than one, they won't work right.
  '(blink-cursor-mode nil)
  '(bongo-enabled-backends '(mpv))
- '(custom-enabled-themes '(ef-light))
-
+ '(custom-enabled-themes '(modus-vivendi))
  '(custom-safe-themes
-   '("b3ba955a30f22fe444831d7bc89f6466b23db8ce87530076d1f1c30505a4c23b"
+   '("8594960510d1b67ac3db8ee047108cb5465580f38e26cfa3c25d4df64b3ed0f9"
+     "d106f3f27d9dff7ff28a660b6ec3fb79bcce12bc2795ad544eca1509156b322e"
+     "c7951fc937039f8f1640fce55d97628d8b2cd124461d6a28dce13fcc29fbed1d"
+     "cdb768021bf99e838364dd5e7fc22d9b6f790124c97be379a5bda4f900e50c26"
+     "1de73eec00f3487bc463de2ea9147fff57efadb2c293283558f0ed916c10a38b"
+     "a24e023c71f74e8c6a79068947d706f68a566b49a774096671a5cbfe1fb90fc6"
+     "14e168ce25a773e52e9032640d8cc34293f74fc599230340587fd17c96c2c97a"
+     "b2a3b2bbe9aea795fd23ecb46ba1fbd28988b7d528b6a1f6e7f8a1122a9025aa"
+     "5d67552ed2e841039034dc8245ee1746ab4f00614366ca7018386041f9b0a96f"
+     "0ac7e8c9336aea2f73b28ecfd1f9fcfc64eeca0585aa071f2f67ff716dcb9c6c"
+     "b58b5aa5664a927866daa481ae5f0795423ed3982ce5f64e56c4106261dbd13e"
+     "e223120256455daba01b6c68510b48fac813acab05c314510e47aea377b23634"
+     "de385583975ed8e83b71b212b3094ee74785834718e2413bc3acff36224fba8d"
+     "e85a354f77ae6c2e47667370a8beddf02e8772a02e1f7edb7089e793f4762a45"
+     "b011db0e1a00753fd9227d8c3c2f48dd517d316a6303bdbbff8d225ee760eea3"
+     "fae5872ff90462502b3bedfe689c02d2fa281bc63d33cb007b94a199af6ccf24"
+     "cee5c56dc8b95b345bfe1c88d82d48f89e0f23008b0c2154ef452b2ce348da37"
+     "a3a71b922fb6cbf9283884ac8a9109935e04550bcc5d2a05414a58c52a8ffc47"
+     "a0e9bc5696ce581f09f7f3e7228b949988d76da5a8376e1f2da39d1d026af386"
+     "aff0396925324838889f011fd3f5a0b91652b88f5fd0611f7b10021cc76f9e09"
+     "b3ba955a30f22fe444831d7bc89f6466b23db8ce87530076d1f1c30505a4c23b"
      "b1791a921c4f38cb966c6f78633364ad880ad9cf36eef01c60982c54ec9dd088"
      "ea4dd126d72d30805c083421a50544e235176d9698c8c541b824b60912275ba1"
      "36c5acdaf85dda0dad1dd3ad643aacd478fb967960ee1f83981d160c52b3c8ac"
@@ -214,20 +275,41 @@
      "de8f2d8b64627535871495d6fe65b7d0070c4a1eb51550ce258cd240ff9394b0"
      "acfe7ff6aacb9432f124cde4e35d6d2b4bc52916411de73a6ccded9750c9fa97"
      "e7820b899036ae7e966dcaaec29fd6b87aef253748b7de09e74fdc54407a7a02"
-     default)
-   )
-
+     default))
  '(desktop-save-mode t)
  '(display-time-mode t)
+ ;; god damn it
+ '(elfeed-feeds
+   '("http://www.profightdb.com/rss.xml" "===World_News==="
+     "https://feeds.bbci.co.uk/news/world/rss.xml"
+     "http://rss.cnn.com/rss/edition_world.rss"
+     "https://www.nytimes.com/svc/collections/v1/publish/https://www.nytimes.com/section/world/rss.xml"
+     "https://feeds.washingtonpost.com/rss/world"
+     "https://feeds.npr.org/1004/rss.xml" "===ABQ==="
+     "http://feeds.bizjournals.com/bizj_albuquerque"
+     "http://nmpoliticalreport.com/feed/"
+     "https://www.reddit.com/r/Albuquerque/.rss"
+     "https://www.cabq.gov/news/news/RSS" "https://www.krqe.com/feed/"
+     "===UNM===" "https://news.unm.edu/rss.xml" "===Loonix==="
+     "https://itsfoss.com/rss/" "https://www.debian.org/News/news"
+     "https://www.kernel.org/feeds/kdist.xml"
+     "https://hnrss.org/frontpage" "===Misc==="
+     "https://darkstarastrology.com/feed/"
+     "https://bearblog.dev/discover/feed/") t)
+ '(global-display-line-numbers-mode t)
  '(menu-bar-mode nil)
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil))
+ '(global-display-line-numbers-mode t)
+ '(menu-bar-mode nil)
+ '(scroll-bar-mode nil)
+ '(tool-bar-mode nil)
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "JetBrainsMono Nerd Font" :foundry "JetBrainsmono NF" :slant normal :weight light :height 150 :width normal)))))
+ '(default ((t (:family "Liberation Mono" :foundry "1ASC" :slant normal :weight regular :height 151 :width normal)))))
 
 
 ;; "JetBrainsMono Nerd Font,JetBrainsMono NF

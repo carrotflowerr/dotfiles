@@ -1,3 +1,7 @@
+;; if you get weird package install errors:
+(package-refresh-contents)
+
+
 ;; M-;
 (comment-dwim)
 
