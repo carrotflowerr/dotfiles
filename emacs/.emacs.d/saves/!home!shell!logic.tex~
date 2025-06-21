@@ -1,0 +1,19 @@
+\documentclass{article}
+\usepackage{amssymb,amsmath,stmaryrd,proof}
+
+\begin{document}
+
+% Example of logical expressions
+\[
+  \forall x (P(x) \rightarrow Q(x)) \land \exists y \neg Q(y)
+\]
+
+% Fitch-style proof (optional, needs fitch.sty or emulate manually)
+\begin{prooftree}
+  \AxiomC{$P \rightarrow Q$}
+  \AxiomC{$P$}
+  \RightLabel{\scriptsize Modus Ponens}
+  \BinaryInfC{$Q$}
+\end{prooftree}
+
+\end{document}

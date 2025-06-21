@@ -1,3 +1,10 @@
+;;; Zimblo's Awesome Config --- minimal config for writing and fun  
+;; Last Sync: Sat May 31 03:18:37 PM MDT 2025
+;;; This should be compatible with any (up to date) version of Emacs.
+;;; (load) functions may bring incompatibility 
+
+
+
 ;; Bootstrap straight.el
 (defvar bootstrap-version)
 (let ((bootstrap-file
@@ -22,19 +29,33 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-;; Full docs
-(add-to-list 'Info-directory-list "/home/shell/Documents/source/emacs/info/")
+;; (load "~/.emacs.d/rss.el")
+(load "~/.emacs.d/macro.el")
+(load "~/.emacs.d/packages.el")
+;; ^ if shit gets fucked this is the problem ^
+
+(load "~/.emacs.d/elpa/note.el")
+(global-set-key (kbd "C-x M-n") 'tmp-new-note)
+;; there is probably a smarter way to load this.
+
+;; supress lexical-binding warnings (hopefully)
+(setq byte-compile-warnings '(not lexical))
 
 
 
-;; Automatically save buffers when they lose focus
-;;(defun save-buffer-if-visiting-file ()
-;;  (when (and (buffer-file-name) (buffer-modified-p))
-;;    (save-buffer)))
-;;(add-hook 'focus-out-hook 'save-buffer-if-visiting-file)
-;;(add-hook 'kill-buffer-hook 'save-buffer-if-visiting-file)
+
+;; things from better-defaults.el
+(show-paren-mode 1)
+
+(global-set-key (kbd "M-/") 'hippie-expand)
+;; (global-set-key (kbd "C-s") 'isearch-forward-regexp)
+;; (global-set-key (kbd "C-r") 'isearch-backward-regexp)
+;; (global-set-key (kbd "C-M-s") 'isearch-forward)
+;; (global-set-key (kbd "C-M-r") 'isearch-backward)
+(setq-default indent-tabs-mode nil)
 
 ;; Put backup files (file.txt~) in .emacs.d/
+;; this applies to pre-made files opened with emacs
 (setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
 (setq backup-by-copying t)
 
@@ -44,34 +65,105 @@
 ;; Disable auto-save files
 (setq auto-save-default nil)
 
-;; Remind things from diary (calander)
-;;(require 'appt)
-;;(appt-activate 1) 
-;;(add-hook 'diary-hook 'appt-make-list) 
-;;(setq appt-display-mode 'window)
-;; change to modeline if you want it in minibuf
+(setq line-spacing .2)
 
-;; Misc binds
-(global-set-key (kbd "C-c s") 'scratch-buffer)
-(global-set-key (kbd "C-c c") 'calendar)
 
-;;(global-set-key (kbd "C-x C-p") 'insert-pair)
+(use-package eww
+  :defer t
+  :custom (eww-retrieve-command nil)
+  :config
 
+  (defun wiki (page)
+    "Search wikipedia for info on a specific term"
+    (interactive (list (completing-read "Search Term: " nil)))
+    (eww (format "https://en.wikipedia.org/wiki/%s" page)))
+
+  (defun my/eww-readablity ()
+    (interactive)
+    (let ((eww-retrieve-command '("rdrview" "-H")))
+      (eww-reload nil nil)))
+  ;; I think this slows rendering down
+)
+
+;; Save place in file
+(save-place-local-mode 1) ;; persistent
+(setq save-place-file (expand-file-name "places" user-emacs-directory))
+
+;; complete pairs
+(electric-pair-mode)
+(electric-quote-mode)
+
+
+;; (ido-mode)
+;; I don’t know what this does that vertigo doesn’t do better?
+
+;; Dired settings
+(setq dired-listing-switches "-lh --time-style=long-iso -t --group-directories-first")
+
+;; btw, C-x C-q dired-toggle-read-only
+
+(require 'dired-x)
+
+(use-package dired
+  :ensure nil
+  :commands (dired)
+  :hook ((dired-mode . hl-line-mode)
+         (dired-mode . dired-omit-mode)
+         (dired-mode . dired-hide-details-mode))
+  :bind (:map dired-mode-map
+	      ("-" . dired-up-directory))
+  :init
+  ;; let me drag files into other programs
+  (setq dired-mouse-drag-files t)
+  (setq dired-bind-jump nil)
+  :config
+  (global-set-key (kbd "C-x C-d") 'dired-jump)
+  (add-hook 'dired-mode-hook #'dired-hide-details-mode)
+  (setq dired-dwim-target t)
+  (setq dired-listing-switches "-aghoA --group-directories-first")
+  ;; Hide . and .. in dired
+
+  (setq dired-omit-files "^\\.?#\\|^\\.$\\|^\\.\\.$\\|^\\..*$")
+
+;;;;; xdg-open integration
+  
+  ;; prevent opening extra dired buffers
+  ;; emacs 28
+  (setq dired-kill-when-opening-new-dired-buffer t))
+
+
+;; might be awful for normal writing
+;; hook;; Macro edit
+(global-set-key (kbd "C-x M-m") 'kmacro-edit-macro)
+
+
+
+;; Interface binds
+;; want to use hydra for this
+;; (global-set-key (kbd "C-c s") 'scratch-buffer)
+;; (global-set-key (kbd "C-c c") 'calendar)
+;; (global-set-key (kbd "C-c r") 'elfeed)
+;; (global-set-key (kbd "C-c m") 'dashboard-open)
 
 ;; Misc unbinds (things I find silly)
 (global-unset-key (kbd "C-x f")) ;; fill command
-(global-unset-key (kbd "C-x m")) ;; compo
-;;se mail
+(global-unset-key (kbd "C-x m")) ;; compose mail
+;;(global-unset-key (kbd "C-x C-c"))
 
+;; replaces upcase-word
+(global-set-key (kbd "M-u") 'undo-redo)
+
+;; (global-set-key (kbd "C-x C-u") 'undo-tree-mode)
 
 ;; Open in new window
-(global-set-key (kbd "C-M-m") 'make-frame)
+;;(global-set-key (kbd "C-M-m") 'make-frame)
 
 ;; Auto focus windows
 (defadvice split-window (after move-point-to-new-window activate)
   "Moves the point to the newly created window after splitting."
   (other-window 1))
 
+(setq cursor-type 'box)
 
 ;; Syntax highlighting 
 (setq font-lock-maximum-decoration t)
@@ -84,25 +176,54 @@
 (global-visual-line-mode t)
 (add-hook 'prog-mode-hook 'visual-line-mode)
 
+;; line numba
+(global-display-line-numbers-mode)
+
+;; show whitespace
+(whitespace-mode)
+(add-hook 'prog-mode-hook 'whitespace-mode)
+
+;; highlight current line
+(global-hl-line-mode)
+
 ;; Do not prompt to save when exiting Emacs
 (setq confirm-kill-emacs nil)
 
 ;; Spell check for text files using flyspell (built-in)
-(add-hook 'text-mode-hook 'flyspell-mode)
-(eval-after-load 'flyspell
-  '(progn
-     (define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-word)
-     ))
-
+;;(add-hook 'text-mode-hook 'flyspell-mode)
+;;(eval-after-load 'flyspell
+;;  '(progn
+;;     (define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-word)
+;;     ))
+;; why the fuck is this a text mode hook
 
 ;; Set eww as default browser
-(setq browse-url-browser-function 'eww-browse-ur)
+(setq browse-url-browser-function 'eww-browse-url)
 (setq eww-download-directory "~/.emacs.d/eww/")
 
-;; Bind C-x C-k to kill-buffer-and-window
-(global-unset-key (kbd "C-x 4 0"))
-;;(global-unset-key (kbd "C-x 5 0"))
+
+;; === BUFFER/WINDOW MANAGEMENT START ===
+
+(defun zimblo-shell-to-buffer ()
+  (interactive)
+  (let ((current-prefix-arg '(4))) ; equivalent to C-u
+    (call-interactively #'shell-command)))
+
+;; does unbind normal shell command
+;; M-| does shell on region
+(global-set-key (kbd "M-!") #'zimblo-shell-to-buffer)
+
+
+(global-set-key (kbd "C-x k")	       
+		(lambda ()
+		  (interactive)
+		  (kill-buffer (current-buffer)))
+		)
+;; ^ just buffer, not window. non-interactive.
 (global-set-key (kbd "C-x C-k") 'kill-buffer-and-window)
+
+
+
 ;; kills buffer not interactive.  
 
 
@@ -110,241 +231,59 @@
 (global-unset-key (kbd "C-x C-b"))
 (global-set-key (kbd "C-x C-b")'ibuffer)
 
-
-;; Macro edit
-(global-set-key (kbd "C-x C-e") 'kmacro-edit-macro)
-
-
-;; PACKAGES START
-
-;; Initialize package.el and add MELPA repo
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
-
-
-
-;; Terminal keybinding for vterm
-(use-package vterm
-  :config 
-;;c  (term "/bin/bash")
-  (global-set-key (kbd "C-`") 'vterm)
-)
-
-
-
-(use-package goto-last-change
-  :config
-  (global-set-key(kbd "C-x C-x") 'goto-last-change)
-  )
-
-
-(use-package beacon
-  :ensure t
-  :config
-  (beacon-mode 1)
-
-  )
-
-
-;; http://ergoemacs.org/emacs/elisp_read_file_content.html
-;; This is part of dashboard config.
-(defun read-lines (filePath)
-  (with-temp-buffer
-    (insert-file-contents filePath)
-    (split-string (buffer-string) "\n" t)))
-
-;; Dashboard (MELPA)
-(use-package dashboard
-  :ensure t
-  :config
-  (dashboard-setup-startup-hook)
-  (setq initial-buffer-choice (lambda () (get-buffer-create dashboard-buffer-name)))
-  (add-hook 'elpaca-after-init-hook #'dashboard-insert-startupify-lists)
-  (add-hook 'elpaca-after-init-hook #'dashboard-initialize)
-  (setq dashboard-footer-messages (read-lines "~/.emacs.d/jps.txt"))
-
+(defun buffer-wipe()
+  "Kill all buffers"
+  (interactive)
+  (mapcar 'kill-buffer (buffer-list))
+  (delete-other-windows)
   )
 
 
 
 
-
-
-(use-package powerline
-  :ensure t
-  :config
-  (powerline-vim-theme)
-  )
-
-;; Window management
-(use-package golden-ratio
-  :ensure t
-
-  :config
-  (require 'golden-ratio)
-  (golden-ratio-mode 1)
-)
-
-
-;; Buffer Terminator (from MELPA)
-(use-package buffer-terminator
-  :ensure t
-
-  :custom
-  (buffer-terminator-verbose nil)
-  :config
-  (buffer-terminator-mode 1)
-  (setq buffer-terminator-verbose t)
-  (setq buffer-terminator-inactivity-timeout (* 30 60)) ; 30 minutes
-  ;; defines what is inactive
-  (customize-set-variable 'buffer-terminator-interval (* 10 60)) ; 10 minutes
-  ;; how often checks for inactive
-  
-  )
-
-;; https://github.com/zk-phi/phi-search
+;; (defun buffer-wipe () 
+;;   "Kill all buffers except for default ones, and print the names of killed buffers."
+;;   (interactive)
+;;   (let ((default-buffers '("*scratch*" "*Messages*" "*dashboard*" "*straight-process*" "*Async-native-compile-log*"))) ; Add more default buffers if needed
+;;     (dolist (buf (buffer-list))
+;;       (let ((buf-name (buffer-name buf)))
+;;         (when (and (not (member buf-name default-buffers))
+;;                    (not (string-match-p "^\\*" buf-name))) ; Exclude all other special buffers
+;;           (message "Killing buffer: %s" buf-name)
+;;           (kill-buffer buf))))))
 
 
 
-;; (use-package centaur-tabs
-;;   :demand
-;;   :config
-;;   (centaur-tabs-mode t)
-;;   :bind
-;;   ("C-<prior>" . centaur-tabs-backward)
-;;   ("C-<next>" . centaur-tabs-forward)
-;;   ("C-x t" . centaur-tabs--create-new-tab)
-;; )
+
+;; === BUFFER/WINDOW MANAGEMENT END ===
 
 
-
-;; Configure markdown-mode
-(use-package markdown-mode
-  :ensure t
-  :mode ("\\.md\\'" . markdown-mode)  ;; Automatically use markdown-mode for .md files
-  :init
-  (setq markdown-command "pandoc")  ;; Set the command to use for rendering
-  :hook
-  (markdown-mode . (lambda ()
-                     (local-set-key (kbd "C-c C-p") 'markdown-preview))))  ;; Keybinding for preview
-
-
-;; Multiple-cursors
-(use-package multiple-cursors
-  :ensure t
-
-  :config
-  (global-set-key (kbd "C->") 'mc/mark-next-like-this)
-  (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-  (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-)
-
-;; Save place in file
-(save-place-mode 1)
-(setq save-place-file (expand-file-name "places" user-emacs-directory))
-
-
-;; Smartparens (MELPA)
-(use-package smartparens
-  :ensure t
-
-  :config
-  (smartparens-global-mode 1)
-  (smartparens-strict-mode 1))
-
-
-
-;; Spacious Padding (MELPA)
-(use-package spacious-padding
-  :ensure t
-
-  :config
-  (spacious-padding-mode 1))
-
-;; Vertico for Completion (MELPA)
-(use-package vertico
-  :ensure t
-  :config
-  (vertico-mode 1))
-
-;; I like this
-;; annotated minibuf
-(use-package marginalia
-  :ensure t
-  :init (marginalia-mode 1))
-
-
-
-;; Disable normal movement
-(use-package guru-mode
-  :ensure t
-  :config
-  (guru-global-mode))
-
-;; use markdown mode for markdown files
-(use-package markdown-mode
-  :ensure t
-  :mode ("README\\.md\\'" . gfm-mode)
-  :init (setq markdown-command "multimarkdown"))
-
-
-
-;; Run local LLM
-(setq
- gptel-model 'tinyllama:latest
- gptel-backend (gptel-make-ollama "Ollama"
-                 :host "localhost:11434"
-                 :stream t
-                 :models '(tinyllama:latest)))
-
-
-;; company mode, autocompletion
-(use-package company
-    :ensure t
-    :config
-    (add-hook 'after-init-hook 'global-company-mode)
-    (global-company-mode 1)
-  )
-
-;; PACKAGES END
-
-
-
-;; Custom-set variables and faces (managed by Emacs Custom)
+;; === CUSTOM VARIABLES START ===
+;; (managed by Emacs Custom)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(blink-cursor-mode nil)
- '(bongo-enabled-backends '(mpv))
- '(custom-enabled-themes '(ef-light))
- '(custom-safe-themes
-   '("c038d994d271ebf2d50fa76db7ed0f288f17b9ad01b425efec09519fa873af53"
-     "ad7d874d137291e09fe2963babc33d381d087fa14928cb9d34350b67b6556b6d"
-     "b8bd60a23b9e2f08b0c437231ee84f2dacc70fdc4d5a0fb87229bb9926273fdd"
-     "dc15dbd4b0a00c64610fd4379a89424e0be1b418f09457e0f062cac931e8ca82"
-     "cb024671ccb98c3ee7583e32df4bfdb50044dada87064e8fcf0fea2357ba7dd9"
-     "1781e8bccbd8869472c09b744899ff4174d23e4f7517b8a6c721100288311fa5"
-     "de8f2d8b64627535871495d6fe65b7d0070c4a1eb51550ce258cd240ff9394b0"
-     "acfe7ff6aacb9432f124cde4e35d6d2b4bc52916411de73a6ccded9750c9fa97"
-     "e7820b899036ae7e966dcaaec29fd6b87aef253748b7de09e74fdc54407a7a02"
-     default))
- '(desktop-save-mode t)
+ '(custom-enabled-themes '(modus-vivendi-tritanopia))
  '(display-time-mode t)
- '(google-translate-default-source-language "la")
- '(google-translate-default-target-language "en")
+ '(global-display-line-numbers-mode t)
  '(menu-bar-mode nil)
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil))
+ '(global-display-line-numbers-mode t)
+ '(menu-bar-mode nil)
+ '(scroll-bar-mode nil)
+ '(tool-bar-mode nil)
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "JetBrainsMono Nerd Font" :foundry "JetBrainsmono NF" :slant normal :weight light :height 150 :width normal)))))
+ '(default ((t (:family "Liberation Mono" :foundry "1ASC" :slant normal :weight regular :height 151 :width normal)))))
 
 
 ;; "JetBrainsMono Nerd Font,JetBrainsMono NF
+
+;; === CUSTOM VARIABLES END ===

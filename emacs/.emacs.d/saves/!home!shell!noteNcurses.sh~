@@ -1,0 +1,82 @@
+#!/bin/bash
+
+# Dependencies: fzf, ed, dialog, ispell, tar, coreutils
+
+FILE="/tmp/note"
+HABEO="$HOME/.note"
+TIME=$(date +"%I:%M:%S")
+NOTECOUNT=$(ls "$HABEO" 2>/dev/null | wc -l)
+localEditor="ed"
+BACKUP="$HOME/Documents"
+STOPWORDS="$HOME/.note/.stopwords.txt"
+
+menu() {
+    dialog --clear --backtitle "Note Menu" \
+        --title "Main Menu" \
+        --menu "Choose an action:" 20 60 10 \
+        1 "Edit note file" \
+        2 "Save file (auto name)" \
+        3 "Save file (manual name)" \
+        4 "Edit from note directory" \
+        5 "Print from note directory" \
+        6 "Run ispell on buffer" \
+        7 "Delete note file" \
+        8 "Archive note directory" \
+        9 "Exit" 2>menu_choice.txt
+
+    choice=$(<menu_choice.txt)
+    rm -f menu_choice.txt
+
+    case $choice in
+        1)
+            ed "$FILE"
+            ;;
+        2)
+            FILENAME=$(tr '[:upper:]' '[:lower:]' < "$FILE" | tr -s '[:space:]' '\n' | \
+                tr -d '[:punct:]' | grep -vwFf "$STOPWORDS" | grep -E '.{5,}' | \
+                sort | uniq -c | sort -nrk1,1 | awk '{print $2}' | head -n1)
+            mv -i "$FILE" "$HABEO/$FILENAME"
+            dialog --msgbox "Saved to $HABEO/$FILENAME" 6 50
+            ;;
+        3)
+            dialog --inputbox "Enter filename:" 8 40 2>tmp_name.txt
+            FILENAME=$(<tmp_name.txt)
+            rm -f tmp_name.txt
+            mv "$FILE" "$HABEO/$FILENAME"
+            dialog --msgbox "Saved to $HABEO/$FILENAME" 6 50
+            ;;
+        4)
+            cd "$HABEO"
+            FILE_SELECTED=$(fzf)
+            ed "$FILE_SELECTED"
+            ;;
+        5)
+            cd "$HABEO"
+            FILE_SELECTED=$(fzf)
+            dialog --textbox "$FILE_SELECTED" 20 60
+            ;;
+        6)
+            ispell "$FILE"
+            ;;
+        7)
+            rm -f "$FILE"
+            dialog --msgbox "Note file deleted." 6 40
+            ;;
+        8)
+            cd "$HABEO"
+            tar -czf archive.tar.gz *
+            cp archive.tar.gz "$BACKUP/noteArchive.tar.gz"
+            cp archive.tar.gz /mnt/Third/noteArchive.tar.gz
+            cp archive.tar.gz /mnt/Second/noteArchive.tar.gz
+            dialog --msgbox "Archived to archive.tar.gz\nSaved to $BACKUP, /mnt/Second/, /mnt/Third/" 10 60
+            ;;
+        9)
+            clear
+            exit 0
+            ;;
+    esac
+}
+
+while true; do
+    menu
+done

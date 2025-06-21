@@ -1,29 +1,83 @@
-;; Emacs-W3 HTTP cookies file
+;; Emacs-W3 HTTP cookies file  -*- lexical-binding: t -*-
 ;; Automatically generated file!!! DO NOT EDIT!!!
 
 (setq url-cookie-storage
- '(("askubuntu.com"
-  [url-cookie "__cflb" "02DiuFX9LKTXhdqkSxREzjLPf15zNmeEVxvTZcNbZQtnG"
-	      "Tue, 15-Apr-25 21:55:59 GMT" "/" "askubuntu.com" nil]))
+ '(("www.krqe.com"
+    [url-cookie "_pxhd"
+                "a3085e9a27d05b691c7e9fd6981ee6593752cd18cf694427ddf74716fad1649e:a29cf522-3758-11f0-8beb-068ab0eb27d1"
+                "Fri Jun 12 01:15:55 2026 GMT" "/" "www.krqe.com" nil])
+   (".cnn.com"
+    [url-cookie "FastAB"
+                "0=2462,1=2403,2=9447,3=6930,4=0745,5=3502,6=2438,7=4596,8=1802,9=1932,10=7361,11=7455,12=3936,13=5820,14=2548,15=2465,16=0352,17=9989,18=5686,19=2588"
+                "Tue, 16 Jun 2026 23:17:39 GMT" "/" ".cnn.com" nil])
+   (".nmpoliticalreport.com"
+    [url-cookie "__cf_bm"
+                "ZFEq129GYDULrPr5muMr1qTQFMdajTBU698LcXlg_3g-1750166257-1.0.1.1-SlU.rAiX3gjNxO.gVvtdryXd3p5ijEkTol1UjqfLUyfTKbQ70wxyU7W0HmBX4yN7CcOuKRE62SpbD2MaJqCQuis14r6iGhJG_AznuvXMpzg"
+                "Tue, 17-Jun-25 13:47:37 GMT" "/"
+                ".nmpoliticalreport.com" nil])
+   ("rohit.online"
+    [url-cookie "csrftoken" "l9VfgWxrMPhYzDJWTME1v3qPy66R2pj2"
+                "Sun May 17 00:57:50 2026 GMT" "/" "rohit.online" nil]))
 )
 (setq url-cookie-secure-storage
  '((".wikipedia.org"
-  [url-cookie "WMF-Last-Access-Global" "07-Apr-2025"
-	      "Fri, 09 May 2025 12:00:00 GMT" "/" ".wikipedia.org" t])
- ("github.com"
-  [url-cookie "logged_in" "no" "Tue, 14 Apr 2026 20:56:57 GMT" "/"
-	      "github.com" t]
-  [url-cookie "_octo" "GH1.1.17148715.1744664217"
-	      "Tue, 14 Apr 2026 20:56:57 GMT" "/" "github.com" t])
- (".askubuntu.com"
-  [url-cookie "prov" "92ea770a-cae7-4109-9525-4176617b536d"
-	      "Tue, 14 Apr 2026 22:55:59 GMT" "/" ".askubuntu.com" t]
-  [url-cookie "__cf_bm"
-	      "TyP2W9he2cQOqzuQLLU0cfPyC_o6DO.X9VgQBeSdrDE-1744671359-1.0.1.1-fTDK323mCIlmQvTSC6.6QXq7FFYd6Fw_XPKwhnXGkNI1mtkDmCQFSHnaTyUzt4uPJcJS0XUNPOoHuOozFuMfReYCoY9BDMRf_b5ClHvyeSA"
-	      "Mon, 14-Apr-25 23:25:59 GMT" "/" ".askubuntu.com" t])
- ("wikipedia.org"
-  [url-cookie "WMF-Last-Access" "07-Apr-2025"
-	      "Fri, 09 May 2025 12:00:00 GMT" "/" "wikipedia.org" t]))
+    [url-cookie "WMF-Last-Access-Global" "14-Jun-2025"
+                "Wed, 16 Jul 2025 12:00:00 GMT" "/" ".wikipedia.org" t]
+    [url-cookie "WMF-Uniq"
+                "cGqhBYCVhRLIxmwkSIXyMQISAAEBAFvdJxpvsxMrLttL7rDv0FR1-bNN6WuvXzuW"
+                "Sun, 14 Jun 2026 00:00:00 GMT" "/" ".wikipedia.org" t])
+   (".washingtonpost.com"
+    [url-cookie "wp_ak_wab" "1|2|3|0|1|0|0|0|2|20230418"
+                "Tue Jun 16 23:17:39 2026 GMT" "/" ".washingtonpost.com"
+                t]
+    [url-cookie "wp_ak_signinv2" "1|20230125"
+                "Wed Jul 16 23:17:39 2025 GMT" "/" ".washingtonpost.com"
+                t]
+    [url-cookie "wp_ak_ob" "1|20240131" "Wed Jul 16 23:17:39 2025 GMT"
+                "/" ".washingtonpost.com" t]
+    [url-cookie "wp_ak_gpp" "0|20250604" "Wed Jul 16 23:17:39 2025 GMT"
+                "/" ".washingtonpost.com" t]
+    [url-cookie "wp_ak_kywrd_ab" "1" "Tue, 01-Jul-2025 23:17:38 GMT" "/"
+                ".washingtonpost.com" t]
+    [url-cookie "wp_ak_v_v" "0|20210407" "Wed, 16-Jul-2025 23:17:38 GMT"
+                "/" ".washingtonpost.com" t]
+    [url-cookie "wp_devicetype" "0" "Wed, 16-Jul-2025 23:17:38 GMT" "/"
+                ".washingtonpost.com" t])
+   (".stackoverflow.com"
+    [url-cookie "prov" "44feed86-a167-4d03-aa3b-e19b20a6b8a1"
+                "Fri, 01 May 2026 02:22:16 GMT" "/" ".stackoverflow.com"
+                t])
+   ("reddit.com"
+    [url-cookie "edgebucket" "52ywsM3dXri9fP3TfC"
+                "Sat May 01 02:20:49 2027 GMT" "/" "reddit.com" t])
+   (".reddit.com"
+    [url-cookie "csv" "2" "Sat May 01 02:20:50 2027 GMT" "/"
+                ".reddit.com" t]
+    [url-cookie "loid"
+                "000000001ofk7qvszm.2.1746066050264.Z0FBQUFBQm9FdHFDejgyS2tPY1Y3eHZXUzJESERDMkoxVGVGRzVhbmQ4dS1STFRIUHFDRWJqYjhJNWVHNUh6NzVTUk40UENNSmIzWWh0NWZEa08zR1VKSXc4OVFLXzlrQlA4Z2x3MXNtYVQzX1h5RVduREVFYnM1SzRrVHozendFMk5ZWUp6NTlYRlM"
+                "Sun, 23 May 2027 19:24:02 GMT" "/" ".reddit.com" t])
+   ("en.wikipedia.org"
+    [url-cookie "WMF-Last-Access" "14-Jun-2025"
+                "Wed, 16 Jul 2025 12:00:00 GMT" "/" "en.wikipedia.org" t])
+   ("github.com"
+    [url-cookie "logged_in" "no" "Tue, 14 Apr 2026 20:56:57 GMT" "/"
+                "github.com" t]
+    [url-cookie "_octo" "GH1.1.17148715.1744664217"
+                "Tue, 14 Apr 2026 20:56:57 GMT" "/" "github.com" t])
+   (".youtube.com"
+    [url-cookie "GPS" "1" "Fri, 20-Jun-2025 00:24:10 GMT" "/"
+                ".youtube.com" t]
+    [url-cookie "VISITOR_INFO1_LIVE" "OeB83gD7Ifs"
+                "Tue, 16-Dec-2025 23:54:39 GMT" "/" ".youtube.com" t]
+    [url-cookie "VISITOR_PRIVACY_METADATA" "CgJVUxIEGgAgYw%3D%3D"
+                "Tue, 16-Dec-2025 23:54:39 GMT" "/" ".youtube.com" t])
+   ("youtube.com"
+    [url-cookie "__Secure-ROLLOUT_TOKEN"
+                "CNHH2KSIm5-qeRC_4fqx1_6NAxik6L-_1_6NAw%3D%3D"
+                "Tue, 16-Dec-2025 23:54:39 GMT" "/" "youtube.com" t])
+   (".askubuntu.com"
+    [url-cookie "prov" "92ea770a-cae7-4109-9525-4176617b536d"
+                "Tue, 14 Apr 2026 22:55:59 GMT" "/" ".askubuntu.com" t]))
 )
 
 ;; Local Variables:

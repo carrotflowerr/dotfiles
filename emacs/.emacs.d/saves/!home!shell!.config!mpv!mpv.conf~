@@ -52,6 +52,8 @@
 # Keep the player window on top of all other windows.
 #ontop=yes
 
+save-position-on-quit=yes
+
 # Specify fast video rendering preset (for --vo=<gpu|gpu-next> only)
 # Recommended for mobile devices or older hardware with limited processing power
 #profile=fast

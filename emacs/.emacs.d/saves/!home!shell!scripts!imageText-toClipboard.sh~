@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Create a temporary file for the screenshot
+IMG=$(mktemp --suffix=.png)
+
+# Check for Wayland or X11 session
+if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+    # Wayland: grim + slurp + wl-copy
+    grim -g "$(slurp -d -w 2)" - | tee "$IMG" | wl-copy -t image/png
+    tesseract "$IMG" - | wl-copy
+else
+    # X11: maim + xclip
+    maim -s "$IMG"
+    xclip -selection clipboard -t image/png -i "$IMG"
+    tesseract "$IMG" - | xclip -selection clipboard
+    notify-send "text copied."
+fi
+
+# Clean up
+rm "$IMG"

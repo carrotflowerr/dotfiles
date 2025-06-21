@@ -1,0 +1,1 @@
+qemu-system-x86_64 -boot d -cdrom bodhi-7.0.0-64.iso -drive file=nirvana.img -m 4G -enable-kvm -smp 4

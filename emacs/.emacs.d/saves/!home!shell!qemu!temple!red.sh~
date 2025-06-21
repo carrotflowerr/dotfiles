@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# TempleOS QEMU Launch Script
+# This script starts a virtual machine for TempleOS using QEMU.
+
+# Variables
+DISK_IMAGE="shrine.img"    # Your virtual disk image
+ISO_FILE="TempleOS.ISO"     # Your TempleOS ISO file
+RAM="512M"                  # RAM allocation for the VM
+
+# Set up audio driver
+export QEMU_AUDIO_DRV=pa  # Change to 'alsa' if needed
+
+# Start the VM with the live CD
+qemu-system-x86_64  -m "$RAM" -enable-kvm -vga qxl -usbdevice tablet -drive file="$DISK_IMAGE" -cdrom "$ISO_FILE" -boot order=d
+
+# End of script
+

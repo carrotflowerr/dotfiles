@@ -1,22 +1,23 @@
-# This is an example Hyprland config file.
-# Refer to the wiki for more information.
-# https://wiki.hyprland.org/Configuring/
+# Zimblo's epic Hyprland config
+# Sat May 17 01:49:44 AM MDT 2025
 
-# Please note not all available settings / options are set here.
-# For a full list, see the wiki
+# https://wiki.hyprland.org/Configuring/
 
 # You can split this configuration into multiple files
 # Create your files separately and then link them to this file like this:
 # source = ~/.config/hypr/myColors.conf
 
+# for virt-manager? idk.
+exec-once=/usr/bin/lxqt-policykit-agent &
 
-
+windowrulev2 = float, class:.* 
 
 ################
 ### MONITORS ###
 ################
-windowrulev2 = monitor HDMI-A-2, class:^(mpv)$
-
+#windowrulev2 = monitor HDMI-A-2, class:^(mpv)$
+windowrulev2 = workspace 4, class:^(steam)$
+ 
 # See https://wiki.hyprland.org/Configuring/Monitors/
 monitor=,preferred,auto,auto
 # Monitor Configuration
@@ -25,7 +26,6 @@ monitor=DVI-D-1, 1920x1080, 1920x0, 1
 
 # Workspace Assignments
 workspace=1, monitor:DVI-D-1
-# literally just this is not working ^
 workspace=2, monitor:DVI-D-1
 workspace=3, monitor:DVI-D-1
 workspace=4, monitor:DVI-D-1
@@ -45,6 +45,8 @@ workspace=10, monitor:HDMI-A-2
 
 # Set programs that you use
 $terminal = footclient
+# $terminal =  emacsclient -c --eval "(vterm)"
+
 $fileManager = dolphin
 #$menu = wofi --show drun
 $menu = ~/.cargo/bin/kickoff
@@ -56,17 +58,28 @@ $menu = ~/.cargo/bin/kickoff
 # Autostart necessary processes (like notifications daemons, status bars, etc.)
 # Or execute your favorite apps at launch like this:
 
+#TempleOS on boot
+# exec=~/scripts/templeopen.sh
+exec-once = ~/.cargo/bin/rescrobbled # This should ONLY scrobble kew
+exec-once = ~/scripts/randWp.sh
+
+
 # exec-once = $terminal
 # exec-once = nm-applet &
 # exec-once = waybar & hyprpaper & firefox
+exec-once = emacs --daemon
+exec-once = emacsclient -c
+windowrule = size 1280 720, ^emacsclient$, floating
+# this doesn't do anything
+
 exec-once = foot --server
 exec-once = waybar
-exec-once = emacs --daemon
-exec = randWp.sh /home/shell/Downloads/wallpapers/ building/
-exec-once = hyprctl dispatch moveworkspacetomonitor DVI-D-1
+
+
+#exec-once = hyprctl dispatch moveworkspacetomonitor DVI-D-1
 exec-once = clipse -listen
-exec-once = [workspace-7] nicotine -s
-exec-once = [workspace-6] clementine
+exec-once = nicotine -s
+#exec-once = [workspace-6] clementine
 
 #############################
 ### ENVIRONMENT VARIABLES ###
@@ -106,26 +119,26 @@ general {
 # https://wiki.hyprland.org/Configuring/Variables/#decoration
 decoration {
     rounding = 10
-    
+
     # Change transparency of focused and unfocused windows
     active_opacity = 1.0
     inactive_opacity = 1.0
 
-    
+
     # https://wiki.hyprland.org/Configuring/Variables/#blur
     blur {
-        enabled = true
-        size = 3
-        passes = 1
+	enabled = true
+	size = 3
+	passes = 1
 
-        vibrancy = 0.1696
+	vibrancy = 0.1696
     }
 }
 
 # https://wiki.hyprland.org/Configuring/Variables/#animations
 animations {
-    #enabled = yes, please :)
-    enabled = no
+    enabled = yes, please :)
+#    enabled = no
     # Default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
 
     bezier = easeOutQuint,0.23,1,0.32,1
@@ -137,7 +150,7 @@ animations {
     animation = global, 1, 10, default
     animation = border, 1, 5.39, easeOutQuint
 #    animation = windows, 1, 4.79, easeOutQuint
-    animation = windows, 1, 7, easeOutQuint	
+    animation = windows, 1, 7, easeOutQuint
     animation = windowsIn, 1, 4.1, easeOutQuint, popin 87%
     animation = windowsOut, 1, 1.49, linear, popin 87%
     animation = fadeIn, 1, 1.73, almostLinear
@@ -198,7 +211,7 @@ input {
     sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
 
     touchpad {
-        natural_scroll = false
+	natural_scroll = false
     }
 }
 
@@ -219,6 +232,9 @@ device {
 ### KEYBINDINGS ###
 ###################
 
+
+
+
 # See https://wiki.hyprland.org/Configuring/Keywords/
 # https://wiki.hyprland.org/Configuring/Dispatchers/ for all functions
 $mainMod = SUPER # Sets "Windows" key as main modifier
@@ -226,19 +242,22 @@ $editor = emacsclient -c
 bind = $mainMod SHIFT, e, exec, $editor
 
 bind=SUPER,F,fullscreen
-bind=$mainMod SHIFT, x, exec, swaylock 
+bind=$mainMod SHIFT, x, exec, swaylock
 
 # Scripts
 bind=$mainMod SHIFT, z, exec, footclient -e ~/scripts/shutdown.sh
-bind = $mainMod, n, exec, footclient -e ~/scripts/note
+bind = $mainMod, n, exec, footclient -e ~/scripts/zoni.sh
 bind=$mainMod, Menu, exec, foot -e clipse
 bind = $mainMod SHIFT, V, exec, ~/scripts/sxiv-clip.sh
-
+#bind = $mainMod, F7, exec, ~/scripts/god/godwordInsert.sh
+#bind = $mainMod SHIFT, w, exec, ~/scripts/randWp.sh
+bind = $mainMod SHIFT, b, exec, footclient -e ~/scripts/bibleopen.sh
 
 # Screenshot binds
 bind=$mainMod, s, exec, grim -g "$(slurp -d -w 2)" - | wl-copy -t image/png
-bind=$mainMod SHIFT, s, exec, ~/scripts/imageText-toClipboard.sh
 bind=, Print, exec, grim -g "$(slurp -d -w 2)" - > /home/shell/Pictures/"$(date).png"
+bind=$mainMod SHIFT, s, exec, ~/scripts/imageText-toClipboard.sh
+
 
 
 

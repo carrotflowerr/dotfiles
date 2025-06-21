@@ -1,0 +1,3 @@
+seed="your_seed_here"
+echo "$seed" | openssl dgst -sha256 -binary | head -c 32 > seed.bin
+shuf -n "$am" ~/scripts/happy.txt --random-source=seed.bin | tr '\n' ' '

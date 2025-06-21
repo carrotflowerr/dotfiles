@@ -1,0 +1,2 @@
+run:
+	entr gcc -o main main.c

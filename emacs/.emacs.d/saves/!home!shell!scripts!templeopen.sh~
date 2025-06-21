@@ -1,0 +1,2 @@
+cd ~/qemu/EXODUS/
+exec exodus

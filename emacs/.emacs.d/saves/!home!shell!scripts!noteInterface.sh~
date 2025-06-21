@@ -1,0 +1,141 @@
+#!/bin/bash
+# Simple text-menu interface for notes
+
+HABEO="$HOME/.note"
+source "$HABEO/config.sh"
+
+# Ensure environment
+mkdir -p "$HABEO"
+touch "$FILE"
+
+
+
+display_menu() {
+    clear
+    echo "Zimblo's Own Notes"
+    echo "---------"
+    echo "e) Edit buffer ($FILE)"
+    echo "s) Save note (auto name)"
+    echo "f) Save note (manual name)"
+    echo "E) Edit note archive"
+    echo "P) Print note archive"
+    echo "i) Spell-check note"
+    echo "d) Delete buffer"
+    echo "X) Encrypt a file from archive"
+    echo "w) Edit stopwords.txt"
+    echo "A) Archive all notes"
+    echo "q) Quit "
+}
+
+pause() {
+    read -p "Press Enter to continue..."
+}
+
+auto_name() {
+    fname=$(tr '[:upper:]' '[:lower:]' < "$FILE" |
+        tr -s '[:space:]' '\n' |
+        tr -d '[:punct:]' |
+        grep -vwFf "$STOPWORDS" 2>/dev/null |
+        grep -E '.{5,}' |
+        sort | uniq -c | sort -nrk1 | awk '{print $2}' | head -n1)
+    [ -z "$fname" ] && fname="note_$(date +"$TIME_FORMAT")"
+    echo "$fname"
+}
+
+name_manual() {
+    read -p "Enter filename: " name
+    mv -i "$FILE" "$HABEO/$name"
+    touch "$FILE"
+    echo "Saved as $HABEO/$name"
+}
+
+edit_buffer() {
+    $EDITOR_CMD "$FILE"
+}
+
+save_auto() {
+    name=$(auto_name)
+    echo "Save as $name? (y/n)"
+    read -p "> " c
+    if [ "$c" = 'y' ]; then
+        mv -i "$FILE" "$HABEO/$name"
+        touch "$FILE"
+        echo "Saved as $HABEO/$name"
+    elif [ "$c" = 'n' ]; then
+        name_manual
+    else
+        echo "?"
+    fi
+    pause
+}
+
+save_manual() {
+    name_manual
+    pause
+}
+
+edit_archive() {
+    cd "$HABEO"
+    chosenFile=$(fzf)
+    [ -n "$chosenFile" ] && $EDITOR_CMD "$chosenFile"
+    pause
+}
+
+print_archive() {
+    cd "$HABEO"
+    file=$(fzf)
+    [ -n "$file" ] && less "$file"
+    pause
+}
+
+spell_check() {
+    ispell "$FILE"
+    pause
+}
+
+delete_buffer() {
+    rm -i "$FILE"
+    touch "$FILE"
+    echo "Current note reset."
+    pause
+}
+
+encrypt_file() {
+    chosenFile=$(fzf)
+    GPG_TTY=$(tty)
+    export GPG_TTY
+    gpg --pinentry-mode loopback --symmetric "$chosenFile"
+    rm -i "$chosenFile"
+}
+
+edit_stopwords() {
+    $EDITOR_CMD "$STOPWORDS"
+}
+
+archive_notes() {
+    tar -czf "$HABEO/archive_$(date +"$TIME_FORMAT").tar.gz" -C "$HABEO" .
+    cp "$HABEO"/*.tar.gz "$BACKUP" 2>/dev/null
+    echo "Archive created in $HABEO and copied to $BACKUP."
+    pause
+}
+
+while true; do
+    display_menu
+    IFS= read -rsn1 choice
+    case "$choice" in
+        e) edit_buffer ;;
+        s) save_auto ;;
+        f) save_manual ;;
+        E) edit_archive ;;
+        P) print_archive ;;
+        i) spell_check ;;
+        d) delete_buffer ;;
+        X) encrypt_file ;;
+        w) edit_stopwords ;;
+        A) archive_notes ;;
+        q) break ;;
+        *) echo "Invalid choice."; pause ;;
+    esac
+done
+
+exit 0

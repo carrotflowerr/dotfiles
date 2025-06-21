@@ -1,0 +1,11 @@
+* Note script
+** TODO Naming
+** TODO (urgent) not overriding shit
+** TODO saving just tmp file, not to .note/
+
+* Emacs
+** TODO Learn org-mode
+
+* Chore
+** TODO water backyard
+

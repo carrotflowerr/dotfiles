@@ -1,0 +1,9 @@
+while pgrep steam > /dev/null; do
+    killall steam
+    echo "Killing steam..."
+    sleep 1
+done
+echo "No steam instances."
+echo "Launching steam..."
+steam &
+

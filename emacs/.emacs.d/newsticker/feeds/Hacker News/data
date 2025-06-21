@@ -1,0 +1,396 @@
+;; -*- coding: utf-8 -*-
+(("Hacker News: Front Page" "Hacker News RSS" "https://news.ycombinator.com/" (26705 30979 93319 47000) feed 0 nil nil ((title nil "Hacker News: Front Page") (link nil "https://news.ycombinator.com/") (description nil "Hacker News RSS") (docs nil "https://hnrss.org/") (generator nil "hnrss v2.1.1") (lastBuildDate nil "Mon, 16 Jun 2025 23:17:13 +0000") (link ((href . "https://hnrss.org/frontpage") (rel . "self") (type . "application/rss+xml"))) (item nil (title nil "What Happens When Clergy Take Psilocybin") (description nil "
+<p>Article URL: <a href=\"https://nautil.us/clergy-blown-away-by-psilocybin-1217112/\">https://nautil.us/clergy-blown-away-by-psilocybin-1217112/</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44293610\">https://news.ycombinator.com/item?id=44293610</a></p>
+<p>Points: 23</p>
+<p># Comments: 12</p>
+") (pubDate nil "Mon, 16 Jun 2025 21:34:09 +0000") (link nil "https://nautil.us/clergy-blown-away-by-psilocybin-1217112/") (creator nil "bookofjoe") (comments nil "https://news.ycombinator.com/item?id=44293610") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44293610")) (item nil (title nil "Blaze (YC S24) Is Hiring") (description nil "
+<p>Article URL: <a href=\"https://www.ycombinator.com/companies/blaze-2/jobs/dzNmNuw-junior-software-engineer\">https://www.ycombinator.com/companies/blaze-2/jobs/dzNmNuw-junior-software-engineer</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44293358\">https://news.ycombinator.com/item?id=44293358</a></p>
+<p>Points: 0</p>
+<p># Comments: 0</p>
+") (pubDate nil "Mon, 16 Jun 2025 21:00:47 +0000") (link nil "https://www.ycombinator.com/companies/blaze-2/jobs/dzNmNuw-junior-software-engineer") (creator nil "faiyamrahman") (comments nil "https://news.ycombinator.com/item?id=44293358") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44293358")) (item nil (title nil "Show HN: Chawan TUI web browser") (description nil "
+<p>A terminal-based web browser in Nim.[1]  Has acceptable (YMMV) CSS
+rendering, some JS support, and inline images (sixel/kitty).  It can
+also use various protocols other than http(s) such as (s)ftp, gopher,
+gemini, ...<p>Chawan started out as a w3m clone, and the UI still resembles it.
+However, the architecture has turned out quite different, with pages
+loaded in separate processes, and protocol/file type handling separated
+out into external binaries.  An interesting result is that you can even
+register decoders for custom inline image formats, although practical
+use cases of this are rather minimal.<p>There is a gallery showcasing some websites being rendered here:
+<a href=\"https://chawan.net/gallery/index.html\" rel=\"nofollow\">https://chawan.net/gallery/index.html</a><p>[1]: <a href=\"https://nim-lang.org\" rel=\"nofollow\">https://nim-lang.org</a></p>
+<hr>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44293260\">https://news.ycombinator.com/item?id=44293260</a></p>
+<p>Points: 114</p>
+<p># Comments: 14</p>
+") (pubDate nil "Mon, 16 Jun 2025 20:48:43 +0000") (link nil "https://chawan.net/news/chawan-0-2-0.html") (creator nil "shiomiru") (comments nil "https://news.ycombinator.com/item?id=44293260") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44293260")) (item nil (title nil "Show HN: Nexus.js - Fabric.js for 3D") (description nil "
+<p>I was looking for a tiny library to easily transform both 2D & 3D objects with simple mouse / touch controls and a fixed camera, in the browser.<p>Like a simple 3D editor but without requiring the user to be a Blender expert.<p>Couldn't find anything lightweight, so I’m building one. Think Fabric.js but for 3D. Built entirely with Three.js / R3F.<p>Borrowed some inspiration from VR/AR interaction systems for controls.<p>Feel free to play with it and let me know what you think!</p>
+<hr>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44293147\">https://news.ycombinator.com/item?id=44293147</a></p>
+<p>Points: 33</p>
+<p># Comments: 8</p>
+") (pubDate nil "Mon, 16 Jun 2025 20:33:45 +0000") (link nil "https://punk.cam/lab/nexus") (creator nil "ges") (comments nil "https://news.ycombinator.com/item?id=44293147") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44293147")) (item nil (title nil "Denmark tests unmanned robotic sailboat fleet") (description nil "
+<p>Article URL: <a href=\"https://apnews.com/article/denmark-robot-sailboats-baltic-sea-bfa31c98cf7c93320115c0ad0e6908c5\">https://apnews.com/article/denmark-robot-sailboats-baltic-sea-bfa31c98cf7c93320115c0ad0e6908c5</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44293132\">https://news.ycombinator.com/item?id=44293132</a></p>
+<p>Points: 15</p>
+<p># Comments: 3</p>
+") (pubDate nil "Mon, 16 Jun 2025 20:31:50 +0000") (link nil "https://apnews.com/article/denmark-robot-sailboats-baltic-sea-bfa31c98cf7c93320115c0ad0e6908c5") (creator nil "domofutu") (comments nil "https://news.ycombinator.com/item?id=44293132") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44293132")) (item nil (title nil "Retrobootstrapping Rust for some reason") (description nil "
+<p>Article URL: <a href=\"https://graydon2.dreamwidth.org/317484.html\">https://graydon2.dreamwidth.org/317484.html</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44293044\">https://news.ycombinator.com/item?id=44293044</a></p>
+<p>Points: 64</p>
+<p># Comments: 27</p>
+") (pubDate nil "Mon, 16 Jun 2025 20:19:44 +0000") (link nil "https://graydon2.dreamwidth.org/317484.html") (creator nil "romac") (comments nil "https://news.ycombinator.com/item?id=44293044") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44293044")) (item nil (title nil "OpenAI and Microsoft tensions are reaching a boiling point") (description nil "
+<p>Article URL: <a href=\"https://www.wsj.com/tech/ai/openai-and-microsoft-tensions-are-reaching-a-boiling-point-4981c44f\">https://www.wsj.com/tech/ai/openai-and-microsoft-tensions-are-reaching-a-boiling-point-4981c44f</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44292989\">https://news.ycombinator.com/item?id=44292989</a></p>
+<p>Points: 52</p>
+<p># Comments: 10</p>
+") (pubDate nil "Mon, 16 Jun 2025 20:12:53 +0000") (link nil "https://www.wsj.com/tech/ai/openai-and-microsoft-tensions-are-reaching-a-boiling-point-4981c44f") (creator nil "jmsflknr") (comments nil "https://news.ycombinator.com/item?id=44292989") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44292989")) (item nil (title nil "Breaking Quadratic Barriers: A Non-Attention LLM for Ultra-Long Context Horizons") (description nil "
+<p>Article URL: <a href=\"https://arxiv.org/abs/2506.01963\">https://arxiv.org/abs/2506.01963</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44292601\">https://news.ycombinator.com/item?id=44292601</a></p>
+<p>Points: 34</p>
+<p># Comments: 17</p>
+") (pubDate nil "Mon, 16 Jun 2025 19:19:57 +0000") (link nil "https://arxiv.org/abs/2506.01963") (creator nil "PaulHoule") (comments nil "https://news.ycombinator.com/item?id=44292601") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44292601")) (item nil (title nil "Transparent peer review to be extended to all of Nature's research papers") (description nil "
+<p>Article URL: <a href=\"https://www.nature.com/articles/d41586-025-01880-9\">https://www.nature.com/articles/d41586-025-01880-9</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44292342\">https://news.ycombinator.com/item?id=44292342</a></p>
+<p>Points: 100</p>
+<p># Comments: 52</p>
+") (pubDate nil "Mon, 16 Jun 2025 18:51:33 +0000") (link nil "https://www.nature.com/articles/d41586-025-01880-9") (creator nil "rntn") (comments nil "https://news.ycombinator.com/item?id=44292342") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44292342")) (item nil (title nil "Show HN: Canine – A Heroku alternative built on Kubernetes") (description nil "
+<p>Hello HN!<p>I've been working on Canine for about a year now. It started when I was sick of paying the overhead of using stuff like Heroku, Render, Fly, etc to host some web apps that I've built. At one point I was paying over $400 a month for hosting these in the cloud. Last year I moved all my stuff to Hetzner.<p>For a 4GB machine, the cost of various providers:<p>Heroku = $260
+Fly.io = $65
+Render = $85
+Hetzner = $4<p>(This problem gets a lot worse when you need > 4GB)<p>The only downside of using Hetzner is that there isn’t a super straightforward way to do stuff like:<p>- DNS management / SSL certificate management
+- Team management
+- Github integration<p>But I figured it should be easy to quickly build something like Heroku for my Hetzner instance. Turns out it was a bit harder than expected, but after a year, I’ve made some good progress<p>The best part of Canine, is that it also makes it trivial to host any helm chart, which is available for basically any open source project, so everything from databases (e.g. Postgres, Redis), to random stuff like torrent tracking servers, VPN’s endpoints, etc.<p>Open source: <a href=\"https://github.com/czhu12/canine\">https://github.com/czhu12/canine</a>
+Cloud hosted version is: <a href=\"https://canine.sh\" rel=\"nofollow\">https://canine.sh</a></p>
+<hr>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44292103\">https://news.ycombinator.com/item?id=44292103</a></p>
+<p>Points: 123</p>
+<p># Comments: 58</p>
+") (pubDate nil "Mon, 16 Jun 2025 18:27:59 +0000") (link nil "https://github.com/czhu12/canine") (creator nil "czhu12") (comments nil "https://news.ycombinator.com/item?id=44292103") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44292103")) (item nil (title nil "The Members of the Dull Men's Club") (description nil "
+<p>Article URL: <a href=\"https://www.theguardian.com/society/2025/jun/09/meet-the-members-of-the-dull-mens-club-some-of-them-would-bore-the-ears-off-you\">https://www.theguardian.com/society/2025/jun/09/meet-the-members-of-the-dull-mens-club-some-of-them-would-bore-the-ears-off-you</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44291892\">https://news.ycombinator.com/item?id=44291892</a></p>
+<p>Points: 66</p>
+<p># Comments: 35</p>
+") (pubDate nil "Mon, 16 Jun 2025 18:07:37 +0000") (link nil "https://www.theguardian.com/society/2025/jun/09/meet-the-members-of-the-dull-mens-club-some-of-them-would-bore-the-ears-off-you") (creator nil "herbertl") (comments nil "https://news.ycombinator.com/item?id=44291892") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44291892")) (item nil (title nil "Open-Source RISC-V: Energy Efficiency of Superscalar, Out-of-Order Execution") (description nil "
+<p>Article URL: <a href=\"https://arxiv.org/abs/2505.24363\">https://arxiv.org/abs/2505.24363</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44291204\">https://news.ycombinator.com/item?id=44291204</a></p>
+<p>Points: 45</p>
+<p># Comments: 10</p>
+") (pubDate nil "Mon, 16 Jun 2025 16:46:55 +0000") (link nil "https://arxiv.org/abs/2505.24363") (creator nil "PaulHoule") (comments nil "https://news.ycombinator.com/item?id=44291204") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44291204")) (item nil (title nil "The Renegade Richard Foreman") (description nil "
+<p>Article URL: <a href=\"https://yalereview.org/article/jennifer-krasinski-richard-foreman\">https://yalereview.org/article/jennifer-krasinski-richard-foreman</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44291026\">https://news.ycombinator.com/item?id=44291026</a></p>
+<p>Points: 13</p>
+<p># Comments: 6</p>
+") (pubDate nil "Mon, 16 Jun 2025 16:24:33 +0000") (link nil "https://yalereview.org/article/jennifer-krasinski-richard-foreman") (creator nil "prismatic") (comments nil "https://news.ycombinator.com/item?id=44291026") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44291026")) (item nil (title nil "Darklang Goes Open Source") (description nil "
+<p>Article URL: <a href=\"https://blog.darklang.com/darklang-goes-open-source/\">https://blog.darklang.com/darklang-goes-open-source/</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44290653\">https://news.ycombinator.com/item?id=44290653</a></p>
+<p>Points: 134</p>
+<p># Comments: 61</p>
+") (pubDate nil "Mon, 16 Jun 2025 15:41:44 +0000") (link nil "https://blog.darklang.com/darklang-goes-open-source/") (creator nil "stachudotnet") (comments nil "https://news.ycombinator.com/item?id=44290653") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44290653")) (item nil (title nil "Benzene at 200") (description nil "
+<p>Article URL: <a href=\"https://www.chemistryworld.com/opinion/benzene-at-200/4021504.article\">https://www.chemistryworld.com/opinion/benzene-at-200/4021504.article</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44290413\">https://news.ycombinator.com/item?id=44290413</a></p>
+<p>Points: 160</p>
+<p># Comments: 88</p>
+") (pubDate nil "Mon, 16 Jun 2025 15:16:47 +0000") (link nil "https://www.chemistryworld.com/opinion/benzene-at-200/4021504.article") (creator nil "Brajeshwar") (comments nil "https://news.ycombinator.com/item?id=44290413") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44290413")) (item nil (title nil "OpenTelemetry for Go: Measuring overhead costs") (description nil "
+<p>Article URL: <a href=\"https://coroot.com/blog/opentelemetry-for-go-measuring-the-overhead/\">https://coroot.com/blog/opentelemetry-for-go-measuring-the-overhead/</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44290331\">https://news.ycombinator.com/item?id=44290331</a></p>
+<p>Points: 84</p>
+<p># Comments: 32</p>
+") (pubDate nil "Mon, 16 Jun 2025 15:09:17 +0000") (link nil "https://coroot.com/blog/opentelemetry-for-go-measuring-the-overhead/") (creator nil "openWrangler") (comments nil "https://news.ycombinator.com/item?id=44290331") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44290331")) (item nil (title nil "ZjsComponent: A Pragmatic Approach to Reusable UI Fragments for Web Development") (description nil "
+<p>Article URL: <a href=\"https://arxiv.org/abs/2506.11016\">https://arxiv.org/abs/2506.11016</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44290315\">https://news.ycombinator.com/item?id=44290315</a></p>
+<p>Points: 59</p>
+<p># Comments: 40</p>
+") (pubDate nil "Mon, 16 Jun 2025 15:07:42 +0000") (link nil "https://arxiv.org/abs/2506.11016") (creator nil "lelanthran") (comments nil "https://news.ycombinator.com/item?id=44290315") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44290315")) (item nil (title nil "Show HN: dk – A script runner and cross-compiler, written in OCaml") (description nil "
+<p>I've always found it cool to be in roles where I can help a younger generation learn skills to have a bright future. That role is something I do in a few ways (as a parent, robotics mentor, school board advisor and Sunday school teacher) and I suspect most HN readers share the same role and appreciation. And for developing software skills, it was obvious that both the students and I had to have a productive software environment where we could work together. That theme of experienced/inexperienced engineers working together is the context in which I created `dk` as a scripting tool.<p>My testing ground has been students with one or two AP CS courses (high school computer science in the US), some of whom interned with me. I had to tackle a few problems:<p>- The development environment had to be simple to setup and the programming language couldn't be complicated
+- The recognition that writing small, easily testable units of work (ex. \"scripts\") has been the only way I've found for very junior programmers to develop a large application
+- Cheap, locked-down development hardware (ex. school computers with limited RAM and no Administrator privileges) is sometimes used for deployment to cheap hardware targets (ex. hand-me-down Android tablets)<p>My solution was to write a standalone binary called `dk` that uses scripts as the atom of work, cross-compiles to standalone executables, and downloads the runtimes and sysroots it needs on-demand. It sits roughly in the same space as Python and Go.<p>`dk` is available for Windows, macOS and Linux/glibc host machines with a growing list of cross-compilation targets.
+Your `dk` scripts are written in an almost complete subset of OCaml 4: all `dk` scripts are OCaml, but not all OCaml code can run in `dk`. The other differences from conventional OCaml are that `dk` comes with a large library included, and that I treat any feature as buggy if the feature does not work on all supported OS-es.<p>The above origin of `dk` is admittedly odd (and abbreviated), so I was not expecting that `dk` would now be a general-purpose scripting tool. Yet it is. I can wrap, re-use and organize most of my hand-written software as a set of `dk` scripts.<p>Fair warning: The cross-compilation support in `dk` has had a recent overhaul and not every bug is closed. The error messages suck (you have to scroll up to see the root cause and resolution) but they will improve. Some progress bars are missing. There are also a few experimental features ... `uv`-style imports and an interactive interpreter are the big ones ... which are purposely under-documented because I am worried about `dk`'s API surface.<p>But it still works well, and you can see some real applications in the Examples section. I'd love if you could give it a kick in the tires and give `dk` some feedback! The issue list is at <<a href=\"https://github.com/diskuv/dk/issues\">https://github.com/diskuv/dk/issues</a>>.</p>
+<hr>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44290121\">https://news.ycombinator.com/item?id=44290121</a></p>
+<p>Points: 47</p>
+<p># Comments: 5</p>
+") (pubDate nil "Mon, 16 Jun 2025 14:49:34 +0000") (link nil "https://diskuv.com/dk/help/latest/") (creator nil "beckford") (comments nil "https://news.ycombinator.com/item?id=44290121") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44290121")) (item nil (title nil "WhatsApp introduces ads in its app") (description nil "
+<p>Article URL: <a href=\"https://www.nytimes.com/2025/06/16/technology/whatsapp-ads.html\">https://www.nytimes.com/2025/06/16/technology/whatsapp-ads.html</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44289412\">https://news.ycombinator.com/item?id=44289412</a></p>
+<p>Points: 175</p>
+<p># Comments: 259</p>
+") (pubDate nil "Mon, 16 Jun 2025 13:38:59 +0000") (link nil "https://www.nytimes.com/2025/06/16/technology/whatsapp-ads.html") (creator nil "greenburger") (comments nil "https://news.ycombinator.com/item?id=44289412") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44289412")) (item nil (title nil "Working on databases from prison") (description nil "
+<p>Article URL: <a href=\"https://turso.tech/blog/working-on-databases-from-prison\">https://turso.tech/blog/working-on-databases-from-prison</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44288937\">https://news.ycombinator.com/item?id=44288937</a></p>
+<p>Points: 652</p>
+<p># Comments: 422</p>
+") (pubDate nil "Mon, 16 Jun 2025 12:32:02 +0000") (link nil "https://turso.tech/blog/working-on-databases-from-prison") (creator nil "dvektor") (comments nil "https://news.ycombinator.com/item?id=44288937") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44288937")))) ("What Happens When Clergy Take Psilocybin" "<p>Article URL: <a href=\"https://nautil.us/clergy-blown-away-by-psilocybin-1217112/\">https://nautil.us/clergy-blown-away-by-psilocybin-1217112/</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44293610\">https://news.ycombinator.com/item?id=44293610</a></p>
+<p>Points: 23</p>
+<p># Comments: 12</p>" "https://nautil.us/clergy-blown-away-by-psilocybin-1217112/" (26704 36305) old 13 nil nil ((title nil "What Happens When Clergy Take Psilocybin") (description nil "
+<p>Article URL: <a href=\"https://nautil.us/clergy-blown-away-by-psilocybin-1217112/\">https://nautil.us/clergy-blown-away-by-psilocybin-1217112/</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44293610\">https://news.ycombinator.com/item?id=44293610</a></p>
+<p>Points: 23</p>
+<p># Comments: 12</p>
+") (pubDate nil "Mon, 16 Jun 2025 21:34:09 +0000") (link nil "https://nautil.us/clergy-blown-away-by-psilocybin-1217112/") (creator nil "bookofjoe") (comments nil "https://news.ycombinator.com/item?id=44293610") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44293610"))) ("Blaze (YC S24) Is Hiring" "<p>Article URL: <a href=\"https://www.ycombinator.com/companies/blaze-2/jobs/dzNmNuw-junior-software-engineer\">https://www.ycombinator.com/companies/blaze-2/jobs/dzNmNuw-junior-software-engineer</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44293358\">https://news.ycombinator.com/item?id=44293358</a></p>
+<p>Points: 0</p>
+<p># Comments: 0</p>" "https://www.ycombinator.com/companies/blaze-2/jobs/dzNmNuw-junior-software-engineer" (26704 34303) old 14 nil nil ((title nil "Blaze (YC S24) Is Hiring") (description nil "
+<p>Article URL: <a href=\"https://www.ycombinator.com/companies/blaze-2/jobs/dzNmNuw-junior-software-engineer\">https://www.ycombinator.com/companies/blaze-2/jobs/dzNmNuw-junior-software-engineer</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44293358\">https://news.ycombinator.com/item?id=44293358</a></p>
+<p>Points: 0</p>
+<p># Comments: 0</p>
+") (pubDate nil "Mon, 16 Jun 2025 21:00:47 +0000") (link nil "https://www.ycombinator.com/companies/blaze-2/jobs/dzNmNuw-junior-software-engineer") (creator nil "faiyamrahman") (comments nil "https://news.ycombinator.com/item?id=44293358") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44293358"))) ("Show HN: Chawan TUI web browser" "<p>A terminal-based web browser in Nim.[1]  Has acceptable (YMMV) CSS
+rendering, some JS support, and inline images (sixel/kitty).  It can
+also use various protocols other than http(s) such as (s)ftp, gopher,
+gemini, ...<p>Chawan started out as a w3m clone, and the UI still resembles it.
+However, the architecture has turned out quite different, with pages
+loaded in separate processes, and protocol/file type handling separated
+out into external binaries.  An interesting result is that you can even
+register decoders for custom inline image formats, although practical
+use cases of this are rather minimal.<p>There is a gallery showcasing some websites being rendered here:
+<a href=\"https://chawan.net/gallery/index.html\" rel=\"nofollow\">https://chawan.net/gallery/index.html</a><p>[1]: <a href=\"https://nim-lang.org\" rel=\"nofollow\">https://nim-lang.org</a></p>
+<hr>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44293260\">https://news.ycombinator.com/item?id=44293260</a></p>
+<p>Points: 114</p>
+<p># Comments: 14</p>" "https://chawan.net/news/chawan-0-2-0.html" (26704 33579) old 15 nil nil ((title nil "Show HN: Chawan TUI web browser") (description nil "
+<p>A terminal-based web browser in Nim.[1]  Has acceptable (YMMV) CSS
+rendering, some JS support, and inline images (sixel/kitty).  It can
+also use various protocols other than http(s) such as (s)ftp, gopher,
+gemini, ...<p>Chawan started out as a w3m clone, and the UI still resembles it.
+However, the architecture has turned out quite different, with pages
+loaded in separate processes, and protocol/file type handling separated
+out into external binaries.  An interesting result is that you can even
+register decoders for custom inline image formats, although practical
+use cases of this are rather minimal.<p>There is a gallery showcasing some websites being rendered here:
+<a href=\"https://chawan.net/gallery/index.html\" rel=\"nofollow\">https://chawan.net/gallery/index.html</a><p>[1]: <a href=\"https://nim-lang.org\" rel=\"nofollow\">https://nim-lang.org</a></p>
+<hr>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44293260\">https://news.ycombinator.com/item?id=44293260</a></p>
+<p>Points: 114</p>
+<p># Comments: 14</p>
+") (pubDate nil "Mon, 16 Jun 2025 20:48:43 +0000") (link nil "https://chawan.net/news/chawan-0-2-0.html") (creator nil "shiomiru") (comments nil "https://news.ycombinator.com/item?id=44293260") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44293260"))) ("Show HN: Nexus.js - Fabric.js for 3D" "<p>I was looking for a tiny library to easily transform both 2D & 3D objects with simple mouse / touch controls and a fixed camera, in the browser.<p>Like a simple 3D editor but without requiring the user to be a Blender expert.<p>Couldn't find anything lightweight, so I’m building one. Think Fabric.js but for 3D. Built entirely with Three.js / R3F.<p>Borrowed some inspiration from VR/AR interaction systems for controls.<p>Feel free to play with it and let me know what you think!</p>
+<hr>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44293147\">https://news.ycombinator.com/item?id=44293147</a></p>
+<p>Points: 33</p>
+<p># Comments: 8</p>" "https://punk.cam/lab/nexus" (26704 32681) old 16 nil nil ((title nil "Show HN: Nexus.js - Fabric.js for 3D") (description nil "
+<p>I was looking for a tiny library to easily transform both 2D & 3D objects with simple mouse / touch controls and a fixed camera, in the browser.<p>Like a simple 3D editor but without requiring the user to be a Blender expert.<p>Couldn't find anything lightweight, so I’m building one. Think Fabric.js but for 3D. Built entirely with Three.js / R3F.<p>Borrowed some inspiration from VR/AR interaction systems for controls.<p>Feel free to play with it and let me know what you think!</p>
+<hr>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44293147\">https://news.ycombinator.com/item?id=44293147</a></p>
+<p>Points: 33</p>
+<p># Comments: 8</p>
+") (pubDate nil "Mon, 16 Jun 2025 20:33:45 +0000") (link nil "https://punk.cam/lab/nexus") (creator nil "ges") (comments nil "https://news.ycombinator.com/item?id=44293147") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44293147"))) ("OpenAI and Microsoft tensions are reaching a boiling point" "<p>Article URL: <a href=\"https://www.wsj.com/tech/ai/openai-and-microsoft-tensions-are-reaching-a-boiling-point-4981c44f\">https://www.wsj.com/tech/ai/openai-and-microsoft-tensions-are-reaching-a-boiling-point-4981c44f</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44292989\">https://news.ycombinator.com/item?id=44292989</a></p>
+<p>Points: 52</p>
+<p># Comments: 10</p>" "https://www.wsj.com/tech/ai/openai-and-microsoft-tensions-are-reaching-a-boiling-point-4981c44f" (26704 31429) obsolete 7 nil nil ((title nil "OpenAI and Microsoft tensions are reaching a boiling point") (description nil "
+<p>Article URL: <a href=\"https://www.wsj.com/tech/ai/openai-and-microsoft-tensions-are-reaching-a-boiling-point-4981c44f\">https://www.wsj.com/tech/ai/openai-and-microsoft-tensions-are-reaching-a-boiling-point-4981c44f</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44292989\">https://news.ycombinator.com/item?id=44292989</a></p>
+<p>Points: 52</p>
+<p># Comments: 10</p>
+") (pubDate nil "Mon, 16 Jun 2025 20:12:53 +0000") (link nil "https://www.wsj.com/tech/ai/openai-and-microsoft-tensions-are-reaching-a-boiling-point-4981c44f") (creator nil "jmsflknr") (comments nil "https://news.ycombinator.com/item?id=44292989") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44292989"))) ("Show HN: Canine – A Heroku alternative built on Kubernetes" "<p>Hello HN!<p>I've been working on Canine for about a year now. It started when I was sick of paying the overhead of using stuff like Heroku, Render, Fly, etc to host some web apps that I've built. At one point I was paying over $400 a month for hosting these in the cloud. Last year I moved all my stuff to Hetzner.<p>For a 4GB machine, the cost of various providers:<p>Heroku = $260
+Fly.io = $65
+Render = $85
+Hetzner = $4<p>(This problem gets a lot worse when you need > 4GB)<p>The only downside of using Hetzner is that there isn’t a super straightforward way to do stuff like:<p>- DNS management / SSL certificate management
+- Team management
+- Github integration<p>But I figured it should be easy to quickly build something like Heroku for my Hetzner instance. Turns out it was a bit harder than expected, but after a year, I’ve made some good progress<p>The best part of Canine, is that it also makes it trivial to host any helm chart, which is available for basically any open source project, so everything from databases (e.g. Postgres, Redis), to random stuff like torrent tracking servers, VPN’s endpoints, etc.<p>Open source: <a href=\"https://github.com/czhu12/canine\">https://github.com/czhu12/canine</a>
+Cloud hosted version is: <a href=\"https://canine.sh\" rel=\"nofollow\">https://canine.sh</a></p>
+<hr>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44292103\">https://news.ycombinator.com/item?id=44292103</a></p>
+<p>Points: 123</p>
+<p># Comments: 58</p>" "https://github.com/czhu12/canine" (26704 25135) old 17 nil nil ((title nil "Show HN: Canine – A Heroku alternative built on Kubernetes") (description nil "
+<p>Hello HN!<p>I've been working on Canine for about a year now. It started when I was sick of paying the overhead of using stuff like Heroku, Render, Fly, etc to host some web apps that I've built. At one point I was paying over $400 a month for hosting these in the cloud. Last year I moved all my stuff to Hetzner.<p>For a 4GB machine, the cost of various providers:<p>Heroku = $260
+Fly.io = $65
+Render = $85
+Hetzner = $4<p>(This problem gets a lot worse when you need > 4GB)<p>The only downside of using Hetzner is that there isn’t a super straightforward way to do stuff like:<p>- DNS management / SSL certificate management
+- Team management
+- Github integration<p>But I figured it should be easy to quickly build something like Heroku for my Hetzner instance. Turns out it was a bit harder than expected, but after a year, I’ve made some good progress<p>The best part of Canine, is that it also makes it trivial to host any helm chart, which is available for basically any open source project, so everything from databases (e.g. Postgres, Redis), to random stuff like torrent tracking servers, VPN’s endpoints, etc.<p>Open source: <a href=\"https://github.com/czhu12/canine\">https://github.com/czhu12/canine</a>
+Cloud hosted version is: <a href=\"https://canine.sh\" rel=\"nofollow\">https://canine.sh</a></p>
+<hr>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44292103\">https://news.ycombinator.com/item?id=44292103</a></p>
+<p>Points: 123</p>
+<p># Comments: 58</p>
+") (pubDate nil "Mon, 16 Jun 2025 18:27:59 +0000") (link nil "https://github.com/czhu12/canine") (creator nil "czhu12") (comments nil "https://news.ycombinator.com/item?id=44292103") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44292103"))) ("The Members of the Dull Men's Club" "<p>Article URL: <a href=\"https://www.theguardian.com/society/2025/jun/09/meet-the-members-of-the-dull-mens-club-some-of-them-would-bore-the-ears-off-you\">https://www.theguardian.com/society/2025/jun/09/meet-the-members-of-the-dull-mens-club-some-of-them-would-bore-the-ears-off-you</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44291892\">https://news.ycombinator.com/item?id=44291892</a></p>
+<p>Points: 66</p>
+<p># Comments: 35</p>" "https://www.theguardian.com/society/2025/jun/09/meet-the-members-of-the-dull-mens-club-some-of-them-would-bore-the-ears-off-you" (26704 23913) old 18 nil nil ((title nil "The Members of the Dull Men's Club") (description nil "
+<p>Article URL: <a href=\"https://www.theguardian.com/society/2025/jun/09/meet-the-members-of-the-dull-mens-club-some-of-them-would-bore-the-ears-off-you\">https://www.theguardian.com/society/2025/jun/09/meet-the-members-of-the-dull-mens-club-some-of-them-would-bore-the-ears-off-you</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44291892\">https://news.ycombinator.com/item?id=44291892</a></p>
+<p>Points: 66</p>
+<p># Comments: 35</p>
+") (pubDate nil "Mon, 16 Jun 2025 18:07:37 +0000") (link nil "https://www.theguardian.com/society/2025/jun/09/meet-the-members-of-the-dull-mens-club-some-of-them-would-bore-the-ears-off-you") (creator nil "herbertl") (comments nil "https://news.ycombinator.com/item?id=44291892") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44291892"))) ("OpenAI wins $200M U.S. defense contract" "<p>Article URL: <a href=\"https://www.cnbc.com/2025/06/16/openai-wins-200-million-us-defense-contract.html\">https://www.cnbc.com/2025/06/16/openai-wins-200-million-us-defense-contract.html</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44293988\">https://news.ycombinator.com/item?id=44293988</a></p>
+<p>Points: 28</p>
+<p># Comments: 18</p>" "https://www.cnbc.com/2025/06/16/openai-wins-200-million-us-defense-contract.html" (26704 39774) old 12 nil nil ((title nil "OpenAI wins $200M U.S. defense contract") (description nil "
+<p>Article URL: <a href=\"https://www.cnbc.com/2025/06/16/openai-wins-200-million-us-defense-contract.html\">https://www.cnbc.com/2025/06/16/openai-wins-200-million-us-defense-contract.html</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44293988\">https://news.ycombinator.com/item?id=44293988</a></p>
+<p>Points: 28</p>
+<p># Comments: 18</p>
+") (pubDate nil "Mon, 16 Jun 2025 22:31:58 +0000") (link nil "https://www.cnbc.com/2025/06/16/openai-wins-200-million-us-defense-contract.html") (creator nil "erikrit") (comments nil "https://news.ycombinator.com/item?id=44293988") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44293988"))) ("George Orwell's 1984 and How Power Manufactures Truth" "<p>Article URL: <a href=\"https://www.openculture.com/2025/06/an-introduction-to-george-orwells-1984-and-how-power-manufactures-truth.html\">https://www.openculture.com/2025/06/an-introduction-to-george-orwells-1984-and-how-power-manufactures-truth.html</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44294629\">https://news.ycombinator.com/item?id=44294629</a></p>
+<p>Points: 21</p>
+<p># Comments: 3</p>" "https://www.openculture.com/2025/06/an-introduction-to-george-orwells-1984-and-how-power-manufactures-truth.html" (26704 47055) obsolete 1 nil nil ((title nil "George Orwell's 1984 and How Power Manufactures Truth") (description nil "
+<p>Article URL: <a href=\"https://www.openculture.com/2025/06/an-introduction-to-george-orwells-1984-and-how-power-manufactures-truth.html\">https://www.openculture.com/2025/06/an-introduction-to-george-orwells-1984-and-how-power-manufactures-truth.html</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44294629\">https://news.ycombinator.com/item?id=44294629</a></p>
+<p>Points: 21</p>
+<p># Comments: 3</p>
+") (pubDate nil "Tue, 17 Jun 2025 00:33:19 +0000") (link nil "https://www.openculture.com/2025/06/an-introduction-to-george-orwells-1984-and-how-power-manufactures-truth.html") (creator nil "colinprince") (comments nil "https://news.ycombinator.com/item?id=44294629") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44294629"))) ("Generative AI coding tools and agents do not work for me" "<p>Article URL: <a href=\"https://blog.miguelgrinberg.com/post/why-generative-ai-coding-tools-and-agents-do-not-work-for-me\">https://blog.miguelgrinberg.com/post/why-generative-ai-coding-tools-and-agents-do-not-work-for-me</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44294633\">https://news.ycombinator.com/item?id=44294633</a></p>
+<p>Points: 46</p>
+<p># Comments: 30</p>" "https://blog.miguelgrinberg.com/post/why-generative-ai-coding-tools-and-agents-do-not-work-for-me" (26704 47081) old 10 nil nil ((title nil "Generative AI coding tools and agents do not work for me") (description nil "
+<p>Article URL: <a href=\"https://blog.miguelgrinberg.com/post/why-generative-ai-coding-tools-and-agents-do-not-work-for-me\">https://blog.miguelgrinberg.com/post/why-generative-ai-coding-tools-and-agents-do-not-work-for-me</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44294633\">https://news.ycombinator.com/item?id=44294633</a></p>
+<p>Points: 46</p>
+<p># Comments: 30</p>
+") (pubDate nil "Tue, 17 Jun 2025 00:33:45 +0000") (link nil "https://blog.miguelgrinberg.com/post/why-generative-ai-coding-tools-and-agents-do-not-work-for-me") (creator nil "nomdep") (comments nil "https://news.ycombinator.com/item?id=44294633") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44294633"))) ("Transparent peer review to be extended to all of Nature's research papers" "<p>Article URL: <a href=\"https://www.nature.com/articles/d41586-025-01880-9\">https://www.nature.com/articles/d41586-025-01880-9</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44292342\">https://news.ycombinator.com/item?id=44292342</a></p>
+<p>Points: 107</p>
+<p># Comments: 57</p>" "https://www.nature.com/articles/d41586-025-01880-9" (26704 26549) obsolete 12 nil nil ((title nil "Transparent peer review to be extended to all of Nature's research papers") (description nil "
+<p>Article URL: <a href=\"https://www.nature.com/articles/d41586-025-01880-9\">https://www.nature.com/articles/d41586-025-01880-9</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44292342\">https://news.ycombinator.com/item?id=44292342</a></p>
+<p>Points: 107</p>
+<p># Comments: 57</p>
+") (pubDate nil "Mon, 16 Jun 2025 18:51:33 +0000") (link nil "https://www.nature.com/articles/d41586-025-01880-9") (creator nil "rntn") (comments nil "https://news.ycombinator.com/item?id=44292342") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44292342"))) ("Selfish reasons for building accessible UIs" "<p>Article URL: <a href=\"https://nolanlawson.com/2025/06/16/selfish-reasons-for-building-accessible-uis/\">https://nolanlawson.com/2025/06/16/selfish-reasons-for-building-accessible-uis/</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44294853\">https://news.ycombinator.com/item?id=44294853</a></p>
+<p>Points: 6</p>
+<p># Comments: 0</p>" "https://nolanlawson.com/2025/06/16/selfish-reasons-for-building-accessible-uis/" (26704 49641) old 9 nil nil ((title nil "Selfish reasons for building accessible UIs") (description nil "
+<p>Article URL: <a href=\"https://nolanlawson.com/2025/06/16/selfish-reasons-for-building-accessible-uis/\">https://nolanlawson.com/2025/06/16/selfish-reasons-for-building-accessible-uis/</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44294853\">https://news.ycombinator.com/item?id=44294853</a></p>
+<p>Points: 6</p>
+<p># Comments: 0</p>
+") (pubDate nil "Tue, 17 Jun 2025 01:16:25 +0000") (link nil "https://nolanlawson.com/2025/06/16/selfish-reasons-for-building-accessible-uis/") (creator nil "feross") (comments nil "https://news.ycombinator.com/item?id=44294853") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44294853"))) ("The Humble Programmer (1972)" "<p>Article URL: <a href=\"https://www.cs.utexas.edu/~EWD/transcriptions/EWD03xx/EWD340.html\">https://www.cs.utexas.edu/~EWD/transcriptions/EWD03xx/EWD340.html</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44294905\">https://news.ycombinator.com/item?id=44294905</a></p>
+<p>Points: 4</p>
+<p># Comments: 0</p>" "https://www.cs.utexas.edu/~EWD/transcriptions/EWD03xx/EWD340.html" (26704 50181) old 8 nil nil ((title nil "The Humble Programmer (1972)") (description nil "
+<p>Article URL: <a href=\"https://www.cs.utexas.edu/~EWD/transcriptions/EWD03xx/EWD340.html\">https://www.cs.utexas.edu/~EWD/transcriptions/EWD03xx/EWD340.html</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44294905\">https://news.ycombinator.com/item?id=44294905</a></p>
+<p>Points: 4</p>
+<p># Comments: 0</p>
+") (pubDate nil "Tue, 17 Jun 2025 01:25:25 +0000") (link nil "https://www.cs.utexas.edu/~EWD/transcriptions/EWD03xx/EWD340.html") (creator nil "squircle") (comments nil "https://news.ycombinator.com/item?id=44294905") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44294905"))) ("The drawbridges come up: the dream of a interconnected context ecosystem is over" "<p>Article URL: <a href=\"https://www.dbreunig.com/2025/06/16/drawbridges-go-up.html\">https://www.dbreunig.com/2025/06/16/drawbridges-go-up.html</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44294526\">https://news.ycombinator.com/item?id=44294526</a></p>
+<p>Points: 5</p>
+<p># Comments: 1</p>" "https://www.dbreunig.com/2025/06/16/drawbridges-go-up.html" (26704 45836) old 11 nil nil ((title nil "The drawbridges come up: the dream of a interconnected context ecosystem is over") (description nil "
+<p>Article URL: <a href=\"https://www.dbreunig.com/2025/06/16/drawbridges-go-up.html\">https://www.dbreunig.com/2025/06/16/drawbridges-go-up.html</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44294526\">https://news.ycombinator.com/item?id=44294526</a></p>
+<p>Points: 5</p>
+<p># Comments: 1</p>
+") (pubDate nil "Tue, 17 Jun 2025 00:13:00 +0000") (link nil "https://www.dbreunig.com/2025/06/16/drawbridges-go-up.html") (creator nil "dbreunig") (comments nil "https://news.ycombinator.com/item?id=44294526") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44294526"))) ("Show HN: I recreated 90s Mode X demoscene effects in JavaScript and Canvas" "<p>After 25 years of writing software, I was feeling nostalgic for the kinds of things that got me into programming in the first place: the old DOS demoscene. I spent a weekend seeing if I could recapture some of that INT 13H VGA magic using today's web tech, but with the old-school constraints of doing it from scratch.<p>The result is this portfolio of ten classic effects running in a single HTML file. It's all vanilla JavaScript writing to a <canvas> element, with no external libraries. It was a fun challenge to implement things like:<p>* The color palette cycling and smooth fading in the Plasma demo.
+* The buffer-averaging algorithm for the Fire effect to make the flames feel more natural.
+* The distance-based texture crossfading in the Tunnel to create the illusion of flying through different sections.
+* A 2D scalar field for the Metaballs to calculate the surface normals for that classic blended, metallic look (I did the best I could with the given constraints).<p>It was a great exercise in getting back to first principles and a reminder of how much those early demo programmers could accomplish with so little. I hope it brings back some good memories for others who grew up with this stuff.<p>I'd love to hear about your favorite classic demos or if there are any other iconic effects you think would be a fun challenge to add.<p>Cheers!</p>
+<hr>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44295667\">https://news.ycombinator.com/item?id=44295667</a></p>
+<p>Points: 15</p>
+<p># Comments: 3</p>" "https://jdfio.com/pages-output/demos/x-mode/" (26704 59907) old 7 nil nil ((title nil "Show HN: I recreated 90s Mode X demoscene effects in JavaScript and Canvas") (description nil "
+<p>After 25 years of writing software, I was feeling nostalgic for the kinds of things that got me into programming in the first place: the old DOS demoscene. I spent a weekend seeing if I could recapture some of that INT 13H VGA magic using today's web tech, but with the old-school constraints of doing it from scratch.<p>The result is this portfolio of ten classic effects running in a single HTML file. It's all vanilla JavaScript writing to a <canvas> element, with no external libraries. It was a fun challenge to implement things like:<p>* The color palette cycling and smooth fading in the Plasma demo.
+* The buffer-averaging algorithm for the Fire effect to make the flames feel more natural.
+* The distance-based texture crossfading in the Tunnel to create the illusion of flying through different sections.
+* A 2D scalar field for the Metaballs to calculate the surface normals for that classic blended, metallic look (I did the best I could with the given constraints).<p>It was a great exercise in getting back to first principles and a reminder of how much those early demo programmers could accomplish with so little. I hope it brings back some good memories for others who grew up with this stuff.<p>I'd love to hear about your favorite classic demos or if there are any other iconic effects you think would be a fun challenge to add.<p>Cheers!</p>
+<hr>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44295667\">https://news.ycombinator.com/item?id=44295667</a></p>
+<p>Points: 15</p>
+<p># Comments: 3</p>
+") (pubDate nil "Tue, 17 Jun 2025 04:07:31 +0000") (link nil "https://jdfio.com/pages-output/demos/x-mode/") (creator nil "gneissguise") (comments nil "https://news.ycombinator.com/item?id=44295667") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44295667"))) ("The magic of through running" "<p>Article URL: <a href=\"https://www.worksinprogress.news/p/the-magic-of-through-running\">https://www.worksinprogress.news/p/the-magic-of-through-running</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44297045\">https://news.ycombinator.com/item?id=44297045</a></p>
+<p>Points: 18</p>
+<p># Comments: 3</p>" "https://www.worksinprogress.news/p/the-magic-of-through-running" (26705 11786) old 3 nil nil ((title nil "The magic of through running") (description nil "
+<p>Article URL: <a href=\"https://www.worksinprogress.news/p/the-magic-of-through-running\">https://www.worksinprogress.news/p/the-magic-of-through-running</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44297045\">https://news.ycombinator.com/item?id=44297045</a></p>
+<p>Points: 18</p>
+<p># Comments: 3</p>
+") (pubDate nil "Tue, 17 Jun 2025 08:57:46 +0000") (link nil "https://www.worksinprogress.news/p/the-magic-of-through-running") (creator nil "ortegaygasset") (comments nil "https://news.ycombinator.com/item?id=44297045") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44297045"))) ("Fossify – A suite of open-source, ad-free apps" "<p>Article URL: <a href=\"https://github.com/FossifyOrg\">https://github.com/FossifyOrg</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44296564\">https://news.ycombinator.com/item?id=44296564</a></p>
+<p>Points: 27</p>
+<p># Comments: 5</p>" "https://github.com/FossifyOrg" (26705 6647) old 5 nil nil ((title nil "Fossify – A suite of open-source, ad-free apps") (description nil "
+<p>Article URL: <a href=\"https://github.com/FossifyOrg\">https://github.com/FossifyOrg</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44296564\">https://news.ycombinator.com/item?id=44296564</a></p>
+<p>Points: 27</p>
+<p># Comments: 5</p>
+") (pubDate nil "Tue, 17 Jun 2025 07:32:07 +0000") (link nil "https://github.com/FossifyOrg") (creator nil "jalict") (comments nil "https://news.ycombinator.com/item?id=44296564") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44296564"))) ("Fun with Telnet" "<p>Article URL: <a href=\"https://brandonrozek.com/blog/fun-with-telnet/\">https://brandonrozek.com/blog/fun-with-telnet/</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44295925\">https://news.ycombinator.com/item?id=44295925</a></p>
+<p>Points: 16</p>
+<p># Comments: 2</p>" "https://brandonrozek.com/blog/fun-with-telnet/" (26704 63591) old 6 nil nil ((title nil "Fun with Telnet") (description nil "
+<p>Article URL: <a href=\"https://brandonrozek.com/blog/fun-with-telnet/\">https://brandonrozek.com/blog/fun-with-telnet/</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44295925\">https://news.ycombinator.com/item?id=44295925</a></p>
+<p>Points: 16</p>
+<p># Comments: 2</p>
+") (pubDate nil "Tue, 17 Jun 2025 05:08:55 +0000") (link nil "https://brandonrozek.com/blog/fun-with-telnet/") (creator nil "Apollo1010330") (comments nil "https://news.ycombinator.com/item?id=44295925") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44295925"))) ("Threat in Your Medicine Cabinet: The FDA's Gamble on America's Drugs" "<p>Article URL: <a href=\"https://www.propublica.org/article/fda-drug-loophole-sun-pharma\">https://www.propublica.org/article/fda-drug-loophole-sun-pharma</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44297437\">https://news.ycombinator.com/item?id=44297437</a></p>
+<p>Points: 24</p>
+<p># Comments: 5</p>" "https://www.propublica.org/article/fda-drug-loophole-sun-pharma" (26705 16145) old 2 nil nil ((title nil "Threat in Your Medicine Cabinet: The FDA's Gamble on America's Drugs") (description nil "
+<p>Article URL: <a href=\"https://www.propublica.org/article/fda-drug-loophole-sun-pharma\">https://www.propublica.org/article/fda-drug-loophole-sun-pharma</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44297437\">https://news.ycombinator.com/item?id=44297437</a></p>
+<p>Points: 24</p>
+<p># Comments: 5</p>
+") (pubDate nil "Tue, 17 Jun 2025 10:10:25 +0000") (link nil "https://www.propublica.org/article/fda-drug-loophole-sun-pharma") (creator nil "lentoutcry") (comments nil "https://news.ycombinator.com/item?id=44297437") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44297437"))) ("Show HN: FaynoSync Self-Hosted API for Automatic App Updates" "<p>faynoSync is a lightweight, open-source API server that gives you full control over application updates. Whether it’s desktop software, mobile apps, browser extensions, or custom binaries for metrics or monitoring — faynoSync helps you deliver updates easily, securely, and reliably.
+No external dependencies. Just pure control.</p>
+<hr>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44296972\">https://news.ycombinator.com/item?id=44296972</a></p>
+<p>Points: 3</p>
+<p># Comments: 0</p>" "https://github.com/ku9nov/faynoSync" (26705 10987) obsolete 4 nil nil ((title nil "Show HN: FaynoSync Self-Hosted API for Automatic App Updates") (description nil "
+<p>faynoSync is a lightweight, open-source API server that gives you full control over application updates. Whether it’s desktop software, mobile apps, browser extensions, or custom binaries for metrics or monitoring — faynoSync helps you deliver updates easily, securely, and reliably.
+No external dependencies. Just pure control.</p>
+<hr>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44296972\">https://news.ycombinator.com/item?id=44296972</a></p>
+<p>Points: 3</p>
+<p># Comments: 0</p>
+") (pubDate nil "Tue, 17 Jun 2025 08:44:27 +0000") (link nil "https://github.com/ku9nov/faynoSync") (creator nil "ku9n") (comments nil "https://news.ycombinator.com/item?id=44296972") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44296972"))) ("Linux kernel WireGuard can go 'fast' on decent hardware" "<p>Article URL: <a href=\"https://utcc.utoronto.ca/~cks/space/blog/linux/WireGuardCanGoFast\">https://utcc.utoronto.ca/~cks/space/blog/linux/WireGuardCanGoFast</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44298369\">https://news.ycombinator.com/item?id=44298369</a></p>
+<p>Points: 23</p>
+<p># Comments: 2</p>" "https://utcc.utoronto.ca/~cks/space/blog/linux/WireGuardCanGoFast" (26705 24782) obsolete 1 nil nil ((title nil "Linux kernel WireGuard can go 'fast' on decent hardware") (description nil "
+<p>Article URL: <a href=\"https://utcc.utoronto.ca/~cks/space/blog/linux/WireGuardCanGoFast\">https://utcc.utoronto.ca/~cks/space/blog/linux/WireGuardCanGoFast</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44298369\">https://news.ycombinator.com/item?id=44298369</a></p>
+<p>Points: 23</p>
+<p># Comments: 2</p>
+") (pubDate nil "Tue, 17 Jun 2025 12:34:22 +0000") (link nil "https://utcc.utoronto.ca/~cks/space/blog/linux/WireGuardCanGoFast") (creator nil "zdw") (comments nil "https://news.ycombinator.com/item?id=44298369") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44298369"))) ("Hack the Planet: 90s Hacker Culture vs. Today's AI Devs" "<p>Article URL: <a href=\"https://gizvault.com/archives/hack-the-planet\">https://gizvault.com/archives/hack-the-planet</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44298327\">https://news.ycombinator.com/item?id=44298327</a></p>
+<p>Points: 13</p>
+<p># Comments: 1</p>" "https://gizvault.com/archives/hack-the-planet" (26705 24511) obsolete 2 nil nil ((title nil "Hack the Planet: 90s Hacker Culture vs. Today's AI Devs") (description nil "
+<p>Article URL: <a href=\"https://gizvault.com/archives/hack-the-planet\">https://gizvault.com/archives/hack-the-planet</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44298327\">https://news.ycombinator.com/item?id=44298327</a></p>
+<p>Points: 13</p>
+<p># Comments: 1</p>
+") (pubDate nil "Tue, 17 Jun 2025 12:29:51 +0000") (link nil "https://gizvault.com/archives/hack-the-planet") (creator nil "ricecat") (comments nil "https://news.ycombinator.com/item?id=44298327") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44298327"))) ("AI threatens to raid the water reserves of Europe's driest regions" "<p>Article URL: <a href=\"https://www.politico.eu/article/artificial-intelligence-threat-raid-water-reserves-europe-dry-regions/\">https://www.politico.eu/article/artificial-intelligence-threat-raid-water-reserves-europe-dry-regions/</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44298066\">https://news.ycombinator.com/item?id=44298066</a></p>
+<p>Points: 11</p>
+<p># Comments: 4</p>" "https://www.politico.eu/article/artificial-intelligence-threat-raid-water-reserves-europe-dry-regions/" (26705 22758) obsolete 3 nil nil ((title nil "AI threatens to raid the water reserves of Europe's driest regions") (description nil "
+<p>Article URL: <a href=\"https://www.politico.eu/article/artificial-intelligence-threat-raid-water-reserves-europe-dry-regions/\">https://www.politico.eu/article/artificial-intelligence-threat-raid-water-reserves-europe-dry-regions/</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44298066\">https://news.ycombinator.com/item?id=44298066</a></p>
+<p>Points: 11</p>
+<p># Comments: 4</p>
+") (pubDate nil "Tue, 17 Jun 2025 12:00:38 +0000") (link nil "https://www.politico.eu/article/artificial-intelligence-threat-raid-water-reserves-europe-dry-regions/") (creator nil "molteanu") (comments nil "https://news.ycombinator.com/item?id=44298066") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44298066"))) ("Insanity: Locked Out – The Andrew Bailey" "<p>Article URL: <a href=\"https://theandrewbailey.com/article/203/Insanity-Locked-Out.html\">https://theandrewbailey.com/article/203/Insanity-Locked-Out.html</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44297882\">https://news.ycombinator.com/item?id=44297882</a></p>
+<p>Points: 6</p>
+<p># Comments: 1</p>" "https://theandrewbailey.com/article/203/Insanity-Locked-Out.html" (26705 21244) obsolete 4 nil nil ((title nil "Insanity: Locked Out – The Andrew Bailey") (description nil "
+<p>Article URL: <a href=\"https://theandrewbailey.com/article/203/Insanity-Locked-Out.html\">https://theandrewbailey.com/article/203/Insanity-Locked-Out.html</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44297882\">https://news.ycombinator.com/item?id=44297882</a></p>
+<p>Points: 6</p>
+<p># Comments: 1</p>
+") (pubDate nil "Tue, 17 Jun 2025 11:35:24 +0000") (link nil "https://theandrewbailey.com/article/203/Insanity-Locked-Out.html") (creator nil "theandrewbailey") (comments nil "https://news.ycombinator.com/item?id=44297882") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44297882"))) ("Google aims to reinvent email with Wave (2009)" "<p>Article URL: <a href=\"https://www.cbc.ca/news/canada/how-google-aims-to-reinvent-email-with-wave-1.826825\">https://www.cbc.ca/news/canada/how-google-aims-to-reinvent-email-with-wave-1.826825</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44298081\">https://news.ycombinator.com/item?id=44298081</a></p>
+<p>Points: 26</p>
+<p># Comments: 24</p>" "https://www.cbc.ca/news/canada/how-google-aims-to-reinvent-email-with-wave-1.826825" (26705 22871) new 1 nil nil ((title nil "Google aims to reinvent email with Wave (2009)") (description nil "
+<p>Article URL: <a href=\"https://www.cbc.ca/news/canada/how-google-aims-to-reinvent-email-with-wave-1.826825\">https://www.cbc.ca/news/canada/how-google-aims-to-reinvent-email-with-wave-1.826825</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44298081\">https://news.ycombinator.com/item?id=44298081</a></p>
+<p>Points: 26</p>
+<p># Comments: 24</p>
+") (pubDate nil "Tue, 17 Jun 2025 12:02:31 +0000") (link nil "https://www.cbc.ca/news/canada/how-google-aims-to-reinvent-email-with-wave-1.826825") (creator nil "xattt") (comments nil "https://news.ycombinator.com/item?id=44298081") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44298081"))) ("NexusMods Changes Hands" "<p>Article URL: <a href=\"https://www.nexusmods.com/news/15301\">https://www.nexusmods.com/news/15301</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44296835\">https://news.ycombinator.com/item?id=44296835</a></p>
+<p>Points: 36</p>
+<p># Comments: 39</p>" "https://www.nexusmods.com/news/15301" (26705 9640) new 4 nil nil ((title nil "NexusMods Changes Hands") (description nil "
+<p>Article URL: <a href=\"https://www.nexusmods.com/news/15301\">https://www.nexusmods.com/news/15301</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44296835\">https://news.ycombinator.com/item?id=44296835</a></p>
+<p>Points: 36</p>
+<p># Comments: 39</p>
+") (pubDate nil "Tue, 17 Jun 2025 08:22:00 +0000") (link nil "https://www.nexusmods.com/news/15301") (creator nil "gmemstr") (comments nil "https://news.ycombinator.com/item?id=44296835") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44296835"))) ("Open-Source RISC-V: Energy Efficiency of Superscalar, Out-of-Order Execution" "<p>Article URL: <a href=\"https://arxiv.org/abs/2505.24363\">https://arxiv.org/abs/2505.24363</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44291204\">https://news.ycombinator.com/item?id=44291204</a></p>
+<p>Points: 90</p>
+<p># Comments: 25</p>" "https://arxiv.org/abs/2505.24363" (26704 19071) new 19 nil nil ((title nil "Open-Source RISC-V: Energy Efficiency of Superscalar, Out-of-Order Execution") (description nil "
+<p>Article URL: <a href=\"https://arxiv.org/abs/2505.24363\">https://arxiv.org/abs/2505.24363</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44291204\">https://news.ycombinator.com/item?id=44291204</a></p>
+<p>Points: 90</p>
+<p># Comments: 25</p>
+") (pubDate nil "Mon, 16 Jun 2025 16:46:55 +0000") (link nil "https://arxiv.org/abs/2505.24363") (creator nil "PaulHoule") (comments nil "https://news.ycombinator.com/item?id=44291204") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44291204"))) ("Benzene at 200" "<p>Article URL: <a href=\"https://www.chemistryworld.com/opinion/benzene-at-200/4021504.article\">https://www.chemistryworld.com/opinion/benzene-at-200/4021504.article</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44290413\">https://news.ycombinator.com/item?id=44290413</a></p>
+<p>Points: 212</p>
+<p># Comments: 100</p>" "https://www.chemistryworld.com/opinion/benzene-at-200/4021504.article" (26704 13663) new 20 nil nil ((title nil "Benzene at 200") (description nil "
+<p>Article URL: <a href=\"https://www.chemistryworld.com/opinion/benzene-at-200/4021504.article\">https://www.chemistryworld.com/opinion/benzene-at-200/4021504.article</a></p>
+<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=44290413\">https://news.ycombinator.com/item?id=44290413</a></p>
+<p>Points: 212</p>
+<p># Comments: 100</p>
+") (pubDate nil "Mon, 16 Jun 2025 15:16:47 +0000") (link nil "https://www.chemistryworld.com/opinion/benzene-at-200/4021504.article") (creator nil "Brajeshwar") (comments nil "https://news.ycombinator.com/item?id=44290413") (guid ((isPermaLink . "false")) "https://news.ycombinator.com/item?id=44290413"))))

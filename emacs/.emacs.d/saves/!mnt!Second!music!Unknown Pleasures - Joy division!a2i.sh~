@@ -1,0 +1,6 @@
+audio2image(){
+    ffmpeg  -hide_banner -loglevel error -i "${1}" -ac 2 -ar 32000 -f u8 tmp.u8
+    size=$(stat -c%s tmp.u8)
+    res=$(bc <<< "sqrt(${size}/3)")
+    truncate -s"$(bc <<< "sqrt(${size}/3)^2*3")" tmp.u8
+    magick -depth 8 -size "${res}"x"${res}" rgb:tmp.u8 -sampling-factor 1x1 -quality 100 "${1}.jpg"

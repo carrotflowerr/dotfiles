@@ -1,0 +1,5 @@
+(print "hello")
+(setq x 5)
+(prin5 x)
+(print x)
+(+ x x)

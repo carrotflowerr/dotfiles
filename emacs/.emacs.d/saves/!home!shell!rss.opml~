@@ -1,0 +1,13 @@
+;; This buffer is for text that is not saved, and for Lisp evaluation.
+;; To create a file, visit it with ‘C-x C-f’ and enter text in its buffer.
+https://feeds.bbci.co.uk/news/world/rss.xml
+http://rss.cnn.com/rss/edition_world.rss
+https://www.nytimes.com/svc/collections/v1/publish/https://www.nytimes.com/section/world/rss.xml
+https://feeds.washingtonpost.com/rss/world
+https://feeds.npr.org/1004/rss.xml
+
+
+https://darkstarastrology.com/feed/
+
+https://itsfoss.com/rss/
+https://rss.feedspot.com/rss_directory/

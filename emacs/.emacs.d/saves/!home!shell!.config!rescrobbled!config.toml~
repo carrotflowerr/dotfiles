@@ -1,0 +1,9 @@
+# lastfm-key = ""
+# lastfm-secret = ""
+# min-play-time = 0
+# player-whitelist = []
+# filter-script = ""
+# 
+# [[listenbrainz]]
+# url = ""
+# token = ""

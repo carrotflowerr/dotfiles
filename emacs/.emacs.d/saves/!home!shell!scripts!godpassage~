@@ -1,0 +1,4 @@
+
+LINE=$(shuf -en 1 {1..100000} --random-source=/dev/urandom)
+echo "Line $LINE:"
+tail -n $LINE Bible.TXT | head -n 16

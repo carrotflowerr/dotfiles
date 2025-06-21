@@ -1,0 +1,66 @@
+#!/bin/bash
+# Speak to god using urandom
+# Inspired by Terry Davis godspeak program.
+# https://github.com/cia-foundation/TempleOS/blob/archive/Linux/GodWords
+# Written: Zimblo
+# Date: Thu May 15 07:28:46 PM MDT 2025
+
+
+
+if [ "$1" = "-a" ]; then
+    # edit word bank
+    ed ~/scripts/happy.txt
+    exit 0
+fi
+
+if [ "$1" = "-d" ]; then
+    # use system dict
+    am="${1:-10}"
+    echo "God says..."
+    echo "$(shuf -n "$am" /usr/share/dict/words --random-source=/dev/urandom | tr '\n' ' ')"
+
+    exit 0
+fi
+
+
+if [ "$1" = "-s" ]; then
+    # seeded entropy
+    am=10
+    seed="$2"
+    echo "God reads: >$seed<"
+    echo "God says..."
+    # Generate deterministic binary seed file from the seed string
+    seed_file=$(mktemp)
+    echo "$seed" | openssl dgst -sha256 -binary | head -c 32 > "$seed_file"
+    # Shuffle with deterministic seed
+    shuf -n "$am" ~/scripts/happy.txt --random-source="$seed_file" | tr '\n' ' '
+    # Clean up
+    rm "$seed_file"
+
+    exit 0
+fi
+
+
+
+if [ "$1" = "-l" ]; then
+    # only for gluttons. 
+    while [ true ]; do
+	# 25
+	am=$(( RANDOM % 10 ))
+	t=$(( RANDOM % 10 ))
+
+	echo "$(shuf -n "$am" ~/scripts/happy.txt --random-source=/dev/urandom | tr '\n' ' ')"
+	echo "----------"
+	sleep "$t"
+
+    done
+
+    exit 0
+fi
+
+
+# normal run condition
+am="${1:-10}"
+echo "God says..."
+#echo "$(shuf -n "$am" /usr/share/dict/words --random-source=/dev/urandom | tr '\n' ' ')"
+echo "$(shuf -n "$am" ~/scripts/happy.txt --random-source=/dev/urandom | tr '\n' ' ')"

@@ -6,14 +6,22 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export EDITOR="emacsclient -c"
 
 
-export PATH="$PATH:/home/shell/.cargo/bin:/home/shell/scripts"
+export PATH="$PATH:/home/shell/.cargo/bin:/home/shell/scripts/god/:/home/shell/scripts:/home/shell/.local/bin"
 
- 
-PS1='ζ  '
+# run mtm automatically
+if [ -z "$MTM_RUNNING" ]; then
+    if ! pstree -s $$ | grep -q '[m]tm'; then
+        export MTM_RUNNING=1
+        exec mtm
+    fi
+fi
+
+
+
+
+PS1='===$PWD=== \nζ '
+
 # ∴ ∑ ζ
-
-
-
 
 #
 #Preferred editor for local and remote sessions
@@ -23,13 +31,14 @@ PS1='ζ  '
 
 # Run date
 #echo "The date is:" $(date)
-pfetch
+#pfetch
 
-macsman() {
-    emacsclient -c -e "(man \"$1\")"
+eman() {
+    emacsclient -nw -c -e "(man \"$1\")"
 }
 
-alias man=macsman
+
+# alias man=macsman
 #export MANPAGER='nvim +Man!'
 
 # Run task thing
@@ -47,11 +56,11 @@ alias e="exit"
 alias ls="eza"
 alias ec="emacsclient -c"
 alias l="eza"
-alias date="date --rfc-3339 s"
+
 alias tree="eza -T"
 alias la="eza -a"
 alias ll="eza -l"
-alias laptop="ssh zimblo@10.0.0.77"
+#alias laptop="ssh zimblo@10.0.0.77"
 alias log="journalctl -f"
 #alias maimC="maim --select | xclip -selection clipboard -target image/png"
 #
@@ -69,6 +78,7 @@ alias viewOld="ls --sort newest | xargs nsxiv"
 
 alias AI="ollama run mistral:7b-instruct-q4_0" 
 
+alias neofetch="inxi"
 
 alias pstree="ps -ejH"
 alias python="python3"
@@ -80,6 +90,7 @@ alias tarD="tar xvf"
 alias fkill="ps -e | fzf | awk '{print $1}' | xargs kill"
 #alias update="yes | doas apt full-upgrade"
 
+alias bible="less ~/.emacs.d/jps.txt"
 export INFOPATH="/home/shell/Documents/source/emacs/info:$INFOPATH"
 
 

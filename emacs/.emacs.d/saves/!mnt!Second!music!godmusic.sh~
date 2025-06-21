@@ -1,0 +1,6 @@
+cd /mnt/Second/music/
+WOG=$(shuf -n "$am" musicwords --random-source=/dev/urandom | tr '\n' ' ')
+echo "$WOG"
+
+echo "God says...
+$WOG" > ~/scripts/god/wog.log

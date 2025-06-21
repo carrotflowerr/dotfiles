@@ -1,0 +1,19 @@
+
+
+noPol() {
+    while pgrep lxqt-policykit > /dev/null; do
+	killall lxqt-policykit-agent 
+	echo "[X] Killing lxqt-policykit..."
+	sleep 1
+    done
+    return
+}
+
+noPol
+echo "[!] No lxqt-policykit instances."
+echo "[-] Launching lxqt-policykit..."
+/usr/bin/lxqt-policykit-agent 
+echo "[!] Lxqt-Policykit closed, ensuring full closure."
+noPol
+echo "[-] Finished."
+

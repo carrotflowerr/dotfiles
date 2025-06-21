@@ -8,4 +8,4 @@ wl-paste --type image/png > "$IMG"
 # Open the image with sxiv
 nsxiv "$IMG"
 
-rm "$IMG"
+#rm "$IMG"

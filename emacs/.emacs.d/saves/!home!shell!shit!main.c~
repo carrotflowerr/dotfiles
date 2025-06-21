@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+#define MAX 1000
+
+int main(){
+  char temp[MAX];
+
+  // VLA
+
+  int len=0;
+  char cur; //.
+  while(1==1){
+    scanf("%c",&cur);    
+    if(cur == '.')
+      break;
+
+    else{
+      temp[len] = cur;
+      len++;
+    }
+  }
+
+  printf("%d",len);
+  int n = len - 1;
+
+  //  scanf("%d",&n);
+  char string[n];
+
+  for(int i=0; i<len; i++){
+    string[i] == temp[i];
+    // temp[i] == NULL;
+    i++;
+    // taking every other char?
+  }
+  // feed tmp array into string
+
+
+  for(int i=0; i<n; i++){
+      printf("%c",string[i]);
+    }
+  // print array  
+
+}
+

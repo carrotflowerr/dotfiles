@@ -1,0 +1,9 @@
+
+vids=("$@")
+
+
+for arg in "${vids[@]}"; do
+    cat "file_list.txt" >> "file $vids"
+done
+
+ffmpeg -f concat -safe 0 -i file_list.txt -c copy merge.mp4

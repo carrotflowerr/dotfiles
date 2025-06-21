@@ -1,8 +1,21 @@
 #!/bin/bash
+
+# BTW: now using ed as default behavior
+
 # todo: 
+# simple interface
+# opt to edit stopwords
+# encrypt option (-X)
+# Maybe:
 # mktemp
 # some way to use flags while in cat?
-# GNU newline? see: tsoding video
+
+
+
+# requires:
+# fzf
+# ed
+# stopwords file
 
 FILE="/tmp/note"
 HABEO="$HOME/.note"
@@ -10,15 +23,10 @@ TIME=$(date +"%I:%M:%S")
 NOTECOUNT=$(ls "$HABEO" 2>/dev/null | wc -l)
 localEditor="ed"
 BACKUP="~/Documents"
-
 #NAMECHANGE=false
-# requires:
-# fzf
-# ed
-# stopwords file
 
 # Command-line options
-while getopts ":dhsfeFPEAi" option; do
+while getopts ":dhsfeFPEAiX" option; do
     case $option in
 
 	d)
@@ -43,11 +51,16 @@ while getopts ":dhsfeFPEAi" option; do
             ;;
 
 	s)
+
 	    FILENAME=$(tr '[:upper:]' '[:lower:]' < /tmp/note | tr -s '[:space:]' '\n' | tr -d '[:punct:]' | grep -vwFf ~/.note/.stopwords.txt | grep -E '.{5,}' | sort | uniq -c | sort -nrk1,1 | awk '{print $2}' | head -n1)
-	   
-	   mv "$FILE" "$HABEO/$FILENAME"
+
+	   echo "Saving to: $HABEO/$FILENAME"
+	    
+	   mv -i "$FILE" "$HABEO/$FILENAME"
             
-	   echo "Saved to $HABEO/$FILENAME"
+
+
+
            exit 0
 	    
 	   ;;
@@ -91,10 +104,12 @@ while getopts ":dhsfeFPEAi" option; do
 	    cd "$HABEO"
 	    tar -czf archive.tar.gz *
 	    #cp archive.tar.gz "$BACKUP/archive.tar.gz"
-	    cp archive.tar.gz ~/Documents/archive.tar.gz
-	  
+	    cp archive.tar.gz ~/Documents/noteArchive.tar.gz
+	    cp archive.tar.gz /mnt/Third/noteArchive.tar.gz
+    	    cp archive.tar.gz /mnt/Second/noteArchive.tar.gz
+
 	    echo "Archived to archive.tar.gz"
-	    echo "Saved to $BACKUP"
+	    echo "Saved to $BACKUP, /mnt/Second/, /mnt/Third/"
 	    exit 0
 	    ;;
 
@@ -102,8 +117,10 @@ while getopts ":dhsfeFPEAi" option; do
 	    ispell "$FILE"
 	    exit 0
 	    ;;
-	    
-	\?)
+	X)
+#	    gpg --symetric "$FILE"
+	    ;;
+	    \?)
             echo "Invalid option: -$OPTARG" >&2
             echo "Run 'note -h' for help"
             exit 1
@@ -119,10 +136,5 @@ else
     #echo "$(date)" >> "$FILE"
 fi
 
-# Append to the file with or without date
-if [ "$DATE" = true ]; then
-    echo "$(date +"%I:%M")" >> "$FILE"
-    cat >> "$FILE"
-else
-    cat >> "$FILE"
-fi
+ed "$FILE"
+# cat >> "$FILE"

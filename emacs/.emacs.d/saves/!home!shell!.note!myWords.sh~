@@ -1,0 +1,3 @@
+
+am="${1:-10}"
+echo "$(shuf -n "$am" /usr/share/dict/words --random-source=/dev/urandom | tr '\n' ' ')"

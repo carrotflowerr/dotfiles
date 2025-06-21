@@ -1,0 +1,5 @@
+#!/bin/bash
+for file in *.dsf; do
+    [ -e "$file" ] || continue
+    ffmpeg -i "$file" -sample_fmt s16 -ar 44100 -compression_level 0 "${file%.dsf}.flac"
+done

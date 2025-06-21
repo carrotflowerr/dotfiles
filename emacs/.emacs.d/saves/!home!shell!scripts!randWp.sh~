@@ -1,0 +1,92 @@
+#!/bin/sh
+
+# using nsxiv to choose papes might be cool
+papeDir="/home/shell/Downloads/wallpapers"
+current_file="$papeDir/.current_wallpaper"
+current_wp=$(cat "$current_file")
+
+if [ "$1" = "-h" ]; then
+    echo "-c prints path"
+    echo "-d deletes"
+    echo "-s opens"
+    echo "-f save as favorite"
+    exit 0
+fi
+
+if [ "$1" = "-f" ]; then
+    cd "$papeDir"
+    cp -i "$current_wp" favorites/
+    echo "$current_wp marked as favorite."
+    exit 0
+fi
+
+
+# Check for -c flag
+if [ "$1" = "-c" ]; then
+    if [ -f "$current_file" ]; then
+        cat "$current_file"
+    else
+        echo "No wallpaper set"
+    fi
+    exit 0
+fi
+
+if [ "$1" = "-s" ]; then
+    if [ -f "$current_file" ]; then
+	nsxiv "$current_wp"
+    else
+        echo "No wallpaper set"
+    fi
+    exit 0
+fi
+
+if [ "$1" = "-d" ]; then
+    if [ -f "$current_file" ]; then
+	rm -i "$current_wp"
+    else
+        echo "No wallpaper set"
+    fi
+    exit 0
+fi
+
+# Determine directory
+if [ -n "$1" ]; then
+    dir="$papeDir/$1"
+else
+    cd "$papeDir" || exit 1
+    dir=$(ls -d */ | shuf | head -n 1 | sed 's:/*$::')
+    dir="$papeDir/$dir"
+fi
+
+cd "$dir" || exit 1
+
+while :; do
+    echo "Searching for a new wallpaper..."
+
+    amount=$(find . -maxdepth 1 -type f | wc -l)
+    if [ "$amount" -eq 0 ]; then
+        echo "No wallpapers found in $dir"
+        exit 1
+    fi
+
+    randWp=$(shuf -i 1-"$amount" -n 1)
+    selected_wallpaper="$(ls --sort=size | sed -n ${randWp}p)"
+
+    resolution=$(identify -format '%w %h' "$selected_wallpaper")
+    width=$(echo "$resolution" | awk '{print $1}')
+    height=$(echo "$resolution" | awk '{print $2}')
+
+    echo "Chosen wallpaper: $selected_wallpaper with resolution: ${width}x${height}"
+
+    if [ "$width" -gt "$height" ]; then
+        echo "killing old wallpaper..."
+        pkill swaybg
+        echo "Setting new wallpaper..."
+        swaybg -i "$selected_wallpaper" -m fill &
+        realpath "$selected_wallpaper" > "$current_file"
+        echo "Wallpaper successfully set to: $selected_wallpaper"
+        break
+    else
+        echo "Wallpaper $selected_wallpaper is not landscape (${width}x${height}). Retrying..."
+    fi
+done

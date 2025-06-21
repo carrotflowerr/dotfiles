@@ -1,0 +1,4 @@
+#exec startkde
+# exec /home/Documents/source/dwm/dwm
+exec /home/shell/Documents/source/sowm/sowm
+

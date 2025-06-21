@@ -1,1 +1,1 @@
-nil
+((gptel-menu nil))

@@ -1,0 +1,1 @@
+qemu-system-x86_64 -display gtk,gl=on,zoom-to-fit=on -machine q35,kernel_irqchip=on,accel=kvm -audiodev driver=pa,id=pa1 -cdrom ZealOS-PublicDomain-BIOS-*.iso -device AC97,audiodev=pa1 -hda ZealOS.qcow2 -m 8G -smp $(nproc) -rtc base=localtime -nic user,model=pcnet

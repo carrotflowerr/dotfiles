@@ -1,0 +1,24 @@
+term1 term2           ← default AND
+"exact phrase"        ← exact match
+~"phrase"             ← semantic variants (experimental) :contentReference[oaicite:1]{index=1}
+
+term1 -term2          ← exclude term
+term1 +term2          ← boost term :contentReference[oaicite:2]{index=2}
+
+site:example.com      ← limit results to domain :contentReference[oaicite:3]{index=3}
+-site:example.com     ← exclude domain :contentReference[oaicite:4]{index=4}
+
+filetype:pdf          ← only PDFs (doc, xls, ppt, html also supported) :contentReference[oaicite:5]{index=5}
+
+intitle:word          ← word in page title
+inurl:word            ← word in URL
+inbody:word           ← word in body text :contentReference[oaicite:6]{index=6}
+
+( group OR group2 )   ← grouping boolean :contentReference[oaicite:7]{index=7}
+
+sort:date             ← order by date :contentReference[oaicite:8]{index=8}
+
+\term                 ← redirect to first result ("I’m Feeling Ducky") :contentReference[oaicite:9]{index=9}
+
+!bang                 ← redirect search to other site, e.g. !w for Wikipedia :contentReference[oaicite:10]{index=10
+}

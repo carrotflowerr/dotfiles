@@ -1,0 +1,13 @@
+import random
+a = []
+while (1):
+    r = random.randint(1,100)
+    if r > 50:
+        print("heads")
+    if r < 50:
+        print("tails")
+    a.append(r)
+    #print(a)
+    avg = sum(a) / len(a)
+    
+    print(avg,"%")

@@ -1,0 +1,12 @@
+#!/bin/bash
+ISO="$1"
+IMG="$2"
+
+
+if [ "$#" -ne 2 ]; then
+    echo "Ex: qemurun.sh arch.iso storage.img"
+    exit 1
+fi
+
+qemu-system-x86_64 -boot d -cdrom "$ISO" -drive file="$IMG" -m 4G -enable-kvm -usb  -device usb-tablet -smp 4
+

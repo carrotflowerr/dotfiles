@@ -1,0 +1,52 @@
+;; -*- coding: utf-8 -*-
+(("Debian News" "Debian Latest News" "https://www.debian.org/News/" (26704 42515 45566 403000) feed 0 nil nil ((title nil "Debian News") (link nil "https://www.debian.org/News/") (description nil "
+Debian Latest News
+  ") (date nil "2025-05-25T03:26:31+00:00") (items nil (Seq nil (li ((resource . "https://www.debian.org/News/2025/20250517"))) (li ((resource . "https://www.debian.org/News/2025/20250315"))) (li ((resource . "https://www.debian.org/News/2025/20250117"))) (li ((resource . "https://www.debian.org/News/2025/20250111"))) (li ((resource . "https://www.debian.org/News/2024/20241119"))) (li ((resource . "https://www.debian.org/News/2024/20241109"))))))) ("Updated Debian 12: 12.11 released" "The Debian project is pleased to announce the eleventh update of its
+stable distribution Debian 12 (codename <q>bookworm</q>).
+This point release mainly adds corrections for security issues,
+along with a few adjustments for serious problems. Security advisories
+have already been published separately and are referenced where available." "https://www.debian.org/News/2025/20250517" (26663 53632) new 1 nil nil ((guid nil nil) (title nil "Updated Debian 12: 12.11 released") (link nil "https://www.debian.org/News/2025/20250517") (description nil "
+    The Debian project is pleased to announce the eleventh update of its
+stable distribution Debian 12 (codename <q>bookworm</q>).
+This point release mainly adds corrections for security issues,
+along with a few adjustments for serious problems. Security advisories
+have already been published separately and are referenced where available.
+  ") (date nil "2025-05-17"))) ("Updated Debian 12: 12.10 released" "The Debian project is pleased to announce the tenth update of its
+stable distribution Debian 12 (codename <q>bookworm</q>).
+This point release mainly adds corrections for security issues,
+along with a few adjustments for serious problems. Security advisories
+have already been published separately and are referenced where available." "https://www.debian.org/News/2025/20250315" (26580 49920) new 2 nil nil ((guid nil nil) (title nil "Updated Debian 12: 12.10 released") (link nil "https://www.debian.org/News/2025/20250315") (description nil "
+    The Debian project is pleased to announce the tenth update of its
+stable distribution Debian 12 (codename <q>bookworm</q>).
+This point release mainly adds corrections for security issues,
+along with a few adjustments for serious problems. Security advisories
+have already been published separately and are referenced where available.
+  ") (date nil "2025-03-15"))) ("The Debian Project mourns the loss of Steve Langasek (vorlon)" "The Debian Project is sad to announce the loss of Steve Langasek
+(vorlon), who passed away on Wednesday, January 1 2025. He was 45." "https://www.debian.org/News/2025/20250117" (26505 40320) new 3 nil nil ((guid nil nil) (title nil "The Debian Project mourns the loss of Steve Langasek (vorlon)") (link nil "https://www.debian.org/News/2025/20250117") (description nil "
+    The Debian Project is sad to announce the loss of Steve Langasek
+(vorlon), who passed away on Wednesday, January 1 2025. He was 45.
+  ") (date nil "2025-01-17"))) ("Updated Debian 12: 12.9 released" "The Debian project is pleased to announce the ninth update of its
+stable distribution Debian 12 (codename <q>bookworm</q>).
+This point release mainly adds corrections for security issues,
+along with a few adjustments for serious problems. Security advisories
+have already been published separately and are referenced where available." "https://www.debian.org/News/2025/20250111" (26497 46208) new 4 nil nil ((guid nil nil) (title nil "Updated Debian 12: 12.9 released") (link nil "https://www.debian.org/News/2025/20250111") (description nil "
+    The Debian project is pleased to announce the ninth update of its
+stable distribution Debian 12 (codename <q>bookworm</q>).
+This point release mainly adds corrections for security issues,
+along with a few adjustments for serious problems. Security advisories
+have already been published separately and are referenced where available.
+  ") (date nil "2025-01-11"))) ("The Debian Project mourns the loss of Jérémy Bobbio (Lunar)" "The Debian Project sadly shares the news of the passing of Jérémy Bobbio
+(Lunar) on Friday, November 8, 2024." "https://www.debian.org/News/2024/20241119" (26427 54528) new 5 nil nil ((guid nil nil) (title nil "The Debian Project mourns the loss of Jérémy Bobbio (Lunar)") (link nil "https://www.debian.org/News/2024/20241119") (description nil "
+    The Debian Project sadly shares the news of the passing of Jérémy Bobbio
+(Lunar) on Friday, November 8, 2024.
+  ") (date nil "2024-11-19"))) ("Updated Debian 12: 12.8 released" "The Debian project is pleased to announce the eighth update of its
+stable distribution Debian 12 (codename <q>bookworm</q>).
+This point release mainly adds corrections for security issues,
+along with a few adjustments for serious problems. Security advisories
+have already been published separately and are referenced where available." "https://www.debian.org/News/2024/20241109" (26414 42496) new 6 nil nil ((guid nil nil) (title nil "Updated Debian 12: 12.8 released") (link nil "https://www.debian.org/News/2024/20241109") (description nil "
+    The Debian project is pleased to announce the eighth update of its
+stable distribution Debian 12 (codename <q>bookworm</q>).
+This point release mainly adds corrections for security issues,
+along with a few adjustments for serious problems. Security advisories
+have already been published separately and are referenced where available.
+  ") (date nil "2024-11-09"))))

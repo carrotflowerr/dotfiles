@@ -1,0 +1,15 @@
+#!/bin/bash
+ISO="$1"
+IMG="$2"
+
+
+qemu-system-x86_64 \
+    -boot d \
+    -cdrom "$ISO" \
+    -drive file="$IMG" \
+    -m 4G \
+    -smp 4 \
+    -enable-kvm
+# In QEMU monitor (Ctrl+Alt+2 or via stdio):
+(savevm mysave)    # Save VM state
+(loadvm mysave)    # Restore

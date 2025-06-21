@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Usage: ./get_transcript.sh <URL>
+
+URL="$1"
+
+# Download auto-generated English subtitles, convert to SRT
+yt-dlp \
+  --skip-download \
+  --write-subs \
+  --write-auto-subs \
+  --sub-lang en \
+  --sub-format ttml \
+  --convert-subs srt \
+  --output "%(title)s.%(ext)s" \
+  "$URL"
+
+# Get the filename of the downloaded transcript
+FILENAME=$(yt-dlp --get-filename -o "%(title)s.en.srt" "$URL")
+
+# Clean the subtitle file: remove timestamps, numeric lines, and HTML tags
+sed -i \
+  -e '/^[0-9][0-9]:[0-9][0-9]:[0-9][0-9].[0-9][0-9][0-9] --> [0-9][0-9]:[0-9][0-9]:[0-9][0-9].[0-9][0-9][0-9]$/d' \
+  -e '/^[[:digit:]]\{1,3\}$/d' \
+  -e 's/<[^>]*>//g' \
+  "$FILENAME"

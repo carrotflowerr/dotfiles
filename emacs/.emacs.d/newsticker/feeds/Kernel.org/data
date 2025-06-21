@@ -1,0 +1,244 @@
+;; -*- coding: utf-8 -*-
+(("Latest Linux Kernel Versions" "Latest Linux Kernel Versions" "https://www.kernel.org" (26705 5778 537279 38000) feed 0 nil nil ((title nil "Latest Linux Kernel Versions") (link nil "https://www.kernel.org") (description nil "Latest Linux Kernel Versions") (lastBuildDate nil "Mon, 16 Jun 2025 06:18:39 -0000") (item nil (title nil "6.16-rc2: mainline") (link nil "https://www.kernel.org/") (description nil "
+            <table>
+                <tr><th align=\"right\">Version:</th><td><strong>6.16-rc2</strong> (mainline)</td></tr>
+                <tr><th align=\"right\">Released:</th><td>2025-06-15</td></tr>
+            
+                <tr><th align=\"right\">Source:</th><td><a href=\"https://git.kernel.org/torvalds/t/linux-6.16-rc2.tar.gz\">linux-6.16-rc2.tar.gz</a></td></tr>
+                <tr><th align=\"right\">Patch:</th><td><a href=\"https://git.kernel.org/torvalds/p/v6.16-rc2/v6.15\">full</a> (<a href=\"https://git.kernel.org/torvalds/p/v6.16-rc2/v6.16-rc1\">incremental</a>)</td></tr>
+            </table>") (pubDate nil "Sun, 15 Jun 2025 20:49:42 -0000") (guid ((isPermaLink . "false")) "kernel.org,mainline,6.16-rc2,2025-06-15")) (item nil (title nil "6.15.2: stable") (link nil "https://www.kernel.org/") (description nil "
+            <table>
+                <tr><th align=\"right\">Version:</th><td><strong>6.15.2</strong> (stable)</td></tr>
+                <tr><th align=\"right\">Released:</th><td>2025-06-10</td></tr>
+            
+                <tr><th align=\"right\">Source:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.15.2.tar.xz\">linux-6.15.2.tar.xz</a></td></tr>
+                <tr><th align=\"right\">PGP Signature:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.15.2.tar.sign\">linux-6.15.2.tar.sign</a></td></tr>
+                <tr><th align=\"right\">Patch:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.15.2.xz\">full</a> (<a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/incr/patch-6.15.1-2.xz\">incremental</a>)</td></tr>
+                <tr><th align=\"right\">ChangeLog:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.15.2\">ChangeLog-6.15.2</a></td></tr>
+            </table>") (pubDate nil "Tue, 10 Jun 2025 11:17:21 -0000") (guid ((isPermaLink . "false")) "kernel.org,stable,6.15.2,2025-06-10")) (item nil (title nil "6.14.11: stable") (link nil "https://www.kernel.org/") (description nil "
+            <table>
+                <tr><th align=\"right\">Version:</th><td><strong>6.14.11 (EOL)</strong> (stable)</td></tr>
+                <tr><th align=\"right\">Released:</th><td>2025-06-10</td></tr>
+            
+                <tr><th align=\"right\">Source:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.14.11.tar.xz\">linux-6.14.11.tar.xz</a></td></tr>
+                <tr><th align=\"right\">PGP Signature:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.14.11.tar.sign\">linux-6.14.11.tar.sign</a></td></tr>
+                <tr><th align=\"right\">Patch:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.14.11.xz\">full</a> (<a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/incr/patch-6.14.10-11.xz\">incremental</a>)</td></tr>
+                <tr><th align=\"right\">ChangeLog:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.14.11\">ChangeLog-6.14.11</a></td></tr>
+            </table>") (pubDate nil "Tue, 10 Jun 2025 11:16:34 -0000") (guid ((isPermaLink . "false")) "kernel.org,stable,6.14.11,2025-06-10")) (item nil (title nil "6.12.33: longterm") (link nil "https://www.kernel.org/") (description nil "
+            <table>
+                <tr><th align=\"right\">Version:</th><td><strong>6.12.33</strong> (longterm)</td></tr>
+                <tr><th align=\"right\">Released:</th><td>2025-06-10</td></tr>
+            
+                <tr><th align=\"right\">Source:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.12.33.tar.xz\">linux-6.12.33.tar.xz</a></td></tr>
+                <tr><th align=\"right\">PGP Signature:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.12.33.tar.sign\">linux-6.12.33.tar.sign</a></td></tr>
+                <tr><th align=\"right\">Patch:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.12.33.xz\">full</a> (<a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/incr/patch-6.12.32-33.xz\">incremental</a>)</td></tr>
+                <tr><th align=\"right\">ChangeLog:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.33\">ChangeLog-6.12.33</a></td></tr>
+            </table>") (pubDate nil "Tue, 10 Jun 2025 11:15:06 -0000") (guid ((isPermaLink . "false")) "kernel.org,longterm,6.12.33,2025-06-10")) (item nil (title nil "6.6.93: longterm") (link nil "https://www.kernel.org/") (description nil "
+            <table>
+                <tr><th align=\"right\">Version:</th><td><strong>6.6.93</strong> (longterm)</td></tr>
+                <tr><th align=\"right\">Released:</th><td>2025-06-04</td></tr>
+            
+                <tr><th align=\"right\">Source:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.6.93.tar.xz\">linux-6.6.93.tar.xz</a></td></tr>
+                <tr><th align=\"right\">PGP Signature:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.6.93.tar.sign\">linux-6.6.93.tar.sign</a></td></tr>
+                <tr><th align=\"right\">Patch:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.6.93.xz\">full</a> (<a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/incr/patch-6.6.92-93.xz\">incremental</a>)</td></tr>
+                <tr><th align=\"right\">ChangeLog:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.6.93\">ChangeLog-6.6.93</a></td></tr>
+            </table>") (pubDate nil "Wed, 04 Jun 2025 12:42:35 -0000") (guid ((isPermaLink . "false")) "kernel.org,longterm,6.6.93,2025-06-04")) (item nil (title nil "6.1.141: longterm") (link nil "https://www.kernel.org/") (description nil "
+            <table>
+                <tr><th align=\"right\">Version:</th><td><strong>6.1.141</strong> (longterm)</td></tr>
+                <tr><th align=\"right\">Released:</th><td>2025-06-04</td></tr>
+            
+                <tr><th align=\"right\">Source:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.141.tar.xz\">linux-6.1.141.tar.xz</a></td></tr>
+                <tr><th align=\"right\">PGP Signature:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.141.tar.sign\">linux-6.1.141.tar.sign</a></td></tr>
+                <tr><th align=\"right\">Patch:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.1.141.xz\">full</a> (<a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/incr/patch-6.1.140-141.xz\">incremental</a>)</td></tr>
+                <tr><th align=\"right\">ChangeLog:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.1.141\">ChangeLog-6.1.141</a></td></tr>
+            </table>") (pubDate nil "Wed, 04 Jun 2025 12:40:32 -0000") (guid ((isPermaLink . "false")) "kernel.org,longterm,6.1.141,2025-06-04")) (item nil (title nil "5.15.185: longterm") (link nil "https://www.kernel.org/") (description nil "
+            <table>
+                <tr><th align=\"right\">Version:</th><td><strong>5.15.185</strong> (longterm)</td></tr>
+                <tr><th align=\"right\">Released:</th><td>2025-06-04</td></tr>
+            
+                <tr><th align=\"right\">Source:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.15.185.tar.xz\">linux-5.15.185.tar.xz</a></td></tr>
+                <tr><th align=\"right\">PGP Signature:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.15.185.tar.sign\">linux-5.15.185.tar.sign</a></td></tr>
+                <tr><th align=\"right\">Patch:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.15.185.xz\">full</a> (<a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/incr/patch-5.15.184-185.xz\">incremental</a>)</td></tr>
+                <tr><th align=\"right\">ChangeLog:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/ChangeLog-5.15.185\">ChangeLog-5.15.185</a></td></tr>
+            </table>") (pubDate nil "Wed, 04 Jun 2025 12:38:47 -0000") (guid ((isPermaLink . "false")) "kernel.org,longterm,5.15.185,2025-06-04")) (item nil (title nil "5.10.238: longterm") (link nil "https://www.kernel.org/") (description nil "
+            <table>
+                <tr><th align=\"right\">Version:</th><td><strong>5.10.238</strong> (longterm)</td></tr>
+                <tr><th align=\"right\">Released:</th><td>2025-06-04</td></tr>
+            
+                <tr><th align=\"right\">Source:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.10.238.tar.xz\">linux-5.10.238.tar.xz</a></td></tr>
+                <tr><th align=\"right\">PGP Signature:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.10.238.tar.sign\">linux-5.10.238.tar.sign</a></td></tr>
+                <tr><th align=\"right\">Patch:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.10.238.xz\">full</a> (<a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/incr/patch-5.10.237-238.xz\">incremental</a>)</td></tr>
+                <tr><th align=\"right\">ChangeLog:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/ChangeLog-5.10.238\">ChangeLog-5.10.238</a></td></tr>
+            </table>") (pubDate nil "Wed, 04 Jun 2025 12:37:16 -0000") (guid ((isPermaLink . "false")) "kernel.org,longterm,5.10.238,2025-06-04")) (item nil (title nil "5.4.294: longterm") (link nil "https://www.kernel.org/") (description nil "
+            <table>
+                <tr><th align=\"right\">Version:</th><td><strong>5.4.294</strong> (longterm)</td></tr>
+                <tr><th align=\"right\">Released:</th><td>2025-06-04</td></tr>
+            
+                <tr><th align=\"right\">Source:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.294.tar.xz\">linux-5.4.294.tar.xz</a></td></tr>
+                <tr><th align=\"right\">PGP Signature:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.294.tar.sign\">linux-5.4.294.tar.sign</a></td></tr>
+                <tr><th align=\"right\">Patch:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.4.294.xz\">full</a> (<a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/incr/patch-5.4.293-294.xz\">incremental</a>)</td></tr>
+                <tr><th align=\"right\">ChangeLog:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/ChangeLog-5.4.294\">ChangeLog-5.4.294</a></td></tr>
+            </table>") (pubDate nil "Wed, 04 Jun 2025 12:33:44 -0000") (guid ((isPermaLink . "false")) "kernel.org,longterm,5.4.294,2025-06-04")) (item nil (title nil "next-20250616: linux-next") (link nil "https://www.kernel.org/") (description nil "
+            <table>
+                <tr><th align=\"right\">Version:</th><td><strong>next-20250616</strong> (linux-next)</td></tr>
+                <tr><th align=\"right\">Released:</th><td>2025-06-16</td></tr>
+            
+            </table>") (pubDate nil "Mon, 16 Jun 2025 06:18:39 -0000") (guid ((isPermaLink . "false")) "kernel.org,linux-next,next-20250616,2025-06-16")))) ("6.16-rc2: mainline" "<table>
+                <tr><th align=\"right\">Version:</th><td><strong>6.16-rc2</strong> (mainline)</td></tr>
+                <tr><th align=\"right\">Released:</th><td>2025-06-15</td></tr>
+            
+                <tr><th align=\"right\">Source:</th><td><a href=\"https://git.kernel.org/torvalds/t/linux-6.16-rc2.tar.gz\">linux-6.16-rc2.tar.gz</a></td></tr>
+                <tr><th align=\"right\">Patch:</th><td><a href=\"https://git.kernel.org/torvalds/p/v6.16-rc2/v6.15\">full</a> (<a href=\"https://git.kernel.org/torvalds/p/v6.16-rc2/v6.16-rc1\">incremental</a>)</td></tr>
+            </table>" "https://www.kernel.org/" (26703 12774) old 1 nil nil ((title nil "6.16-rc2: mainline") (link nil "https://www.kernel.org/") (description nil "
+            <table>
+                <tr><th align=\"right\">Version:</th><td><strong>6.16-rc2</strong> (mainline)</td></tr>
+                <tr><th align=\"right\">Released:</th><td>2025-06-15</td></tr>
+            
+                <tr><th align=\"right\">Source:</th><td><a href=\"https://git.kernel.org/torvalds/t/linux-6.16-rc2.tar.gz\">linux-6.16-rc2.tar.gz</a></td></tr>
+                <tr><th align=\"right\">Patch:</th><td><a href=\"https://git.kernel.org/torvalds/p/v6.16-rc2/v6.15\">full</a> (<a href=\"https://git.kernel.org/torvalds/p/v6.16-rc2/v6.16-rc1\">incremental</a>)</td></tr>
+            </table>") (pubDate nil "Sun, 15 Jun 2025 20:49:42 -0000") (guid ((isPermaLink . "false")) "kernel.org,mainline,6.16-rc2,2025-06-15"))) ("6.15.2: stable" "<table>
+                <tr><th align=\"right\">Version:</th><td><strong>6.15.2</strong> (stable)</td></tr>
+                <tr><th align=\"right\">Released:</th><td>2025-06-10</td></tr>
+            
+                <tr><th align=\"right\">Source:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.15.2.tar.xz\">linux-6.15.2.tar.xz</a></td></tr>
+                <tr><th align=\"right\">PGP Signature:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.15.2.tar.sign\">linux-6.15.2.tar.sign</a></td></tr>
+                <tr><th align=\"right\">Patch:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.15.2.xz\">full</a> (<a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/incr/patch-6.15.1-2.xz\">incremental</a>)</td></tr>
+                <tr><th align=\"right\">ChangeLog:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.15.2\">ChangeLog-6.15.2</a></td></tr>
+            </table>" "https://www.kernel.org/" (26696 5185) old 2 nil nil ((title nil "6.15.2: stable") (link nil "https://www.kernel.org/") (description nil "
+            <table>
+                <tr><th align=\"right\">Version:</th><td><strong>6.15.2</strong> (stable)</td></tr>
+                <tr><th align=\"right\">Released:</th><td>2025-06-10</td></tr>
+            
+                <tr><th align=\"right\">Source:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.15.2.tar.xz\">linux-6.15.2.tar.xz</a></td></tr>
+                <tr><th align=\"right\">PGP Signature:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.15.2.tar.sign\">linux-6.15.2.tar.sign</a></td></tr>
+                <tr><th align=\"right\">Patch:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.15.2.xz\">full</a> (<a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/incr/patch-6.15.1-2.xz\">incremental</a>)</td></tr>
+                <tr><th align=\"right\">ChangeLog:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.15.2\">ChangeLog-6.15.2</a></td></tr>
+            </table>") (pubDate nil "Tue, 10 Jun 2025 11:17:21 -0000") (guid ((isPermaLink . "false")) "kernel.org,stable,6.15.2,2025-06-10"))) ("6.14.11: stable" "<table>
+                <tr><th align=\"right\">Version:</th><td><strong>6.14.11 (EOL)</strong> (stable)</td></tr>
+                <tr><th align=\"right\">Released:</th><td>2025-06-10</td></tr>
+            
+                <tr><th align=\"right\">Source:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.14.11.tar.xz\">linux-6.14.11.tar.xz</a></td></tr>
+                <tr><th align=\"right\">PGP Signature:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.14.11.tar.sign\">linux-6.14.11.tar.sign</a></td></tr>
+                <tr><th align=\"right\">Patch:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.14.11.xz\">full</a> (<a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/incr/patch-6.14.10-11.xz\">incremental</a>)</td></tr>
+                <tr><th align=\"right\">ChangeLog:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.14.11\">ChangeLog-6.14.11</a></td></tr>
+            </table>" "https://www.kernel.org/" (26696 5138) old 3 nil nil ((title nil "6.14.11: stable") (link nil "https://www.kernel.org/") (description nil "
+            <table>
+                <tr><th align=\"right\">Version:</th><td><strong>6.14.11 (EOL)</strong> (stable)</td></tr>
+                <tr><th align=\"right\">Released:</th><td>2025-06-10</td></tr>
+            
+                <tr><th align=\"right\">Source:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.14.11.tar.xz\">linux-6.14.11.tar.xz</a></td></tr>
+                <tr><th align=\"right\">PGP Signature:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.14.11.tar.sign\">linux-6.14.11.tar.sign</a></td></tr>
+                <tr><th align=\"right\">Patch:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.14.11.xz\">full</a> (<a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/incr/patch-6.14.10-11.xz\">incremental</a>)</td></tr>
+                <tr><th align=\"right\">ChangeLog:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.14.11\">ChangeLog-6.14.11</a></td></tr>
+            </table>") (pubDate nil "Tue, 10 Jun 2025 11:16:34 -0000") (guid ((isPermaLink . "false")) "kernel.org,stable,6.14.11,2025-06-10"))) ("6.12.33: longterm" "<table>
+                <tr><th align=\"right\">Version:</th><td><strong>6.12.33</strong> (longterm)</td></tr>
+                <tr><th align=\"right\">Released:</th><td>2025-06-10</td></tr>
+            
+                <tr><th align=\"right\">Source:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.12.33.tar.xz\">linux-6.12.33.tar.xz</a></td></tr>
+                <tr><th align=\"right\">PGP Signature:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.12.33.tar.sign\">linux-6.12.33.tar.sign</a></td></tr>
+                <tr><th align=\"right\">Patch:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.12.33.xz\">full</a> (<a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/incr/patch-6.12.32-33.xz\">incremental</a>)</td></tr>
+                <tr><th align=\"right\">ChangeLog:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.33\">ChangeLog-6.12.33</a></td></tr>
+            </table>" "https://www.kernel.org/" (26696 5050) old 4 nil nil ((title nil "6.12.33: longterm") (link nil "https://www.kernel.org/") (description nil "
+            <table>
+                <tr><th align=\"right\">Version:</th><td><strong>6.12.33</strong> (longterm)</td></tr>
+                <tr><th align=\"right\">Released:</th><td>2025-06-10</td></tr>
+            
+                <tr><th align=\"right\">Source:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.12.33.tar.xz\">linux-6.12.33.tar.xz</a></td></tr>
+                <tr><th align=\"right\">PGP Signature:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.12.33.tar.sign\">linux-6.12.33.tar.sign</a></td></tr>
+                <tr><th align=\"right\">Patch:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.12.33.xz\">full</a> (<a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/incr/patch-6.12.32-33.xz\">incremental</a>)</td></tr>
+                <tr><th align=\"right\">ChangeLog:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.33\">ChangeLog-6.12.33</a></td></tr>
+            </table>") (pubDate nil "Tue, 10 Jun 2025 11:15:06 -0000") (guid ((isPermaLink . "false")) "kernel.org,longterm,6.12.33,2025-06-10"))) ("6.6.93: longterm" "<table>
+                <tr><th align=\"right\">Version:</th><td><strong>6.6.93</strong> (longterm)</td></tr>
+                <tr><th align=\"right\">Released:</th><td>2025-06-04</td></tr>
+            
+                <tr><th align=\"right\">Source:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.6.93.tar.xz\">linux-6.6.93.tar.xz</a></td></tr>
+                <tr><th align=\"right\">PGP Signature:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.6.93.tar.sign\">linux-6.6.93.tar.sign</a></td></tr>
+                <tr><th align=\"right\">Patch:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.6.93.xz\">full</a> (<a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/incr/patch-6.6.92-93.xz\">incremental</a>)</td></tr>
+                <tr><th align=\"right\">ChangeLog:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.6.93\">ChangeLog-6.6.93</a></td></tr>
+            </table>" "https://www.kernel.org/" (26688 16187) old 5 nil nil ((title nil "6.6.93: longterm") (link nil "https://www.kernel.org/") (description nil "
+            <table>
+                <tr><th align=\"right\">Version:</th><td><strong>6.6.93</strong> (longterm)</td></tr>
+                <tr><th align=\"right\">Released:</th><td>2025-06-04</td></tr>
+            
+                <tr><th align=\"right\">Source:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.6.93.tar.xz\">linux-6.6.93.tar.xz</a></td></tr>
+                <tr><th align=\"right\">PGP Signature:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.6.93.tar.sign\">linux-6.6.93.tar.sign</a></td></tr>
+                <tr><th align=\"right\">Patch:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.6.93.xz\">full</a> (<a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/incr/patch-6.6.92-93.xz\">incremental</a>)</td></tr>
+                <tr><th align=\"right\">ChangeLog:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.6.93\">ChangeLog-6.6.93</a></td></tr>
+            </table>") (pubDate nil "Wed, 04 Jun 2025 12:42:35 -0000") (guid ((isPermaLink . "false")) "kernel.org,longterm,6.6.93,2025-06-04"))) ("6.1.141: longterm" "<table>
+                <tr><th align=\"right\">Version:</th><td><strong>6.1.141</strong> (longterm)</td></tr>
+                <tr><th align=\"right\">Released:</th><td>2025-06-04</td></tr>
+            
+                <tr><th align=\"right\">Source:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.141.tar.xz\">linux-6.1.141.tar.xz</a></td></tr>
+                <tr><th align=\"right\">PGP Signature:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.141.tar.sign\">linux-6.1.141.tar.sign</a></td></tr>
+                <tr><th align=\"right\">Patch:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.1.141.xz\">full</a> (<a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/incr/patch-6.1.140-141.xz\">incremental</a>)</td></tr>
+                <tr><th align=\"right\">ChangeLog:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.1.141\">ChangeLog-6.1.141</a></td></tr>
+            </table>" "https://www.kernel.org/" (26688 16064) old 6 nil nil ((title nil "6.1.141: longterm") (link nil "https://www.kernel.org/") (description nil "
+            <table>
+                <tr><th align=\"right\">Version:</th><td><strong>6.1.141</strong> (longterm)</td></tr>
+                <tr><th align=\"right\">Released:</th><td>2025-06-04</td></tr>
+            
+                <tr><th align=\"right\">Source:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.141.tar.xz\">linux-6.1.141.tar.xz</a></td></tr>
+                <tr><th align=\"right\">PGP Signature:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.141.tar.sign\">linux-6.1.141.tar.sign</a></td></tr>
+                <tr><th align=\"right\">Patch:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.1.141.xz\">full</a> (<a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/incr/patch-6.1.140-141.xz\">incremental</a>)</td></tr>
+                <tr><th align=\"right\">ChangeLog:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.1.141\">ChangeLog-6.1.141</a></td></tr>
+            </table>") (pubDate nil "Wed, 04 Jun 2025 12:40:32 -0000") (guid ((isPermaLink . "false")) "kernel.org,longterm,6.1.141,2025-06-04"))) ("5.15.185: longterm" "<table>
+                <tr><th align=\"right\">Version:</th><td><strong>5.15.185</strong> (longterm)</td></tr>
+                <tr><th align=\"right\">Released:</th><td>2025-06-04</td></tr>
+            
+                <tr><th align=\"right\">Source:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.15.185.tar.xz\">linux-5.15.185.tar.xz</a></td></tr>
+                <tr><th align=\"right\">PGP Signature:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.15.185.tar.sign\">linux-5.15.185.tar.sign</a></td></tr>
+                <tr><th align=\"right\">Patch:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.15.185.xz\">full</a> (<a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/incr/patch-5.15.184-185.xz\">incremental</a>)</td></tr>
+                <tr><th align=\"right\">ChangeLog:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/ChangeLog-5.15.185\">ChangeLog-5.15.185</a></td></tr>
+            </table>" "https://www.kernel.org/" (26688 15959) old 7 nil nil ((title nil "5.15.185: longterm") (link nil "https://www.kernel.org/") (description nil "
+            <table>
+                <tr><th align=\"right\">Version:</th><td><strong>5.15.185</strong> (longterm)</td></tr>
+                <tr><th align=\"right\">Released:</th><td>2025-06-04</td></tr>
+            
+                <tr><th align=\"right\">Source:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.15.185.tar.xz\">linux-5.15.185.tar.xz</a></td></tr>
+                <tr><th align=\"right\">PGP Signature:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.15.185.tar.sign\">linux-5.15.185.tar.sign</a></td></tr>
+                <tr><th align=\"right\">Patch:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.15.185.xz\">full</a> (<a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/incr/patch-5.15.184-185.xz\">incremental</a>)</td></tr>
+                <tr><th align=\"right\">ChangeLog:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/ChangeLog-5.15.185\">ChangeLog-5.15.185</a></td></tr>
+            </table>") (pubDate nil "Wed, 04 Jun 2025 12:38:47 -0000") (guid ((isPermaLink . "false")) "kernel.org,longterm,5.15.185,2025-06-04"))) ("5.10.238: longterm" "<table>
+                <tr><th align=\"right\">Version:</th><td><strong>5.10.238</strong> (longterm)</td></tr>
+                <tr><th align=\"right\">Released:</th><td>2025-06-04</td></tr>
+            
+                <tr><th align=\"right\">Source:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.10.238.tar.xz\">linux-5.10.238.tar.xz</a></td></tr>
+                <tr><th align=\"right\">PGP Signature:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.10.238.tar.sign\">linux-5.10.238.tar.sign</a></td></tr>
+                <tr><th align=\"right\">Patch:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.10.238.xz\">full</a> (<a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/incr/patch-5.10.237-238.xz\">incremental</a>)</td></tr>
+                <tr><th align=\"right\">ChangeLog:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/ChangeLog-5.10.238\">ChangeLog-5.10.238</a></td></tr>
+            </table>" "https://www.kernel.org/" (26688 15868) old 8 nil nil ((title nil "5.10.238: longterm") (link nil "https://www.kernel.org/") (description nil "
+            <table>
+                <tr><th align=\"right\">Version:</th><td><strong>5.10.238</strong> (longterm)</td></tr>
+                <tr><th align=\"right\">Released:</th><td>2025-06-04</td></tr>
+            
+                <tr><th align=\"right\">Source:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.10.238.tar.xz\">linux-5.10.238.tar.xz</a></td></tr>
+                <tr><th align=\"right\">PGP Signature:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.10.238.tar.sign\">linux-5.10.238.tar.sign</a></td></tr>
+                <tr><th align=\"right\">Patch:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.10.238.xz\">full</a> (<a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/incr/patch-5.10.237-238.xz\">incremental</a>)</td></tr>
+                <tr><th align=\"right\">ChangeLog:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/ChangeLog-5.10.238\">ChangeLog-5.10.238</a></td></tr>
+            </table>") (pubDate nil "Wed, 04 Jun 2025 12:37:16 -0000") (guid ((isPermaLink . "false")) "kernel.org,longterm,5.10.238,2025-06-04"))) ("5.4.294: longterm" "<table>
+                <tr><th align=\"right\">Version:</th><td><strong>5.4.294</strong> (longterm)</td></tr>
+                <tr><th align=\"right\">Released:</th><td>2025-06-04</td></tr>
+            
+                <tr><th align=\"right\">Source:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.294.tar.xz\">linux-5.4.294.tar.xz</a></td></tr>
+                <tr><th align=\"right\">PGP Signature:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.294.tar.sign\">linux-5.4.294.tar.sign</a></td></tr>
+                <tr><th align=\"right\">Patch:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.4.294.xz\">full</a> (<a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/incr/patch-5.4.293-294.xz\">incremental</a>)</td></tr>
+                <tr><th align=\"right\">ChangeLog:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/ChangeLog-5.4.294\">ChangeLog-5.4.294</a></td></tr>
+            </table>" "https://www.kernel.org/" (26688 15656) old 9 nil nil ((title nil "5.4.294: longterm") (link nil "https://www.kernel.org/") (description nil "
+            <table>
+                <tr><th align=\"right\">Version:</th><td><strong>5.4.294</strong> (longterm)</td></tr>
+                <tr><th align=\"right\">Released:</th><td>2025-06-04</td></tr>
+            
+                <tr><th align=\"right\">Source:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.294.tar.xz\">linux-5.4.294.tar.xz</a></td></tr>
+                <tr><th align=\"right\">PGP Signature:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.4.294.tar.sign\">linux-5.4.294.tar.sign</a></td></tr>
+                <tr><th align=\"right\">Patch:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/patch-5.4.294.xz\">full</a> (<a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/incr/patch-5.4.293-294.xz\">incremental</a>)</td></tr>
+                <tr><th align=\"right\">ChangeLog:</th><td><a href=\"https://cdn.kernel.org/pub/linux/kernel/v5.x/ChangeLog-5.4.294\">ChangeLog-5.4.294</a></td></tr>
+            </table>") (pubDate nil "Wed, 04 Jun 2025 12:33:44 -0000") (guid ((isPermaLink . "false")) "kernel.org,longterm,5.4.294,2025-06-04"))) ("next-20250617: linux-next" "<table>
+                <tr><th align=\"right\">Version:</th><td><strong>next-20250617</strong> (linux-next)</td></tr>
+                <tr><th align=\"right\">Released:</th><td>2025-06-17</td></tr>
+            
+            </table>" "https://www.kernel.org/" (26705 2364) new 10 nil nil ((title nil "next-20250617: linux-next") (link nil "https://www.kernel.org/") (description nil "
+            <table>
+                <tr><th align=\"right\">Version:</th><td><strong>next-20250617</strong> (linux-next)</td></tr>
+                <tr><th align=\"right\">Released:</th><td>2025-06-17</td></tr>
+            
+            </table>") (pubDate nil "Tue, 17 Jun 2025 06:20:44 -0000") (guid ((isPermaLink . "false")) "kernel.org,linux-next,next-20250617,2025-06-17"))))

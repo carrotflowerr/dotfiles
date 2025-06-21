@@ -1,0 +1,18 @@
+[ ] ooba/koboldcpp as your backend
+ https://github.com/LostRuins/koboldcpp
+[ ] sillytavern as your frontend
+
+
+[ ] go to huggingface and download nemo 12b instruct gguf. Start with Q4.
+
+[ ] load into ooba/kobold
+
+[ ] in sillytavern, select Mistral v3 tekken context template and instruct template
+
+[ ] Temp 0.8
+
+[ ] MinP 0.02
+
+[ ] Rep Pen 1.2
+
+[ ] COOM your brains out

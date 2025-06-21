@@ -1,0 +1,54 @@
+#!/bin/bash
+
+# --- Configuration ---
+HAIKU_ISO_PATH="haiku.iso"
+VM_DISK_PATH="rumi.img"
+VM_DISK_SIZE="8G"                      # Recommended disk size
+QEMU_BIN_PATH="/usr/local/bin"          # Adjust this if your QEMU binaries are in a different location
+VM_MEMORY="8G"                         # Recommended RAM
+VIRTUAL_CPUS="4"                       # Recommended CPU count (adjust based on your host)
+CPU_MODEL="core2duo"                   # Recommended CPU model
+
+# --- Check if the ISO file exists ---
+if [ ! -f "$HAIKU_ISO_PATH" ]; then
+  echo "Error: Haiku ISO file not found at '$HAIKU_ISO_PATH'"
+  exit 1
+fi
+
+# --- Check if QEMU is installed (basic check) ---
+if ! command -v qemu-system-x86_64 &> /dev/null; then
+  echo "Error: QEMU is not installed or not in your PATH."
+  echo "Please install QEMU to run Haiku."
+  exit 1
+fi
+
+# --- Create the virtual hard disk if it doesn't exist ---
+if [ ! -f "$VM_DISK_PATH" ]; then
+  echo "Creating a new virtual hard disk: '$VM_DISK_PATH' with size '$VM_DISK_SIZE'"
+  "$QEMU_BIN_PATH/qemu-img" create -f raw "$VM_DISK_PATH" "$VM_DISK_SIZE"
+  if [ $? -ne 0 ]; then
+    echo "Error creating virtual hard disk."
+    exit 1
+  fi
+else
+  echo "Using existing virtual hard disk: '$VM_DISK_PATH'"
+fi
+
+# --- Run QEMU with the recommended settings ---
+echo "Starting Haiku in QEMU..."
+qemu-system-x86_64 \
+  -name "Haiku VM" \
+  -m "$VM_MEMORY" \
+  -smp "$VIRTUAL_CPUS",cores="$VIRTUAL_CPUS",threads=1 \
+  -cpu "$CPU_MODEL" \
+  -drive file="$VM_DISK_PATH",format=raw,if=virtio \
+  -cdrom "$HAIKU_ISO_PATH" \
+#  -boot d \
+  -net user,hostfwd=tcp::8080-:80,hostfwd=tcp::2222-:22 \
+  -net nic,model=virtio-net-pci \
+  -vga std \
+  -usb -device usb-tablet \
+  -k en-us # You can change the keyboard layout if needed
+
+echo "QEMU is running Haiku. Follow the on-screen instructions to install."
+echo "After installation, you might need to remove the '-boot d' option to boot from the hard disk."

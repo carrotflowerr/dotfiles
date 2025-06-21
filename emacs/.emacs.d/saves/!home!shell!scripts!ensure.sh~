@@ -1,0 +1,18 @@
+appString="$1"
+
+ensureClose() {
+    while pgrep "$appString" > /dev/null; do
+	killall "$appString"-agent 
+	echo "[X] Killing "$appString"..."
+	sleep 1
+    done
+    return
+}
+
+ensureClose
+echo "[!] No "$appString" instances."
+echo "[-] Launching "$appString"..."
+/usr/bin/"$appString"-agent 
+echo "[!] "$AppString" closed, ensuring full closure."
+ensureClose
+echo "[-] Finished."

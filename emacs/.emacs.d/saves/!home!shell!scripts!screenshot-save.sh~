@@ -1,0 +1,10 @@
+filename="/home/shell/Pictures/$(date '+%Y-%m-%d_%H-%M-%S').png"
+
+if command -v grim >/dev/null 2>&1 && [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+  grim -g "$(slurp -d -w 2)" "$filename"
+elif command -v maim >/dev/null 2>&1; then
+  maim -s "$filename"
+else
+  echo "No compatible screenshot tool found" >&2
+  exit 1
+fi

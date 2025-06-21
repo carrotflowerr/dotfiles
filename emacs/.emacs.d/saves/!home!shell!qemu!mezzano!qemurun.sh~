@@ -1,0 +1,22 @@
+#!/bin/bash
+ISO="$1"
+IMG="$2"
+
+if [ "$#" -lt 1 ] || [ "$#" -gt 2 ]; then
+    echo "Usage: qemurun.sh <arch.iso> [<storage.img>]"
+    exit 1
+fi
+
+cd "$PWD"
+echo "moved to $PWD"
+
+if [ "$#" -eq 1 ]; then
+    qemu-system-x86_64 \
+        -boot d \
+        -cdrom "$ISO" \
+        -m 4G \
+        -smp 4 \
+        -enable-kvm
+else
+ qemu-system-x86_64 -hda storage.qcow2 -m 2G -enable-kvm -vga virtio -display sdl,gl=on -net user -net nic,model=virtio
+fi

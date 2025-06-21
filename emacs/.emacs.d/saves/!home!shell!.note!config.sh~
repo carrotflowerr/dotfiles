@@ -1,0 +1,6 @@
+FILE="/tmp/note"
+HABEO="$HOME/.note"
+BACKUP="$HOME/Documents"
+STOPWORDS="$HABEO/.stopwords.txt"
+TIME_FORMAT="%Y%m%d_%H%M%S"
+EDITOR_CMD="${EDITOR:-ed}"

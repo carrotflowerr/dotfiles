@@ -1,0 +1,32 @@
+@book{heidegger,
+  author    = {Martin Heidegger},
+  title     = {Being and Time},
+  year      = {1927},
+  publisher = {Oxford},
+}
+
+@book{witt,
+author = {Ludwig Wittgenstein}
+title = {Tractatus Logico - Philosophicus}
+year = {1922}
+}
+
+@article{franca,
+  author  = {Ku, Hyejin and Zussman, Asaf},
+  title   = {Lingua franca: The role of English in international trade},
+  journal = {Journal of Economic Behavior \& Organization},
+  volume  = {75},
+  number  = {2},
+  pages   = {250--260},
+  year    = {2010},
+  doi     = {10.1016/j.jebo.2010.03.013},
+}
+
+
+Ludwig Wittgenstein, and Andreas Georgallides. Tractatus Logico - Philosophicus. Athḗna, Ekdóseis Íambos, 2016
+
+Ku, H., & Zussman, A. (2010). Lingua franca: The role of English in international trade. Journal of Economic Behavior & Organization, 75(2), 250–260. https://doi.org/10.1016/j.jebo.2010.03.013
+
+‌Heidegger, Martin. Being and Time. 1927. Oxford, Blackwell, 1962.
+
+.
