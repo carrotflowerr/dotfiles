@@ -1,0 +1,187 @@
+;; Packages  -*- lexical-binding: t; -*-
+;; should be sorted most to least important.
+; defined in init.el
+;; Full docs
+;; this is here because it's system specific.
+;; (add-to-list 'Info-directory-list "~/.emacs.d/info/")
+
+(load "~/.emacs.d/macro.el")
+;; channer
+;; (load "~/.emacs.d/elpa/q4/q4.el")
+
+
+;; === PACKAGES START ===
+
+;; Initialize package.el and add MELPA repo
+(require 'package)
+(add-to-list 'package-archives
+	     '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+
+
+
+(use-package embark
+  :ensure t
+  :bind
+  (("C-." . embark-act)         ;; pick some comfortable binding
+   ("C-;" . embark-dwim)        ;; good alternative: M-.
+   ("C-h B" . embark-bindings)) ;; alternative for `describe-bindings'
+  :init
+  (setq prefix-help-command #'embark-prefix-help-command)
+  :config
+  ;; Hide the mode line of the Embark live/completions buffers
+  (add-to-list 'display-buffer-alist
+               '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
+                 nil
+                 (window-parameters (mode-line-format . none))))
+  )
+
+
+
+
+;; annotated minibuf
+(use-package marginalia
+  :ensure t
+  :init (marginalia-mode 1)
+  )
+
+
+;; completion engine
+(use-package vertico
+  :ensure t
+  :config
+  (vertico-mode 1))
+
+;; makes c-w work 
+(use-package whole-line-or-region
+  :ensure t
+  :config
+  (whole-line-or-region-global-mode 1)
+)
+
+
+(use-package goto-last-change
+  :ensure t
+  :config
+  :bind (("C-x C-x"     . goto-last-change))  )
+
+;; Spacious Padding (MELPA)
+;; (use-package spacious-padding
+;;   :ensure t
+;;   :config
+;;   (spacious-padding-mode 1))
+
+(dolist (hook '(text-mode-hook))
+      (add-hook hook (lambda () (flyspell-mode 1))))
+
+;; love this. visual bookmarks
+;; bm = baby mama
+(use-package bm
+  :ensure t
+  :bind (
+         ("<f2>"     . bm-toggle)
+         ("<C-f2>"   . bm-next)
+         ("<S-f2>"   . bm-previous)
+         )
+  )
+
+;; (use-package undo-tree
+;;   :ensure t
+;;   :bind (
+;;          ("C-x u" . undo-tree-undo)
+;;          ("C-/" . undo-tree-visualize)
+;;          )
+;;   :config
+;;   (global-undo-tree-mode)
+;;   )
+
+
+
+(defun eat-right()
+  (interactive)
+  (split-window-right)
+  (eat)
+  )
+
+;; (use-package eat
+;;   :config
+;;   :bind(
+;;         ("C-`" . eat-other-window)
+;;         )
+
+;;   )
+
+
+(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode 1)
+)
+
+
+;; lol.
+(load "/home/shell/.emacs.d/elpa/zimblo-find-char.el")
+(global-set-key (kbd "M-m") 'zimblo-find-char)
+(global-set-key (kbd "M-M") 'zimblo-find-char-backward)
+
+;; Might be obsolete because of avy
+;; avy sucks ass.
+;; (use-package jump-char
+;;   :ensure t
+;;   :config
+;;   :bind(
+;;         ("M-m" . jump-char-forward)
+;;         ("M-M" . jump-char-backward)
+
+
+;;         ;; ( "C-c f" . jump-char-forward)
+;;         ;; ( "C-c F" . jump-char-backward)
+;; ;;        (global-set-key (kbd "C-.") 'jump-char-forward)
+;; )
+
+;;   )
+
+;; http://ergoemacs.org/emacs/elisp_read_file_content.html
+;; This is part of dashboard config.
+
+
+         
+
+
+(defun bible ()
+  "Open the bible."
+  (interactive)
+  (find-file "~/.emacs.d/eww/kjv.txt")
+  )
+
+(global-set-key (kbd "C-c M-b") 'bible)
+
+;; Multiple-cursors
+(use-package multiple-cursors
+  :ensure t
+  :bind
+  (
+  ("C->" . mc/mark-next-like-this)
+  ("C-<" . mc/mark-previous-like-this)
+  ("C-c C-<" . mc/mark-all-like-this)
+  )
+  :config
+  (setq mc/always-run-for-all t)
+  )
+
+
+;; Disable normal movement
+(use-package guru-mode
+  :ensure t
+  :config
+  (guru-global-mode))
+
+;; use markdown mode for markdown files
+(use-package markdown-mode
+  :ensure t
+  :mode ("README\\.md\\'" . gfm-mode)
+  :init (setq markdown-command "multimarkdown"))
+
+
+
+;; PACKAGES END

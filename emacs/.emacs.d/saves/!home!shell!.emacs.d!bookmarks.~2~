@@ -1,0 +1,65 @@
+;;;; Emacs Bookmark Format Version 1;;;; -*- coding: utf-8-emacs; mode: lisp-data -*-
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("bearblog"
+  (filename . "~/Documents/bearblog/")
+  (front-context-string . "defang.md\n  -rw-")
+  (rear-context-string . "7K Jun 26 15:51 ")
+  (position . 68)
+  (last-modified 26741 45322 323919 240000))
+("neoplato.org"
+ (filename . "~/Documents/neoplationism/neoplato.org")
+ (front-context-string . "#+DATE: Sun Jul ")
+ (rear-context-string)
+ (position . 1)
+ (last-modified 26737 63356 980177 199000))
+("sxhkdrc"
+ (filename . "~/.config/sxhkd/sxhkdrc")
+ (front-context-string)
+ (rear-context-string . "uper + shift + t")
+ (position . 18)
+ (last-modified 26737 47757 647590 796000))
+("links.org.gpg"
+ (filename . "/mnt/Second/.other/links.org.gpg")
+ (front-context-string . #1="")
+ (rear-context-string . #1#)
+ (position . 1)
+ (last-modified 26733 50278 725838 952000))
+("packages.el"
+ (filename . "~/.emacs.d/packages.el")
+ (front-context-string . "\n\n(defun vterm-r")
+ (rear-context-string . "load nil nil))))")
+ (position . 1661)
+ (last-modified 26701 48967 28198 845000))
+("Emacs init"
+ (filename . "~/.emacs.d/init.el")
+ (front-context-string . ";; Bootstrap str")
+ (rear-context-string)
+ (position . 1)
+ (last-modified 26600 17439 210026 429000))
+("todo"
+ (filename . "~/Documents/notes/todo.txt")
+ (front-context-string . "\\ Effort/timing ")
+ (rear-context-string)
+ (position . 1)
+ (last-modified 26600 17018 970104 860000))
+("hyprland"
+ (filename . "~/.config/hypr/hyprland.conf")
+ (front-context-string . "# This is an exa")
+ (rear-context-string)
+ (position . 1)
+ (last-modified 26597 54533 160675 340000))
+("Bash"
+ (filename . "~/.bashrc")
+ (front-context-string . "export XDG_DATA_")
+ (rear-context-string)
+ (position . 1)
+ (last-modified 26657 65141 293181 493000))
+("carrotflowerr site"
+ (filename . "~/Documents/misc-code/carrotflowerr.github.io/")
+ (front-context-string . "about.html\n  drw")
+ (rear-context-string . "76 Dec 16 21:00 ")
+ (position . 215)
+ (last-modified 26600 24029 615152 914000))
+)

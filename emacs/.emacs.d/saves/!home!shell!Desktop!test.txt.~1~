@@ -1,0 +1,2 @@
+(delete-file (buffer-file-name (current-buffer)))
+(rename-file (buffer-file-name (current-buffer)))

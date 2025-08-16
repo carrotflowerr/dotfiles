@@ -1,0 +1,2 @@
+cd ~
+mv *.core ~/Downloads/corefiles/ 2>/dev/null

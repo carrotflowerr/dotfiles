@@ -5,16 +5,17 @@ export XDG_CACHE_HOME="$HOME/.cache"
 
 export EDITOR="emacsclient -c"
 
+# C-x C-e does fc command
 
 export PATH="$PATH:/home/shell/.cargo/bin:/home/shell/scripts/god/:/home/shell/scripts:/home/shell/.local/bin"
 
 # run mtm automatically
-if [ -z "$MTM_RUNNING" ]; then
-    if ! pstree -s $$ | grep -q '[m]tm'; then
-        export MTM_RUNNING=1
-        exec mtm
-    fi
-fi
+# if [ -z "$MTM_RUNNING" ]; then
+#     if ! pstree -s $$ | grep -q '[m]tm'; then
+#         export MTM_RUNNING=1
+#         exec mtm
+#     fi
+# fi
 
 
 
@@ -46,20 +47,20 @@ eman() {
 
 VIRTUAL_ENV='/mnt/Second/.other/env/bin/activate'
 #Aliases
-
+alias mpcf="mpc clear; mpc listall | fzf | mpc add; mpc play"
 alias apt-info="apt-cache show"
 #alias make="make CC=lacc"
 alias cl="clear"
 alias cppwd="pwd | wl-copy"
 #alias du="ncdu --color off"
 alias e="exit"
-alias ls="eza"
+alias ls="ls --color"
 alias ec="emacsclient -c"
-alias l="eza"
+alias l="ls --color"
 
-alias tree="eza -T"
-alias la="eza -a"
-alias ll="eza -l"
+alias tree="ls --color -T"
+alias la="ls --color -a"
+alias ll="ls --color -l"
 #alias laptop="ssh zimblo@10.0.0.77"
 alias log="journalctl -f"
 #alias maimC="maim --select | xclip -selection clipboard -target image/png"

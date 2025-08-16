@@ -1,0 +1,102 @@
+#!/bin/bash
+# https://chatgpt.com/share/688d69e5-4ba0-8000-b2b3-9f5f74cfdcb2
+# Usage: ./album-split.sh input.mp3 tracklist.txt
+# Tracklist format: "0:12 - Title"
+
+input_file="$1"
+tracklist="$2"
+
+ext="opus"
+out_file="${title}.${ext}"
+
+
+if [[ -z "$input_file" || -z "$tracklist" ]]; then
+    echo "Usage: $0 input.mp3 tracklist.txt"
+    exit 1
+fi
+
+if [[ ! -f "$input_file" || ! "$input_file" =~ \.(mp3|wav|flac|m4a|opus)$ ]]; then
+    echo "Error: '$input_file' is not a valid audio file."
+    exit 1
+fi
+
+if [[ ! -f "$tracklist" || "$tracklist" =~ \.(mp3|wav|flac|m4a)$ ]]; then
+    echo "Error: '$tracklist' is not a valid text tracklist."
+    exit 1
+fi
+
+echo "Reading tracklist..."
+mapfile -t lines < "$tracklist"
+
+timestamps=()
+titles=()
+
+for line in "${lines[@]}"; do
+    ts="${line%% - *}"
+    title="${line#* - }"
+    title_clean=$(echo "$title" | iconv -f UTF-8 -t ASCII//TRANSLIT 2>/dev/null | sed -E 's/[^a-zA-Z0-9 _-]/_/g; s/ /_/g; s/_+/_/g; s/^_+|_+$//g')
+
+    timestamps+=("$ts")
+    titles+=("$title_clean")
+done
+
+count=${#timestamps[@]}
+
+# Get total duration in seconds
+total_duration=$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$input_file")
+total_duration=${total_duration%.*}  # truncate decimals
+
+# Convert timestamp string to seconds
+time_to_sec() {
+    IFS=: read -r m s <<< "$1"
+    echo $((10#$m * 60 + 10#$s))
+}
+
+# Convert seconds to mm:ss format
+sec_to_time() {
+    m=$(( $1 / 60 ))
+    s=$(( $1 % 60 ))
+    printf "%d:%02d" "$m" "$s"
+}
+
+echo
+echo "Track split plan:"
+for ((i = 0; i < count; i++)); do
+    start="${timestamps[$i]}"
+    start_sec=$(time_to_sec "$start")
+    if (( i + 1 < count )); then
+        end_sec=$(time_to_sec "${timestamps[$((i + 1))]}")
+    else
+        end_sec=$total_duration
+    fi
+    end_fmt=$(sec_to_time "$end_sec")
+    printf "  [%s - %s] %s\n" "$start" "$end_fmt" "${titles[$i]}"
+done
+
+echo
+read -p "Proceed with splitting? (y/n): " confirm
+[[ "$confirm" != "y" ]] && echo "Aborted." && exit 1
+
+for ((i = 0; i < count; i++)); do
+    start="${timestamps[$i]}"
+    start_sec=$(time_to_sec "$start")
+    title="${titles[$i]}"
+    out_file="${title}.mp3"
+
+    if (( i + 1 < count )); then
+        end_sec=$(time_to_sec "${timestamps[$((i + 1))]}")
+        duration=$((end_sec - start_sec))
+        echo "Splitting '$title' from $start for $duration seconds..."
+        ffmpeg -hide_banner -loglevel error -ss "$start" -t "$duration" -i "$input_file" -acodec libmp3lame -ar 44100 -ab 192k -y "$out_file"
+
+    else
+        echo "Splitting '$title' from $start to end of file..."
+        ffmpeg -hide_banner -loglevel error -ss "$start" -t "$duration" -i "$input_file" -acodec libmp3lame -ar 44100 -ab 192k -y "$out_file"
+    fi
+
+    if [[ $? -eq 0 ]]; then
+        echo "  Done: $out_file"
+    else
+        echo "  Error while processing: $title" >&2
+    fi
+done

@@ -1,0 +1,68 @@
+#!/bin/bash
+
+# Usage: ./split_audio.sh input.mp3 tracklist.txt
+# Format of tracklist.txt:
+# 0:12 - Alone
+# 1:43 - Butterfly Fluttering
+# ...
+
+input_file="$1"
+tracklist="$2"
+
+if [[ -z "$input_file" || -z "$tracklist" ]]; then
+    echo "Usage: $0 input.mp3 tracklist.txt"
+    exit 1
+fi
+
+if [[ ! -f "$input_file" ]]; then
+    echo "Error: Input file '$input_file' not found."
+    exit 1
+fi
+
+if [[ ! -f "$tracklist" ]]; then
+    echo "Error: Tracklist file '$tracklist' not found."
+    exit 1
+fi
+
+echo "Reading tracklist..."
+mapfile -t lines < "$tracklist"
+
+timestamps=()
+titles=()
+
+echo "Parsed tracks:"
+for line in "${lines[@]}"; do
+    ts="${line%% - *}"
+    title="${line#* - }"
+    title_clean=$(echo "$title" | sed -E 's/[^a-zA-Z0-9 _-]/_/g; s/ /_/g')
+    timestamps+=("$ts")
+    titles+=("$title_clean")
+    printf "  %s --> %s\n" "$ts" "$title"
+done
+
+echo
+read -p "Proceed with splitting? (y/n): " confirm
+[[ "$confirm" != "y" ]] && echo "Aborted." && exit 1
+
+count=${#timestamps[@]}
+
+for ((i = 0; i < count; i++)); do
+    start="${timestamps[$i]}"
+    title="${titles[$i]}"
+    out_file="${title}.mp3"
+
+    if (( i + 1 < count )); then
+        end="${timestamps[$((i + 1))]}"
+        echo "Splitting '$title' from $start to $end..."
+        ffmpeg -hide_banner -loglevel error -ss "$start" -to "$end" -i "$input_file" -c copy "$out_file"
+    else
+        echo "Splitting '$title' from $start to end of file..."
+        ffmpeg -hide_banner -loglevel error -ss "$start" -i "$input_file" -c copy "$out_file"
+    fi
+
+    if [[ $? -eq 0 ]]; then
+        echo "  Done: $out_file"
+    else
+        echo "  Error while processing: $title" >&2
+    fi
+done

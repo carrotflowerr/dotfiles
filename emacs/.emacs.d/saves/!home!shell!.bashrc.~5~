@@ -1,0 +1,134 @@
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.cache"
+
+export EDITOR="emacsclient -c"
+
+# Unlimited history
+HISTSIZE=
+HISTFILESIZE=
+shopt -s histappend
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+HISTFILE=~/.bash_eternal_history
+#
+
+
+
+# C-x C-e does fc command
+
+export PATH="$PATH:/home/shell/.cargo/bin:/home/shell/scripts/god/:/home/shell/scripts:/home/shell/.local/bin"
+
+# run mtm automatically
+# if [ -z "$MTM_RUNNING" ]; then
+#     if ! pstree -s $$ | grep -q '[m]tm'; then
+#         export MTM_RUNNING=1
+#         exec mtm
+#     fi
+# fi
+
+
+
+
+PS1='===$PWD=== \nζ '
+
+# ∴ ∑ ζ
+
+#
+#Preferred editor for local and remote sessions
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Run date
+#echo "The date is:" $(date)
+#pfetch
+
+eman() {
+    emacsclient -nw -c -e "(woman \"$1\")"
+}
+
+
+# alias man=macsman
+#export MANPAGER='nvim +Man!'
+
+# Run task thing
+#task
+
+VIRTUAL_ENV='/mnt/Second/.other/env/bin/activate'
+#Aliases
+alias mpcf="mpc clear; mpc listall | fzf | mpc add; mpc play"
+alias apt-info="apt-cache show"
+#alias make="make CC=lacc"
+alias cl="clear"
+alias cppwd="pwd | wl-copy"
+#alias du="ncdu --color off"
+alias e="exit"
+alias ls="ls --color"
+alias ec="emacsclient -c"
+alias l="ls --color"
+
+alias tree="ls --color -T"
+alias la="ls --color -a"
+alias ll="ls --color -l"
+#alias laptop="ssh zimblo@10.0.0.77"
+alias log="journalctl -f"
+#alias maimC="maim --select | xclip -selection clipboard -target image/png"
+#
+alias sxiv="nsxiv"
+
+alias playNew="ls --sort oldest | xargs mpv --loop-playlist --no-resume-playback"
+alias playOld="ls --sort newest | xargs mpv --loop-playlist --no-resume-playback"
+alias playLargest="ls --sort size -r | xargs mpv --no-resume-playback"
+
+
+alias viewNew="ls --sort oldest | xargs nsxiv"
+
+alias viewOld="ls --sort newest | xargs nsxiv"
+
+
+alias AI="ollama run mistral:7b-instruct-q4_0" 
+
+alias neofetch="inxi"
+
+alias pstree="ps -ejH"
+alias python="python3"
+#alias rm="rm -iv"
+#alias cp="cp -iv"
+#alias mv="mv -iv"
+alias startenv="source $VIRTUAL_ENV"
+alias tarD="tar xvf"
+alias fkill="ps -e | fzf | awk '{print $1}' | xargs kill"
+#alias update="yes | doas apt full-upgrade"
+
+alias bible="less ~/.emacs.d/jps.txt"
+export INFOPATH="/home/shell/Documents/source/emacs/info:$INFOPATH"
+
+
+#source ~/.local/share/blesh/ble.sh
+eval "$(zoxide init bash)"
+# Emulate an MS-DOS prompt in your Linux shell.
+# Laszlo Szathmary (jabba.laci@gmail.com), 2011
+# Project home page:
+# https://ubuntuincident.wordpress.com/2011/02/08/emulate-the-ms-dos-prompt/
+#
+#
+# Modified by Soldier of Fortran
+#
+# Add to you ~/.bashrc file with: 'source ~/.themes/95/bashrc'
+
+# function msdos_pwd
+# {
+#     local dir="`pwd`"
+
+#     echo $dir | tr '/' '\\'
+# }
+
+# export PS1='C:`msdos_pwd`> '
+
+# echo 
+# echo
+# echo "Microsoft(R) Windows 95"
+# echo "   (C)Copyright Microsoft Corp 1981-1996."
+# echo
+

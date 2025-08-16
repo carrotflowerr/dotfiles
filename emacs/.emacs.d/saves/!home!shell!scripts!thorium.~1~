@@ -1,0 +1,34 @@
+# sh ~/Documents/Thorium
+
+# Will ensure all instances of a process open and close within the runtime of the script.
+
+appString="~/Documents/Thorium"
+
+ensureClose() {
+    while pgrep "$appString" > /dev/null; do
+	killall "$appString" 
+	echo "[X] Killing $appString..."
+	sleep 1
+    done
+    return
+}
+
+coreWipe() {
+    cd ~
+    mv core.* ~/Downloads/corefiles/
+
+}
+# Ensure arguments are provided
+if [ -z "$appString" ]; then
+  echo "Usage: $0 steam"
+  exit 1
+fi
+
+ensureClose
+echo "[!] No $appString instances."
+echo "[-] Launching $appString..."
+"$appString" 
+echo "[!] $appString closed, ensuring full closure."
+ensureClose
+
+echo "[-] Finished."

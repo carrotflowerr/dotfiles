@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Reads lines from file $1 and plays them with mpv
+
+while IFS= read -r link; do
+  # Skip empty lines
+  [[ -z "$link" ]] && continue
+  # Play the link
+  mpv "$link"
+done < "$1"

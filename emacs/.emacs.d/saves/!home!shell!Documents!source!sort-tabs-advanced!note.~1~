@@ -1,0 +1,3 @@
+needs npm
+
+npm install --global web-ext

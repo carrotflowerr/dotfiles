@@ -1,0 +1,4 @@
+sudo systemctl status systemd-networkd
+sh /bin/lxqt-policykit-agent
+
+sxhkd

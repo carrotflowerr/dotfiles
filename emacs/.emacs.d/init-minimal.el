@@ -1,0 +1,62 @@
+;; -*- lexical-binding: t; -*-
+;; Minimal version of my normal config. Meant for VM’s, ssh, etc
+;; Must be:
+;;; Compatable with everything
+;;; load minimal packages
+;;; under 100 lines
+(setopt grep-command "grep --color=auto -rni -A1")
+;; things from better-defaults.el
+(show-paren-mode 1)
+
+
+(global-set-key (kbd "C-s") 'isearch-forward-regexp)
+(global-set-key (kbd "C-r") 'isearch-backward-regexp)
+(global-set-key (kbd "C-M-s") 'isearch-forward)
+(global-set-key (kbd "C-M-r") 'isearch-backward)
+
+;; complete pairs
+(electric-pair-mode)
+(electric-quote-mode)
+
+(ido-mode)
+
+;; Dired settings
+(setq dired-listing-switches "-lh --time-style=long-iso -t --group-directories-first")
+(setq dired-omit-files "^\\.?#\\|^\\.$\\|^\\.\\.$\\|^\\..*$")
+(setq dired-kill-when-opening-new-dired-buffer t))
+  (setq dired-dwim-target t)
+
+(global-set-key (kbd "C-c s") 'scratch-buffer)
+(global-set-key (kbd "M-u") 'undo-redo)
+(global-set-key (kbd "M-o") 'other-window)
+(global-visual-line-mode t)
+(add-hook 'prog-mode-hook 'visual-line-mode)
+(global-display-line-numbers-mode)
+;; show whitespace
+;; need modus theme
+(whitespace-mode)
+(add-hook 'prog-mode-hook 'whitespace-mode)
+(global-hl-line-mode)
+
+(setq confirm-kill-emacs nil)
+(global-set-key (kbd "C-x k")	       
+		(lambda ()
+		  (interactive)
+		  (kill-buffer (current-buffer)))
+		)
+;; ^ just buffer, not window. non-interactive.
+(global-set-key (kbd "C-x C-k") 'kill-buffer-and-window)
+(global-unset-key (kbd "C-x C-b"))
+(global-set-key (kbd "C-x C-b")'ibuffer)
+
+(defun buffer-wipe()
+  "Kill all buffers"
+  (interactive)
+  (mapcar 'kill-buffer (buffer-list))
+  (delete-other-windows)
+  )
+
+(global-display-line-numbers-mode t)
+(menu-bar-mode nil)
+(scroll-bar-mode nil)
+(tool-bar-mode nil)

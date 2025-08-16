@@ -1,0 +1,42 @@
+
+* Modes
+#+begin_src emacs-lisp
+    119:(add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)
+    132:;; `savehist-mode' is an Emacs feature that preserves the minibuffer history
+    177:(save-place-local-mode 1) ;; persistent
+    182:(electric-pair-mode)
+    183:(electric-quote-mode)
+    186:;; (ido-mode)
+    199:  :hook ((dired-mode . hl-line-mode)
+    200:         (dired-mode . dired-omit-mode)
+    201:         (dired-mode . dired-hide-details-mode))
+    202:  :bind (:map dired-mode-map
+    210:  (add-hook 'dired-mode-hook #'dired-hide-details-mode)
+    263:(global-visual-line-mode t)
+    264:(add-hook 'prog-mode-hook 'visual-line-mode)
+    267:(global-display-line-numbers-mode)
+    270:(whitespace-mode)
+    271:(add-hook 'prog-mode-hook 'whitespace-mode)
+    274:(global-hl-line-mode)
+    280:;;(add-hook 'text-mode-hook 'flyspell-mode)
+    283:;;     (define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-word)
+    285:;; why the fuck is this a text mode hook
+    355: '(blink-cursor-mode nil)
+    379: '(display-time-mode t)
+    380: '(global-display-line-numbers-mode t)
+    381: '(menu-bar-mode nil)
+    382: '(scroll-bar-mode nil)
+    383: '(tool-bar-mode nil)
+    388: '(global-display-line-numbers-mode t)
+    389: '(menu-bar-mode nil)
+    390: '(scroll-bar-mode nil)
+    391: '(tool-bar-mode nil)
+45 matches in 36 lines for "mode" in buffer: init.el
+     55:;; (setopt initial-major-mode 'org-mode)
+     74:(auto-fill-mode t)
+     75:(add-hook 'text-mode-hook #'auto-fill-mode)
+     77:(repeat-mode)
+     87:(show-paren-mode 1)
+     94:(setq-default indent-tabs-mode nil)
+
+#+end_src

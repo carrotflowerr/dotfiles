@@ -1,0 +1,18 @@
+#!/bin/bash
+url="$1"
+
+# download videos (up to 720p) and remove sponsors
+yt-dlp -f 'bestvideo[height<=720]+bestaudio/best[height<=720]' \
+       --sponsorblock-mark all --sponsorblock-remove all \
+       -o "%(channel)s/%(title)s.%(ext)s" "$url"
+
+# determine channel name
+channel_name=$(yt-dlp --print "%(channel)s" "$url")
+
+# create directory and link file
+mkdir -p "$channel_name"
+link_file="$channel_name/link"
+touch "$link_file"
+
+# gather all video URLs (single or playlist)
+yt-dlp --flat-playlist --print "%(webpage_url)s" "$url" >> "$link_file"

@@ -1,0 +1,9 @@
+#+title:      core
+#+date:       [2025-07-27 Sun 21:57]
+#+filetags:   :loonix:
+#+identifier: 20250727T215726
+
+the core files are from thorium (shitware)
+
+‘ulimit -c 0’ should stop them.
+

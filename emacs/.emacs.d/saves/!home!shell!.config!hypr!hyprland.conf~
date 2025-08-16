@@ -10,7 +10,8 @@
 # for virt-manager? idk.
 exec-once=/usr/bin/lxqt-policykit-agent &
 
-windowrulev2 = float, class:.* 
+# windowrulev2 = float, class:.* 
+# unusable
 
 ################
 ### MONITORS ###

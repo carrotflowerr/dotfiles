@@ -1,0 +1,135 @@
+#!/bin/bash
+
+# Multi-buffer note manager
+
+HABEO="$HOME/.note"
+BACKUP="$HOME/Documents"
+STOPWORDS="$HABEO/.stopwords.txt"
+TIME_FORMAT="%Y%m%d_%H%M%S"
+EDITOR_CMD="${EDITOR:-ed}"
+
+mkdir -p "$HABEO"
+
+# Track tmp buffers
+BUFFERS=()
+CURRENT=0
+
+# Initialize first buffer
+new_buffer() {
+    FILE="/tmp/note_$(date +%s%N)"
+    touch "$FILE"
+    BUFFERS+=("$FILE")
+    CURRENT=${#BUFFERS[@]}
+}
+
+new_buffer
+
+file_check() {
+    for f in "${BUFFERS[@]}"; do
+        if [ -s "$f" ]; then
+            echo -n "[X] "
+        else
+            echo -n "[] "
+        fi
+    done
+    echo
+    # Show current pointer
+    for ((i=1; i<=CURRENT; i++)); do echo -n "   "; done
+    echo "^"
+}
+
+display_menu() {
+    clear
+    echo "Zimblo's Own Notes"
+    file_check
+    echo "---------------------"
+    echo "e) Edit"
+    echo "s) Save (auto)"
+    echo "f) Save (manual)"
+    echo "d) Delete buffer"
+    echo "n) New tmp buffer"
+    echo "---------------------"
+    echo "E) Edit archive"
+    echo "P) Print archive"
+    echo "---------------------"
+    echo "i) Spell-check"
+    echo "X) Encrypt file"
+    echo "---------------------"
+    echo "w) Edit stopwords"
+    echo "A) Archive notes"
+    echo "q) Quit"
+}
+
+pause() { read -p "Press Enter to continue..."; }
+
+auto_name() {
+    fname=$(tr '[:upper:]' '[:lower:]' < "${BUFFERS[CURRENT-1]}" |
+        tr -s '[:space:]' '\n' |
+        tr -d '[:punct:]' |
+        grep -vwFf "$STOPWORDS" 2>/dev/null |
+        grep -E '.{5,}' |
+        sort | uniq -c | sort -nrk1 | awk '{print $2}' | head -n1)
+    [ -z "$fname" ] && fname="note_$(date +"$TIME_FORMAT")"
+    echo "$fname"
+}
+
+name_manual() {
+    read -p "Enter filename: " name
+    mv -i "${BUFFERS[CURRENT-1]}" "$HABEO/$name.note"
+    touch "${BUFFERS[CURRENT-1]}"
+    echo "Saved as $HABEO/$name.note"
+}
+
+edit_buffer() { $EDITOR_CMD "${BUFFERS[CURRENT-1]}"; }
+
+save_auto() {
+    name=$(auto_name)
+    echo "Save as $name? (y/n/a)"
+    IFS= read -rsn1 c
+    if [ "$c" = 'y' ]; then
+        mv -i "${BUFFERS[CURRENT-1]}" "$HABEO/$name.note"
+        touch "${BUFFERS[CURRENT-1]}"
+        echo "Saved as $HABEO/$name.note"
+    elif [ "$c" = 'n' ]; then
+        name_manual
+    elif [ "$c" = 'a' ]; then
+        echo "$name" >> "$STOPWORDS"
+        echo "Appended $name to stopwords"
+    else
+        echo "?"
+    fi
+    pause
+}
+
+save_manual() { name_manual; pause; }
+edit_archive() { cd "$HABEO"; chosenFile=$(ls --sort time | fzf); [ -n "$chosenFile" ] && $EDITOR_CMD "$chosenFile"; pause; }
+print_archive() { cd "$HABEO"; chosenFile=$(ls --sort time | fzf); [ -n "$chosenFile" ] && less "$chosenFile"; pause; }
+spell_check() { ispell "${BUFFERS[CURRENT-1]}"; pause; }
+delete_buffer() { rm -i "${BUFFERS[CURRENT-1]}"; touch "${BUFFERS[CURRENT-1]}"; echo "Current note reset."; pause; }
+encrypt_file() { chosenFile=$(ls --sort time | fzf); GPG_TTY=$(tty); export GPG_TTY; gpg --pinentry-mode loopback --symmetric "$chosenFile"; rm -i "$chosenFile"; }
+edit_stopwords() { $EDITOR_CMD "$STOPWORDS"; }
+archive_notes() { cd "$HABEO"; tar -czf archive.tar.gz *; cp archive.tar.gz ~/Documents/noteArchive.tar.gz; echo "Archived."; pause; }
+
+while true; do
+    display_menu
+    IFS= read -rsn1 choice
+    case "$choice" in
+        e) edit_buffer ;;
+        s) save_auto ;;
+        f) save_manual ;;
+        d) delete_buffer ;;
+        n) new_buffer ;;
+        E) edit_archive ;;
+        P) print_archive ;;
+        i) spell_check ;;
+        X) encrypt_file ;;
+        w) edit_stopwords ;;
+        A) archive_notes ;;
+        [1-9])
+            if [ "$choice" -le "${#BUFFERS[@]}" ]; then CURRENT=$choice; fi ;;
+        q) break ;;
+        *) echo "Invalid choice."; pause ;;
+    esac
+done
+
+exit 0

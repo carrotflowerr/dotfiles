@@ -1,0 +1,15 @@
+# find keys with xev
+super + KP_Left
+      mpc prev
+
+super + KP_Right
+      mpc next
+
+super + KP_Begin
+      mpc toggle
+
+super + KP_Add
+      mpc vol +5
+
+super + KP_Subtract
+      mpc vol -5

@@ -1,0 +1,72 @@
+this might be a retarded way to do this.
+
+(org-babel-load-file (expand-file-name "init.org" user-emacs-directory))
+
+
+* Modes
+#+begin_src emacs-lisp
+  ;; `savehist-mode' is an Emacs feature that preserves the minibuffer history
+  (save-place-local-mode 1) ;; persistent
+  (electric-pair-mode)
+  (electric-quote-mode)
+  ;; (ido-mode)
+  (global-visual-line-mode t)
+  (add-hook 'prog-mode-hook 'visual-line-mode)
+  (global-display-line-numbers-mode)
+  (whitespace-mode)
+  (add-hook 'prog-mode-hook 'whitespace-mode)
+  (global-hl-line-mode)
+  (auto-fill-mode t)
+  (add-hook 'text-mode-hook #'auto-fill-mode)
+  (repeat-mode)
+  (show-paren-mode 1)
+  (setq-default indent-tabs-mode nil)
+
+#+end_src
+
+
+
+#+begin_src emacs-lisp
+
+  (setq use-short-answers t)
+  (setq undo-limit (* 13 160000)
+  (setq whitespace-style '(face tabs spaces empty))
+  (setq enable-recursive-minibuffers t)
+  (setq minibuffer-prompt-properties
+  (setq which-func-update-delay 1.0)
+  (setq backup-by-copying t)  ; Backup by copying rather renaming
+  (setq delete-old-versions t)  ; Delete excess backup versions silently
+  (setq version-control t)  ; Use version numbers for backup files
+  (setq kept-new-versions 5)
+  (setq kept-old-versions 5)
+  (setq history-length 300)
+  (setq savehist-save-minibuffer-history t)  ;; Default
+  (setq savehist-additional-variables
+  (setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
+  (setq backup-by-copying t)
+  (setq kill-buffer-query-functions
+  (setq auto-save-default nil)
+  (setq line-spacing .2)
+  (setq save-place-file (expand-file-name "places" user-emacs-directory))
+  (setq save-place-limit 600)
+  (setq dired-listing-switches "-lh --time-style=long-iso -t --group-directories-first")
+  (setq dired-mouse-drag-files t)
+  (setq dired-bind-jump nil)
+  (setq dired-dwim-target t)
+  (setq dired-listing-switches "-aghoA --group-directories-first")
+  (setq dired-omit-files "^\\.?#\\|^\\.$\\|^\\.\\.$\\|^\\..*$")
+  (setq dired-kill-when-opening-new-dired-buffer t))
+  (setq cursor-type 'box)
+  (setq font-lock-maximum-decoration t)
+  (setq dictionary-server "localhost")
+  (setq confirm-kill-emacs nil)
+  (setq browse-url-browser-function 'eww-browse-url)
+  (setq eww-download-directory "~/.emacs.d/eww/")
+  (setq use-package-always-ensure t)
+  ;; (setq initial-buffer-choice 
+  ;;             (setq default-directory "~/.notes/"))
+  (setq initial-buffer-choice
+  (setq byte-compile-warnings '(not lexical))
+  (setq-default indent-tabs-mode nil)
+  (setq read-answer-short t)
+#+end_src

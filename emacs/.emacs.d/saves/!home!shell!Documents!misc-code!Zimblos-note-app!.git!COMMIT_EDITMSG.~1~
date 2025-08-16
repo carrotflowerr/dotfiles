@@ -1,0 +1,22 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Committer: shell <shell@deb>
+#
+# On branch main
+# Your branch is up to date with 'origin/main'.
+#
+# Changes to be committed:
+#	modified:   README.md
+#
+# Changes not staged for commit:
+#	deleted:    install.sh~
+#	modified:   stopwords
+#	modified:   zoni.sh
+#
+# Untracked files:
+#	.markdown-preview.html
+#	compile.txt
+#	zoni
+#

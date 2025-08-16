@@ -1,0 +1,17 @@
+music_directory     "/mnt/Second/music/"
+bind_to_address "0.0.0.0"
+audio_output {
+    type            "pulse"
+    name            "Local PulseAudio"
+}
+
+audio_output {
+    type            "httpd"
+    name            "My HTTP Stream"
+    encoder         "vorbis"         # or "mp3" if supported
+    port            "8000"
+    bind_to_address "0.0.0.0"
+    bitrate         "128"
+    format          "44100:16:2"
+    always_on       "yes"
+}

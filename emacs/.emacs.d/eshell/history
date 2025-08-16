@@ -1,5 +1,45 @@
-(print "hello")
-(setq x 5)
-(prin5 x)
+(defvar x 5)
 (print x)
-(+ x x)
+ls
+pip install -r requirements.txt
+startenv
+pipx install -r requirements.txt
+python3 -m env
+python3 -m venv
+python3 -m venv ~/
+python3 -m venv ~/Downloads/env/
+touch ~/Downloads/env/bin/activate
+pip install -r requirements.txt
+source ~/Downloads/env/bin/activate
+ls
+ls
+mv *.gz ~/Documents/backups/
+cd ..
+archive.sh .note/
+cd bin/
+cmake ..
+ls
+cd .emacs.d/elpa/
+wget "https://melpa.org/packages/evil-20250812.1023.tar"
+ls
+tldr tar
+tar xvf evil-20250812.1023.tar 
+tldr wget
+wget --input-file s.html 
+wget --input-file s.html 
+wget --input-file s.html 
+sxiv .
+nsxiv .
+wget "https://github.com/ryanprior/ed-mode/blob/master/ed-mode.el"
+cat ed-mode.el 
+git branch
+git add branch
+git new
+tldr git 
+tldr git branch
+git branch multi-buffer
+git push
+mv ed-mode.el ~/.emacs.d/elpa/
+ls
+python slot.py 
+exit

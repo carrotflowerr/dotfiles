@@ -1,0 +1,19 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Committer: shell <shell@deb>
+#
+# On branch main
+# Your branch is ahead of 'origin/main' by 1 commit.
+#   (use "git push" to publish your local commits)
+#
+# Changes to be committed:
+#	deleted:    install.sh~
+#	modified:   stopwords
+#	new file:   zoni
+#	modified:   zoni.sh
+#
+# Untracked files:
+#	.markdown-preview.html
+#

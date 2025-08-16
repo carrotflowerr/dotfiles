@@ -1,0 +1,37 @@
+#!/bin/bash
+set -euo pipefail
+
+use_default=false
+source_dirs=()
+
+for arg in "$@"; do
+    if [[ "$arg" == "--default" ]]; then
+        use_default=true
+    else
+        source_dirs+=( "$arg" )
+    fi
+done
+
+if $use_default || [ ${#source_dirs[@]} -eq 0 ]; then
+    echo "Using default source directories"
+    source_dirs=( "$HOME/Documents/configs" "$HOME/.config" "$HOME/.emacs.d" )
+fi
+
+backup_dirs=( "$HOME/Documents/backups" "/mnt/Second/backups" "/mnt/Third/backups" )
+tmp_dir="$(mktemp -d)"
+trap 'rm -rf "$tmp_dir"' EXIT
+
+for src in "${source_dirs[@]}"; do
+    name="$(basename "$src")"
+    archive="$tmp_dir/${name}.tar.gz"
+
+    echo "Compressing $src to $archive"
+    tar czvf "$archive" -C "$(dirname "$src")" "$name"
+
+    for dest in "${backup_dirs[@]}"; do
+        echo "Syncing $archive to $dest"
+        rsync --progress "$archive" "$dest/"
+    done
+done
+
+echo "Backup complete"

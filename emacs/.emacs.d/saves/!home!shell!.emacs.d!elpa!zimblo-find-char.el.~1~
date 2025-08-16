@@ -1,0 +1,38 @@
+(defun zimblo-find-char (count char)
+  "Move to the COUNT'th occurrence of CHAR on the current line.
+If COUNT is negative, search backwards. Movement is restricted to
+the current visual or logical line depending on `visual-line-mode'.
+Based on ’evil-find-char’."
+  (interactive "p\ncFind char: ")
+  (setq count (or count 1))
+  (let* ((forward (> count 0))
+         (visual visual-line-mode)
+         (case-fold-search nil)
+         ;; limit search to current line or visual line
+         (limit
+          (cond
+           ;; visual forward
+           ((and forward visual)
+            (save-excursion
+              (end-of-visual-line)
+              (point)))
+           ;; forward logical line
+           (forward
+            (line-end-position))
+           ;; visual backward
+           (visual
+            (save-excursion
+              (beginning-of-visual-line)
+              (point)))
+           ;; backward logical line
+           (t
+            (line-beginning-position)))))
+    ;; if forward, skip current char
+    (when forward (forward-char))
+    (unless (prog1
+                (search-forward
+                 (char-to-string char)
+                 limit t (abs count))
+              ;; after finding, step back one char if forward
+              (when forward (backward-char)))
+      (user-error "Can't find `%c'" char))))

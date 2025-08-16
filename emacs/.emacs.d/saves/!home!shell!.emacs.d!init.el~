@@ -1,4 +1,4 @@
-;;; Zimblo's Awesome Config --- minimal config for writing and fun  -*- lexical-binding: t; -*-
+;;; Zimblo's Awesome Config --- minimal config for writing and fun  -*- lexical-binding: t; -*-  
 ;; Last Sync: Sat May 31 03:18:37 PM MDT 2025
 ;;; This should be compatible with any (up to date) version of Emacs.
 ;;; (load) functions may bring incompatibility 
@@ -29,7 +29,8 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-;; (load "~/.emacs.d/rss.el")
+
+
 (load "~/.emacs.d/macro.el")
 (load "~/.emacs.d/packages.el")
 ;; ^ if shit gets fucked this is the problem ^
@@ -38,15 +39,41 @@
 (global-set-key (kbd "C-x M-n") 'tmp-new-note)
 ;; there is probably a smarter way to load this.
 
+;; remember as start buf
+;; (setopt initial-buffer-choice 'remember-notes)
+;; (setopt initial-major-mode 'org-mode)
+;; (setopt initial-scratch-message nil)
+
+;; (setq initial-buffer-choice 
+;;       (lambda () 
+;;         (let ((buf (remember-notes)))
+;;           (with-current-buffer buf
+;;             (setq default-directory "~/.notes/"))
+;;           buf)))
+
+
+(auto-fill-mode t)
+(add-hook 'text-mode-hook #'auto-fill-mode)
+
+;; supress lexical-binding warnings (hopefully)
+(setq byte-compile-warnings '(not lexical))
+
+;; better grep 
+(setopt grep-command "grep --color=auto -rni -A1")
+
+
 ;; things from better-defaults.el
 (show-paren-mode 1)
 
 (global-set-key (kbd "M-/") 'hippie-expand)
-;; (global-set-key (kbd "C-s") 'isearch-forward-regexp)
-;; (global-set-key (kbd "C-r") 'isearch-backward-regexp)
-;; (global-set-key (kbd "C-M-s") 'isearch-forward)
-;; (global-set-key (kbd "C-M-r") 'isearch-backward)
+(global-set-key (kbd "C-s") 'isearch-forward-regexp)
+(global-set-key (kbd "C-r") 'isearch-backward-regexp)
+(global-set-key (kbd "C-M-s") 'isearch-forward)
+(global-set-key (kbd "C-M-r") 'isearch-backward)
 (setq-default indent-tabs-mode nil)
+;; M-% to replace if not default :)
+
+
 
 ;; Put backup files (file.txt~) in .emacs.d/
 ;; this applies to pre-made files opened with emacs
@@ -133,24 +160,22 @@
 
 
 ;; Interface binds
-;; want to use hydra for this
-;; (global-set-key (kbd "C-c s") 'scratch-buffer)
-;; (global-set-key (kbd "C-c c") 'calendar)
-;; (global-set-key (kbd "C-c r") 'elfeed)
-;; (global-set-key (kbd "C-c m") 'dashboard-open)
+(global-set-key (kbd "C-c s") 'scratch-buffer)
 
 ;; Misc unbinds (things I find silly)
 (global-unset-key (kbd "C-x f")) ;; fill command
 (global-unset-key (kbd "C-x m")) ;; compose mail
 ;;(global-unset-key (kbd "C-x C-c"))
 
-;; replaces upcase-word
+;; default bind replaces upcase-word
 (global-set-key (kbd "M-u") 'undo-redo)
 
 ;; (global-set-key (kbd "C-x C-u") 'undo-tree-mode)
 
 ;; Open in new window
-;;(global-set-key (kbd "C-M-m") 'make-frame)
+;; (global-set-key (kbd "C-M-m") 'make-frame)
+
+(global-set-key (kbd "M-o") 'other-window)
 
 ;; Auto focus windows
 (defadvice split-window (after move-point-to-new-window activate)
@@ -260,12 +285,23 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(blink-cursor-mode nil)
- '(custom-enabled-themes '(modus-vivendi-tritanopia))
+ '(custom-enabled-themes '(doom-1337))
+ '(custom-safe-themes
+   '("014cb63097fc7dbda3edf53eb09802237961cbb4c9e9abd705f23b86511b0a69"
+     "e14289199861a5db890065fdc5f3d3c22c5bac607e0dbce7f35ce60e6b55fc52"
+     "0325a6b5eea7e5febae709dab35ec8648908af12cf2d2b569bedc8da0a3a81c1"
+     "2f8af2a3a2fae6b6ea254e7aab6f3a8b5c936428b67869cef647c5f8e7985877"
+     "b5fd9c7429d52190235f2383e47d340d7ff769f141cd8f9e7a4629a81abc6b19"
+     default))
  '(display-time-mode t)
  '(global-display-line-numbers-mode t)
  '(menu-bar-mode nil)
  '(scroll-bar-mode nil)
- '(tool-bar-mode nil))
+ '(tool-bar-mode nil)
+ '(warning-suppress-log-types
+   '((files missing-lexbind-cookie "~/.emacs.d/.mc-lists.el")
+     (files missing-lexbind-cookie
+            "~/.emacs.d/elpa/multiple-cursors-20250210.1813/multiple-cursors-core.el"))))
  '(global-display-line-numbers-mode t)
  '(menu-bar-mode nil)
  '(scroll-bar-mode nil)

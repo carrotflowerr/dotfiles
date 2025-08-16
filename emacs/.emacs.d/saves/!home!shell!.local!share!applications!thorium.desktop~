@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=130.0
+Type=thorium
+Name=thorium
+Exec=/usr/bin/thorium
+#Icon=/full/path/to/icon.png
+Terminal=false
+Categories=Browser;

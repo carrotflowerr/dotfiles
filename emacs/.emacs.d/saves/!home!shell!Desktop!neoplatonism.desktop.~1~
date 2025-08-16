@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=neoplatonism
+Comment=
+Exec=thunar ~/Documents/neoplatonism/
+Icon=gnumeric-autosum
+Path=
+Terminal=false
+StartupNotify=false

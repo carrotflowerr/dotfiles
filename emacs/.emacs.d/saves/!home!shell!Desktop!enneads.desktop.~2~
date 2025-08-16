@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=enneads
+Comment=Universal document viewer
+Exec=okular %U /home/shell/Documents/neoplationism/enneads.mb.okular
+Icon=face-cool
+Path=/home/shell/Documents/neoplationism/
+Terminal=false
+StartupNotify=false

@@ -1,4 +1,4 @@
-;;; Zimblo's Awesome Config --- minimal config for writing and fun  -*- lexical-binding: t; -*-
+;;; Zimblo's Awesome Config --- minimal config for writing and fun  -*- lexical-binding: t; -*-  
 ;; Last Sync: Sat May 31 03:18:37 PM MDT 2025
 ;;; This should be compatible with any (up to date) version of Emacs.
 ;;; (load) functions may bring incompatibility 
@@ -29,12 +29,36 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-(load "~/.emacs.d/rss.el")
+;; (load "~/.emacs.d/rss.el")
 (load "~/.emacs.d/macro.el")
 (load "~/.emacs.d/packages.el")
 ;; ^ if shit gets fucked this is the problem ^
 
-;; Idea: a hook that, when file.note, automatically saves to ~/.note/
+(load "~/.emacs.d/elpa/note.el")
+(global-set-key (kbd "C-x M-n") 'tmp-new-note)
+;; there is probably a smarter way to load this.
+
+;; remember as start buf
+;; (setopt initial-buffer-choice 'remember-notes)
+;; (setopt initial-major-mode 'org-mode)
+;; (setopt initial-scratch-message nil)
+
+;; (setq initial-buffer-choice 
+;;       (lambda () 
+;;         (let ((buf (remember-notes)))
+;;           (with-current-buffer buf
+;;             (setq default-directory "~/.notes/"))
+;;           buf)))
+
+
+(auto-fill-mode t)
+
+;; supress lexical-binding warnings (hopefully)
+(setq byte-compile-warnings '(not lexical))
+
+;; better grep 
+(setopt grep-command "grep --color=auto -rni -A1")
+
 
 ;; things from better-defaults.el
 (show-paren-mode 1)
@@ -87,6 +111,7 @@
 
 
 ;; (ido-mode)
+;; I don’t know what this does that vertigo doesn’t do better?
 
 ;; Dired settings
 (setq dired-listing-switches "-lh --time-style=long-iso -t --group-directories-first")
@@ -130,24 +155,22 @@
 
 
 ;; Interface binds
-;; want to use hydra for this
-;; (global-set-key (kbd "C-c s") 'scratch-buffer)
-;; (global-set-key (kbd "C-c c") 'calendar)
-;; (global-set-key (kbd "C-c r") 'elfeed)
-;; (global-set-key (kbd "C-c m") 'dashboard-open)
+(global-set-key (kbd "C-c s") 'scratch-buffer)
 
 ;; Misc unbinds (things I find silly)
 (global-unset-key (kbd "C-x f")) ;; fill command
 (global-unset-key (kbd "C-x m")) ;; compose mail
 ;;(global-unset-key (kbd "C-x C-c"))
 
-;; replaces upcase-word
+;; default bind replaces upcase-word
 (global-set-key (kbd "M-u") 'undo-redo)
 
 ;; (global-set-key (kbd "C-x C-u") 'undo-tree-mode)
 
 ;; Open in new window
-;;(global-set-key (kbd "C-M-m") 'make-frame)
+;; (global-set-key (kbd "C-M-m") 'make-frame)
+
+(global-set-key (kbd "M-o") 'other-window)
 
 ;; Auto focus windows
 (defadvice split-window (after move-point-to-new-window activate)
@@ -257,12 +280,16 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(blink-cursor-mode nil)
- '(custom-enabled-themes '(modus-vivendi))
+ '(custom-enabled-themes '(modus-vivendi-deuteranopia))
  '(display-time-mode t)
  '(global-display-line-numbers-mode t)
  '(menu-bar-mode nil)
  '(scroll-bar-mode nil)
- '(tool-bar-mode nil))
+ '(tool-bar-mode nil)
+ '(warning-suppress-log-types
+   '((files missing-lexbind-cookie "~/.emacs.d/.mc-lists.el")
+     (files missing-lexbind-cookie
+            "~/.emacs.d/elpa/multiple-cursors-20250210.1813/multiple-cursors-core.el"))))
  '(global-display-line-numbers-mode t)
  '(menu-bar-mode nil)
  '(scroll-bar-mode nil)

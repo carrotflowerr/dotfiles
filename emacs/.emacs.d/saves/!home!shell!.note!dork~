@@ -22,3 +22,11 @@ sort:date             ← order by date :contentReference[oaicite:8]{index=8}
 
 !bang                 ← redirect search to other site, e.g. !w for Wikipedia :contentReference[oaicite:10]{index=10
 }
+
+
+ex.
+site:archive.org filetype:pdf "philosophy thesis"
+inurl:wp-config -site:github.com
+filetype:docx "final exam" site:edu
+intitle:index.of mp3
+"confidential" filetype:xls -site:dropbox.com

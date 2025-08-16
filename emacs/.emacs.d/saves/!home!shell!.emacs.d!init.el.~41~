@@ -1,0 +1,386 @@
+;;; Zimblo's Awesome Config --- minimal config for writing and fun  -*- lexical-binding: t; -*-  
+;; Last Sync: Sat May 31 03:18:37 PM MDT 2025
+;;; This should be compatible with any (up to date) version of Emacs.
+;;; (load) functions may bring incompatibility 
+
+
+
+;; Bootstrap straight.el
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name
+        "straight/repos/straight.el/bootstrap.el"
+        (or (bound-and-true-p straight-base-dir)
+            user-emacs-directory)))
+      (bootstrap-version 7))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+;; Ensure use-package is installed
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(require 'use-package)
+(setq use-package-always-ensure t)
+
+
+
+(load "~/.emacs.d/macro.el")
+(load "~/.emacs.d/packages.el")
+;; ^ if shit gets fucked this is the problem ^
+
+(load "~/.emacs.d/elpa/note.el")
+(global-set-key (kbd "C-x M-n") 'tmp-new-note)
+;; there is probably a smarter way to load this.
+
+(defun zimblo/move-to-middle ()
+  (interactive)
+  (let* ((begin (line-beginning-position))
+         (end (line-end-position))
+         (middle (/ (+ end begin) 2)))
+    (goto-char middle)))
+
+(global-set-key (kbd "C-c m") 'zimblo/move-to-middle)
+
+
+
+;; remember as start buf
+;; (setopt initial-buffer-choice 'remember-notes)
+;; (setopt initial-major-mode 'org-mode)
+;; (setopt initial-scratch-message nil)
+;; (load "~/.emacs.d/elpa/minimal-dashboard.el/minimal-dashboard.el")
+;;  (setopt initial-buffer-choice 'minimal-dashboard)
+;; (setq initial-buffer-choice 
+;;       (lambda () 
+;;         (let ((buf (remember-notes)))
+;;           (with-current-buffer buf
+;;             (setq default-directory "~/.notes/"))
+;;           buf)))
+
+(setq initial-buffer-choice
+      (lambda ()
+        (bookmark-bmenu-list)
+        (get-buffer "*Bookmark List*")))
+
+(setq bookmark-sort-flag 'last-modified)
+
+(global-set-key (kbd "C-`") 'eshell)
+
+(auto-fill-mode t)
+(add-hook 'text-mode-hook #'auto-fill-mode)
+
+(repeat-mode)
+
+;; supress lexical-binding warnings (hopefully)
+(setq byte-compile-warnings '(not lexical))
+
+;; better grep 
+(setopt grep-command "grep --color=auto -rni -A1")
+
+
+;;  === misc things from better-defaults.el / minimal-emacs.d
+(show-paren-mode 1)
+
+(global-set-key (kbd "M-/") 'hippie-expand)
+(global-set-key (kbd "C-s") 'isearch-forward-regexp)
+(global-set-key (kbd "C-r") 'isearch-backward-regexp)
+(global-set-key (kbd "C-M-s") 'isearch-forward)
+(global-set-key (kbd "C-M-r") 'isearch-backward)
+(setq-default indent-tabs-mode nil)
+;; M-% to replace if not default :)
+
+
+;; Allow for shorter responses: "y" for yes and "n" for no.
+(setq read-answer-short t)
+(if (boundp 'use-short-answers)
+    (setq use-short-answers t)
+  (advice-add 'yes-or-no-p :override #'y-or-n-p))
+
+
+(setq undo-limit (* 13 160000)
+      undo-strong-limit (* 13 240000)
+      undo-outer-limit (* 13 24000000))
+
+(setq whitespace-style '(face tabs spaces empty))
+
+
+;; Allow nested minibuffers
+(setq enable-recursive-minibuffers t)
+
+
+;; Keep the cursor out of the read-only portions of the.minibuffer
+(setq minibuffer-prompt-properties
+      '(read-only t intangible t cursor-intangible t face minibuffer-prompt))
+(add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)
+
+
+
+;; By default, Emacs "updates" its ui more often than it needs to
+(setq which-func-update-delay 1.0)
+
+(setq backup-by-copying t)  ; Backup by copying rather renaming
+(setq delete-old-versions t)  ; Delete excess backup versions silently
+(setq version-control t)  ; Use version numbers for backup files
+(setq kept-new-versions 5)
+(setq kept-old-versions 5)
+
+;; `savehist-mode' is an Emacs feature that preserves the minibuffer history
+;; between sessions.
+(setq history-length 300)
+(setq savehist-save-minibuffer-history t)  ;; Default
+(setq savehist-additional-variables
+      '(kill-ring                        ; clipboard
+        register-alist                   ; macros
+        mark-ring global-mark-ring       ; marks
+        search-ring regexp-search-ring)) ; searches
+
+
+
+;; ===
+;; Put backup files (file.txt~) in .emacs.d/
+;; this applies to pre-made files opened with emacs
+(setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
+(setq backup-by-copying t)
+
+;; Disable save prompts when killing a buffer
+(setq kill-buffer-query-functions
+      (remq 'process-kill-buffer-query-function kill-buffer-query-functions))
+;; Disable auto-save files
+(setq auto-save-default nil)
+
+(setq line-spacing .2)
+
+
+(use-package eww
+  :defer t
+  :custom (eww-retrieve-command nil)
+  :config
+
+  (defun wiki (page)
+    "Search wikipedia for info on a specific term"
+    (interactive (list (completing-read "Search Term: " nil)))
+    (eww (format "https://en.wikipedia.org/wiki/%s" page)))
+
+  (defun my/eww-readablity ()
+    (interactive)
+    (let ((eww-retrieve-command '("rdrview" "-H")))
+      (eww-reload nil nil)))
+  ;; I think this slows rendering down
+)
+
+;; Save place in file
+(save-place-local-mode 1) ;; persistent
+(setq save-place-file (expand-file-name "places" user-emacs-directory))
+(setq save-place-limit 600)
+
+;; complete pairs
+(electric-pair-mode)
+(electric-quote-mode)
+
+
+;; (ido-mode)
+;; I don’t know what this does that vertigo doesn’t do better?
+
+;; Dired settings
+(setq dired-listing-switches "-lh --time-style=long-iso -t --group-directories-first")
+
+;; btw, C-x C-q dired-toggle-read-only
+
+(require 'dired-x)
+
+(use-package dired
+  :ensure nil
+  :commands (dired)
+  :hook ((dired-mode . hl-line-mode)
+         (dired-mode . dired-omit-mode)
+         (dired-mode . dired-hide-details-mode))
+  :bind (:map dired-mode-map
+	      ("-" . dired-up-directory))
+  :init
+  ;; let me drag files into other programs
+  (setq dired-mouse-drag-files t)
+  (setq dired-bind-jump nil)
+  :config
+  (global-set-key (kbd "C-x C-d") 'dired-jump)
+  (add-hook 'dired-mode-hook #'dired-hide-details-mode)
+  (setq dired-dwim-target t)
+  (setq dired-listing-switches "-aghoA --group-directories-first")
+  ;; Hide . and .. in dired
+
+  (setq dired-omit-files "^\\.?#\\|^\\.$\\|^\\.\\.$\\|^\\..*$")
+
+;;;;; xdg-open integration
+  
+  ;; prevent opening extra dired buffers
+  ;; emacs 28
+  (setq dired-kill-when-opening-new-dired-buffer t))
+
+
+;; might be awful for normal writing
+;; hook;; Macro edit
+(global-set-key (kbd "C-x M-m") 'kmacro-edit-macro)
+
+
+
+;; Interface binds
+(global-set-key (kbd "C-c s") 'scratch-buffer)
+
+;; Misc unbinds (things I find silly)
+(global-unset-key (kbd "C-x f")) ;; fill command
+(global-unset-key (kbd "C-x m")) ;; compose mail
+;;(global-unset-key (kbd "C-x C-c"))
+
+;; default bind replaces upcase-word
+(global-set-key (kbd "M-u") 'undo-redo)
+
+
+
+;; Open in new window
+;; (global-set-key (kbd "C-M-m") 'make-frame)
+
+(global-set-key (kbd "M-o") 'other-window)
+
+;; Auto focus windows
+(defadvice split-window (after move-point-to-new-window activate)
+  "Moves the point to the newly created window after splitting."
+  (other-window 1))
+
+(setq cursor-type 'box)
+
+;; Syntax highlighting 
+(setq font-lock-maximum-decoration t)
+
+;; Dictionary (localhost is dictd)
+(global-set-key (kbd "C-c l") #'dictionary-lookup-definition)
+(setq dictionary-server "localhost")
+
+;; Line wrap
+(global-visual-line-mode t)
+(add-hook 'prog-mode-hook 'visual-line-mode)
+
+;; line numba
+(global-display-line-numbers-mode)
+
+;; show whitespace
+(whitespace-mode)
+(add-hook 'prog-mode-hook 'whitespace-mode)
+
+;; highlight current line
+(global-hl-line-mode)
+
+;; Do not prompt to save when exiting Emacs
+(setq confirm-kill-emacs nil)
+
+;; Spell check for text files using flyspell (built-in)
+;;(add-hook 'text-mode-hook 'flyspell-mode)
+;;(eval-after-load 'flyspell
+;;  '(progn
+;;     (define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-word)
+;;     ))
+;; why the fuck is this a text mode hook
+
+;; Set eww as default browser
+(setq browse-url-browser-function 'eww-browse-url)
+(setq eww-download-directory "~/.emacs.d/eww/")
+
+
+;; === BUFFER/WINDOW MANAGEMENT START ===
+
+(defun zimblo-shell-to-buffer ()
+  (interactive)
+  (let ((current-prefix-arg '(4))) ; equivalent to C-u
+    (call-interactively #'shell-command)))
+
+;; does unbind normal shell command
+;; M-| does shell on region
+(global-set-key (kbd "M-!") #'zimblo-shell-to-buffer)
+
+
+(global-set-key (kbd "C-x k")	       
+		(lambda ()
+		  (interactive)
+		  (kill-buffer (current-buffer)))
+		)
+;; ^ just buffer, not window. non-interactive.
+(global-set-key (kbd "C-x C-k") 'kill-buffer-and-window)
+
+
+
+;; kills buffer not interactive.  
+
+
+;; C-x C-b runs ibuffer instead of just listing buffers
+(global-unset-key (kbd "C-x C-b"))
+(global-set-key (kbd "C-x C-b")'ibuffer)
+
+(defun buffer-wipe()
+  "Kill all buffers"
+  (interactive)
+  (mapcar 'kill-buffer (buffer-list))
+  (delete-other-windows)
+  )
+
+;; === BUFFER/WINDOW MANAGEMENT END ===
+
+
+;; === CUSTOM VARIABLES START ===
+;; (managed by Emacs Custom)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(blink-cursor-mode nil)
+ '(custom-enabled-themes '(doom-1337))
+ '(custom-safe-themes
+   '("088cd6f894494ac3d4ff67b794467c2aa1e3713453805b93a8bcb2d72a0d1b53"
+     "e1df746a4fa8ab920aafb96c39cd0ab0f1bac558eff34532f453bd32c687b9d6"
+     "599f72b66933ea8ba6fce3ae9e5e0b4e00311c2cbf01a6f46ac789227803dd96"
+     "7de64ff2bb2f94d7679a7e9019e23c3bf1a6a04ba54341c36e7cf2d2e56e2bcc"
+     "5244ba0273a952a536e07abaad1fdf7c90d7ebb3647f36269c23bfd1cf20b0b8"
+     "f053f92735d6d238461da8512b9c071a5ce3b9d972501f7a5e6682a90bf29725"
+     "b9761a2e568bee658e0ff723dd620d844172943eb5ec4053e2b199c59e0bcc22"
+     "e4a702e262c3e3501dfe25091621fe12cd63c7845221687e36a79e17cf3a67e0"
+     "0d2c5679b6d087686dcfd4d7e57ed8e8aedcccc7f1a478cd69704c02e4ee36fe"
+     "8d3ef5ff6273f2a552152c7febc40eabca26bae05bd12bc85062e2dc224cde9a"
+     "4d714a034e7747598869bef1104e96336a71c3d141fa58618e4606a27507db4c"
+     "ff24d14f5f7d355f47d53fd016565ed128bf3af30eb7ce8cae307ee4fe7f3fd0"
+     "dd4582661a1c6b865a33b89312c97a13a3885dc95992e2e5fc57456b4c545176"
+     "166a2faa9dc5b5b3359f7a31a09127ebf7a7926562710367086fcc8fc72145da"
+     "185cee92770717feccfdf437576fc0e8d6d1eefd9e643bcf4e8906ebfc2109d9"
+     "014cb63097fc7dbda3edf53eb09802237961cbb4c9e9abd705f23b86511b0a69"
+     "e14289199861a5db890065fdc5f3d3c22c5bac607e0dbce7f35ce60e6b55fc52"
+     "0325a6b5eea7e5febae709dab35ec8648908af12cf2d2b569bedc8da0a3a81c1"
+     "2f8af2a3a2fae6b6ea254e7aab6f3a8b5c936428b67869cef647c5f8e7985877"
+     "b5fd9c7429d52190235f2383e47d340d7ff769f141cd8f9e7a4629a81abc6b19"
+     default))
+ '(display-time-mode t)
+ '(global-display-line-numbers-mode t)
+ '(menu-bar-mode nil)
+ '(scroll-bar-mode nil)
+ '(tool-bar-mode nil)
+ '(warning-suppress-log-types
+   '((files missing-lexbind-cookie "~/.emacs.d/.mc-lists.el")
+     (files missing-lexbind-cookie
+            "~/.emacs.d/elpa/multiple-cursors-20250210.1813/multiple-cursors-core.el"))))
+ '(global-display-line-numbers-mode t)
+ '(menu-bar-mode nil)
+ '(scroll-bar-mode nil)
+ '(tool-bar-mode nil)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:family "fixed" :foundry "misc" :slant normal :weight medium :height 151 :width normal)))))
+
+
+;; "JetBrainsMono Nerd Font,JetBrainsMono NF
+
+;; === CUSTOM VARIABLES END ===
